@@ -11,17 +11,17 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='postad',
+            model_name='PostAd',
             name='nct',
             field=models.DateTimeField(auto_now=True),
         ),
         migrations.AlterField(
-            model_name='postad',
+            model_name='PostAd',
             name='tax',
             field=models.DateTimeField(auto_now=True),
         ),
         migrations.AlterField(
-            model_name='postad',
+            model_name='PostAd',
             name='year',
             field=models.DateTimeField(auto_now=True),
         ),

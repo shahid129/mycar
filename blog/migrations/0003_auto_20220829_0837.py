@@ -11,30 +11,30 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RemoveField(
-            model_name='postad',
+            model_name='PostAd',
             name='Status',
         ),
         migrations.RemoveField(
-            model_name='postad',
+            model_name='PostAd',
             name='likes',
         ),
         migrations.AddField(
-            model_name='postad',
+            model_name='PostAd',
             name='price',
             field=models.IntegerField(null=True),
         ),
         migrations.AlterField(
-            model_name='postad',
+            model_name='PostAd',
             name='nct',
             field=models.DateField(),
         ),
         migrations.AlterField(
-            model_name='postad',
+            model_name='PostAd',
             name='tax',
             field=models.DateField(),
         ),
         migrations.AlterField(
-            model_name='postad',
+            model_name='PostAd',
             name='year',
             field=models.DateField(),
         ),

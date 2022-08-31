@@ -29,8 +29,8 @@ class Migration(migrations.Migration):
                 ('tax', models.DateField(auto_now=True)),
                 ('nct', models.DateField(auto_now=True)),
                 ('Status', models.IntegerField(choices=[(0, 'Draft'), (1, 'Published')], default=0)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='blog_posts', to=settings.AUTH_USER_MODEL)),
-                ('likes', models.ManyToManyField(blank=True, related_name='blogpost_like', to=settings.AUTH_USER_MODEL)),
+                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='blog_PostAds', to=settings.AUTH_USER_MODEL)),
+                ('likes', models.ManyToManyField(blank=True, related_name='blogPostAd_like', to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'ordering': ['-created_on'],
@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
                 ('body', models.TextField(max_length=500)),
                 ('created_on', models.DateTimeField(auto_now=True)),
                 ('approved', models.BooleanField(default=False)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.postad')),
+                ('PostAd', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.PostAd')),
             ],
             options={
                 'ordering': ['-created_on'],

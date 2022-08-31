@@ -1,0 +1,18 @@
+<p>jkjk</p>
+{% extends "base.html" %}
+{% block content %}
+<div class="contaner-fluid">
+    <div class="row">
+        {% for item in object_list %}
+           
+            {{ item.author }}
+            {{ item.title }}
+
+        {% endfor %}
+    
+</div>
+</div>
+
+{% endblock content %}
+
+<h1>kjhjkbk</h1>
