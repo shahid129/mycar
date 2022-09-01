@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-STATUS = ((0, "Draft"), (1, "Published"))
+# STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class PostAd(models.Model):
@@ -18,12 +18,12 @@ class PostAd(models.Model):
     year = models.DateField(auto_now=False)
     tax = models.DateField(auto_now=False)
     nct = models.DateField(auto_now=False)
-    # likes = models.ManyToManyField(
-    #     User, related_name='blogPostAd_like', blank=True)
+    likes = models.ManyToManyField(
+        User, related_name='blogpost_like', blank=True)
     # Status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
-        ordering = ['-created_on']
+        ordering = ["-created_on"]
 
     def __str__(self):
         return self.title
@@ -33,7 +33,7 @@ class PostAd(models.Model):
 
 
 class CustomerComment(models.Model):
-    PostAd = models.ForeignKey(PostAd, on_delete=models.CASCADE)
+    PostAd = models.ForeignKey(PostAd, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=100)
     body = models.TextField(max_length=500)
     created_on = models.DateTimeField(auto_now=True)

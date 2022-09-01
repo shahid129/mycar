@@ -1,18 +1,33 @@
-<p>jkjk</p>
 {% extends "base.html" %}
 {% block content %}
 <div class="contaner-fluid">
     <div class="row">
-        {% for item in object_list %}
-           
-            {{ item.author }}
-            {{ item.title }}
+        {% for post in object_list %}
+            <div class="card" style="width: 18rem;">
+                
+                <img src=" {{ post.image.url }}" class="img-fluid rounded" alt="">
+
+                <div class="card-body">
+                    <h5 class="card-title ">Key Info</h5>
+                    <p class="card-text"> {{ post.author }}</p>
+                    <p class="card-text"> Added on: {{ post.created_on }}</p>
+                    <a href="{% url 'post_detail' post.slug%}" class="post-link">
+                        <h2 class="card-title btn btn-primary">{{ post.title }}</h2>
+                        <p class="card-text">{{ post.excerpt }}</p>
+                    </a>
+                    <hr />
+                </div>
+            </div>
+
+            {% if forloop.counter|divisibleby:3%}
+        </div>
+        <div class="row">
+            {% endif %}
+            
 
         {% endfor %}
-    
+
 </div>
 </div>
 
 {% endblock content %}
-
-<h1>kjhjkbk</h1>

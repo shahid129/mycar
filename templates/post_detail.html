@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="masthead">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 masthead-text">
+                <h1 class="post-title">
+                    {{ post.title}}
+                </h1>
+                <p class="post-subtitle"> {{ post.author }} | {{ post.created_on}} </p>
+            </div>
+            <div>
+                <img src=" {{ post.image.url }}" class="img-fluid" alt="">
+            </div>
+            <div class="col-5">
+                <!-- The number of likes goes before the closing strong tag -->
+                <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
+            </div>
+            
+        
+            <div class="container">
+                <h3>Description of the car</h3>
+                <p>{{ post.description | safe  }}</p>
+                <p>Year: {{post.year}}</p>
+                <p>Road Tax: {{post.tax}}</p>
+                <p>NCT Expiry: {{post.nct}}</p>
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}
