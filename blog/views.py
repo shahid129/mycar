@@ -40,7 +40,7 @@ def post_new(request):
             return redirect('home')
     else:
         form = PostForm()
-    return render(request, 'feature.html', {'form': form})
+    return render(request, 'post_your_add.html', {'form': form})
 
 
 def product_list(request):
