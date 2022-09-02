@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import PostAd
+from .forms import PostForm
 
 
 class PostAdList(generic.ListView):
@@ -26,3 +27,22 @@ class PostDetail(View):
                 'comments': comments,
             }
         )
+
+
+# def feature(request):
+#     return render(request, 'feature.html')
+
+def post_new(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save(commit=False)
+            return redirect('home')
+    else:
+        form = PostForm()
+    return render(request, 'feature.html', {'form': form})
+
+
+def product_list(request):
+    filter_item = PostAd(request.GET, queryset=PostAd.objects.all())
+    return render(request, 'index.html', {'filter': filter_item})

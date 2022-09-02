@@ -30,10 +30,13 @@ class PostAd(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
+    
+    def year_only(self):
+        return self.year.strftime('%Y')
 
 
 class CustomerComment(models.Model):
-    PostAd = models.ForeignKey(PostAd, on_delete=models.CASCADE, related_name="comments")
+    post = models.ForeignKey(PostAd, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=100)
     body = models.TextField(max_length=500)
     created_on = models.DateTimeField(auto_now=True)
