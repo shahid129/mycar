@@ -29,10 +29,7 @@ class PostDetail(View):
         )
 
 
-# def feature(request):
-#     return render(request, 'feature.html')
-
-def post_new(request):
+def post_your_add(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
@@ -41,8 +38,3 @@ def post_new(request):
     else:
         form = PostForm()
     return render(request, 'post_your_add.html', {'form': form})
-
-
-def product_list(request):
-    filter_item = PostAd(request.GET, queryset=PostAd.objects.all())
-    return render(request, 'index.html', {'filter': filter_item})
