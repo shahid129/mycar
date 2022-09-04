@@ -33,8 +33,22 @@ def post_your_add(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
-            form.save(commit=False)
+            form.save(commit=True)
             return redirect('home')
     else:
         form = PostForm()
     return render(request, 'post_your_add.html', {'form': form})
+
+
+def post_your_add_edit(request, post_id):
+    item = get_object_or_404(PostAd, id=post_id)
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save(commit=False)
+            return redirect('home')
+    form = PostForm(instance=item)
+    context = {
+        'form': form
+    }
+    return render(request, 'post_your_add_edit.html', context)

@@ -13,8 +13,17 @@
                     <p class="card-text"> Added on: {{ post.created_on }}</p>
                     <a href="{% url 'post_detail' post.slug%}" class="post-link">
                         <h2 class="card-title btn btn-primary">{{ post.title }}</h2>
+                        <a href="/post_your_add_edit/{{ post.id }}" class="post-link">
+                            <h2 class="card-title btn btn-primary">Edit</h2>
                     </a>
+                    <div>
+                        
+                    </div>
+                    
                     <hr />
+                </div>
+                <div>
+                    
                 </div>
             </div>
 
