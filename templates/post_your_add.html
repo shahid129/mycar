@@ -3,7 +3,7 @@
 
 
 <div class="container">
-    <form action="" method="POST">
+    <form action="post_your_add" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Submit">

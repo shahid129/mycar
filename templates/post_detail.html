@@ -21,7 +21,7 @@
         
             <div class="container">
                 <h3>Description of the car</h3>
-                <p>{{ post.description | striptags }}</p>
+                <p>{{ post.description | safe }}</p>
                 <p>Year: {{post.year}}</p>
                 <p>Road Tax: {{post.tax}}</p>
                 <p>NCT Expiry: {{post.nct}}</p>

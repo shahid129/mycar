@@ -6,5 +6,4 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = PostAd
-        fields = ('title', 'price', 'image', 'year', 'nct', 'tax', 'description',)
-
+        fields = ('title', 'price', 'slug', 'author', 'image', 'year', 'nct', 'tax', 'description',)
