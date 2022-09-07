@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import PostAd
 from .forms import PostForm
-
+from django import forms
+from cloudinary.forms import cl_init_js_callbacks
 
 
 class PostAdList(generic.ListView):
@@ -36,7 +37,7 @@ class PostDetail(View):
 
 def post_your_add(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('home')
@@ -51,7 +52,7 @@ def post_your_add(request):
 def post_your_add_edit(request, post_id):
     item = get_object_or_404(PostAd, id=post_id)
     if request.method == 'POST':
-        form = PostForm(request.POST, instance=item)
+        form = PostForm(request.POST, request.FILES, instance=item)
         if form.is_valid():
             form.save()
             return redirect('home')
