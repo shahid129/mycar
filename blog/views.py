@@ -1,13 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
+from django.contrib.auth import login
+from django.contrib import messages
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.forms import AuthenticationForm
 from .models import PostAd
 from .forms import PostForm, NewUserForm
 # from django import forms
 # from cloudinary.forms import cl_init_js_callbacks
-from django.contrib.auth import login
-from django.contrib import messages
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import AuthenticationForm
+
 
 
 class PostAdList(generic.ListView):
@@ -74,6 +75,10 @@ def post_your_add_delete(request, post_id):
 
 
 def register_request(request):
+    """
+    User can register for new accounts. This will enable them to create
+    edit and update their posts.
+    """
     if request.method == "POST":
         form = NewUserForm(request.POST)
         if form.is_valid():
@@ -87,6 +92,9 @@ def register_request(request):
 
 
 def login_request(request):
+    """
+    User can log in to the page and edit their items
+    """
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -103,3 +111,12 @@ def login_request(request):
             messages.error(request, 'Invalid username or password')
     form = AuthenticationForm()
     return render(request=request, template_name='registration/login.html', context={"login_form": form})
+
+
+def logout_request(request):
+    """
+    User can log out
+    """
+    logout(request)
+    messages.info(request, 'You have successfully logged out.')
+    return redirect('home')

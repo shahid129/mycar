@@ -8,6 +8,11 @@
       <button class="btn btn-primary" type="submit">Login</button>
     </form>
     <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
+
+    {% for message in messages %}
+        <div id="msg" class="alert alert-info">{{message}}</div>
+    {% endfor %}
+
   </div>
 
 {% endblock content%}
