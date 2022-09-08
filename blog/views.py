@@ -61,3 +61,9 @@ def post_your_add_edit(request, post_id):
         'form': form
     }
     return render(request, 'post_your_add_edit.html', context)
+
+
+def post_your_add_delete(request, post_id):
+    item = get_object_or_404(PostAd, id=post_id)
+    item.delete()
+    return redirect(home)

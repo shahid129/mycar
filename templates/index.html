@@ -3,16 +3,16 @@
 <div class="contaner-fluid">
     <div class="row">
         {% for post in object_list %}
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 23rem;">
 
             <img src=" {{ post.image.url }}" class="img-fluid rounded" alt="">
 
             <div class="card-body">
                 <h5 class="card-title ">{{ post.title | capfirst }}</h5>
-                <p class="card-text"> Posted by: {{ post.author }}</p>
+                <p class="card-text"> Price: €{{ post.price }}</p>
                 <p class="card-text"> Added on: {{ post.created_on }}</p>
                 <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                    <h2 class="card-title btn btn-primary">{{ post.title | capfirst }}</h2>
+                    <h2 class="card-title btn btn-primary"> Details </h2>
                     <a href="post_your_add_edit/{{ post.id }}" class="post-link">
                         <h2 class="card-title btn btn-primary">Edit</h2>
                     </a>
