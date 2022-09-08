@@ -7,4 +7,6 @@ urlpatterns = [
     path('post_your_add_delete/<post_id>', views.post_your_add_edit, name='post_your_add_delete'),
     path('post_your_add', views.post_your_add, name='post_your_add'),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
+    path("register", views.register_request, name="register"),
+    path("login", views.login_request, name="login"),
 ]

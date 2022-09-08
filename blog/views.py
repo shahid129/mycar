@@ -1,9 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import PostAd
-from .forms import PostForm
-from django import forms
-from cloudinary.forms import cl_init_js_callbacks
+from .forms import PostForm, NewUserForm
+# from django import forms
+# from cloudinary.forms import cl_init_js_callbacks
+from django.contrib.auth import login
+from django.contrib import messages
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import AuthenticationForm
 
 
 class PostAdList(generic.ListView):
@@ -66,4 +70,36 @@ def post_your_add_edit(request, post_id):
 def post_your_add_delete(request, post_id):
     item = get_object_or_404(PostAd, id=post_id)
     item.delete()
-    return redirect(home)
+    return redirect('home')
+
+
+def register_request(request):
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Registration successful.")
+            return redirect("home")
+        messages.error(request, "Unsuccessful registration. Invalid information.")
+    form = NewUserForm()
+    return render(request=request, template_name="registration/register.html", context={"register_form":form})
+
+
+def login_request(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"Your are logged in as {username}.")
+                return redirect('home')
+            else:
+                messages.error(request, "Invalid username or password")
+        else:
+            messages.error(request, 'Invalid username or password')
+    form = AuthenticationForm()
+    return render(request=request, template_name='registration/login.html', context={"login_form": form})

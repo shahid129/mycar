@@ -35,21 +35,26 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{% url 'post_your_add' %}">Post Your Ad</a>
                     </li>
-                    {% if user.is_authinticated %}
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="">About</a>
+                  </li>
+                    {% if user.is_authenticated %}
+                        
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#">Logout</a>
                         </li>
+                        <li class="nav-item">
+                          <a class="nav-link" aria-current="page" href="#">Welcome {{user.username}}</a>
+                      </li>
                     {% else%}
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Login</a>
+                            <a class="nav-link" aria-current="page" href="{% url 'login' %}">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Sign Up</a>
+                            <a class="nav-link" aria-current="page" href="{% url 'register' %}">Register</a>
                         </li>
                     {% endif%}
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="">About</a>
-                    </li>
+                    
                 </ul>
             </div>
         </div>
