@@ -45,6 +45,7 @@ def post_your_add(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.info(request, 'Post added successfully.')
             return redirect('home')
     
     form = PostForm()
@@ -110,7 +111,7 @@ def login_request(request):
         else:
             messages.error(request, 'Invalid username or password')
     form = AuthenticationForm()
-    return render(request=request, template_name='registration/login.html', context={"login_form": form})
+    return render(request=request, template_name='registration/login.html', context={"form": form})
 
 
 def logout_request(request):
