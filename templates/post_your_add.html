@@ -3,11 +3,6 @@
 
 
 <div class="container">
-
-    {% for message in messages %}
-        <div id="msg" class="alert alert-info">{{message}}</div>
-    {% endfor %}
-    
     <form action="post_your_add" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
