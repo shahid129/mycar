@@ -9,37 +9,59 @@
     <div class="row">
         {% for post in object_list %}
         <div class="card" style="width: 23rem;">
-
+            <!-- Image URl -->
             <img src=" {{ post.image.url }}" class="img-fluid rounded" alt="">
 
             <div class="card-body">
                 <h5 class="card-title ">{{ post.title | capfirst }}</h5>
                 <p class="card-text"> Price: €{{ post.price }}</p>
                 <p class="card-text"> Added on: {{ post.created_on }}</p>
-                <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                    <h2 class="card-title btn btn-primary"> Details </h2>
+                <div>
+                    <a class=" btn btn-primary" href="{% url 'post_detail' post.slug %}">Details</a>
+                    <!-- Athenticate User -->
                     {% if user.username == post.author.username %}
-                    <a href="post_your_add_edit/{{ post.id }}" class="post-link">
-                        <h2 class="card-title btn btn-primary">Edit</h2>
-                    </a>
-                    <a href="post_your_add_delete/{{ post.id }}" class="post-link">
-                        <h2 class="card-title btn btn-primary">Delete</h2>
-                    </a>
+                        <!-- Link to post your add page -->
+                        <a class=" btn btn-success" href="post_your_add_edit/{{ post.id }}">Edit</a>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Delete
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Once you delete it, there is no way of retrieving it.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                            <!-- Link to delete your add page -->
+                                        <a class="btn btn-danger" href="post_your_add_delete/{{ post.id }}">Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     {% endif %}
-                </a>
+                </div>
                 <hr />
             </div>
         </div>
 
         {% if forloop.counter|divisibleby:3%}
-    </div>
-    <div class="row">
+            </div>
+            <div class="row">
         {% endif %}
 
 
         {% endfor %}
-
-
     </div>
 </div>
 <br>
