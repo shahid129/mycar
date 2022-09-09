@@ -9,6 +9,7 @@
     <form action="post_your_add" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form | crispy }}
+        <br>
         <input type="submit" value="Submit">
     </form>
 </div>

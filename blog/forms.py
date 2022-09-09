@@ -19,7 +19,17 @@ class NewUserForm(UserCreationForm):
     class meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
-    
+
+    # Add custom help text
+    # help was taken from 
+    # https://stackoverflow.com/questions/56464571/how-to-disable-django-registration-password-help-text
+
+    def __init__(self, *args, **kwargs):
+        super(NewUserForm, self).__init__(*args, **kwargs)    
+        self.fields['username'].help_text = ''
+        self.fields['password1'].help_text = ''
+
+
     def save(self, commit=True):
         user = super(NewUserForm, self).save(commit=False)
         user.email = self.cleaned_data['email']

@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
-from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
@@ -89,7 +88,7 @@ def register_request(request):
             return redirect("home")
         messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
-    return render(request=request, template_name="registration/register.html", context={"register_form":form})
+    return render(request=request, template_name="registration/register.html", context={"form":form})
 
 
 def login_request(request):
