@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import PostAd
+from .models import PostAd, CustomerComment
 
 
 class PostForm(forms.ModelForm):
@@ -16,7 +16,7 @@ class PostForm(forms.ModelForm):
 class NewUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
-    class meta:
+    class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
 
@@ -36,3 +36,8 @@ class NewUserForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+class CustomerCommentForm(forms.ModelForm):
+    class Meta:
+        model = CustomerComment
+        fields = ('body',)

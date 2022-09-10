@@ -1,36 +1,91 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <h1 class="post-title">
-                    {{ post.title}}
-                </h1>
-                <p class="post-subtitle"> {{ post.author }} | {{ post.created_on}} </p>
-            </div>
-            <div>
-                <img src=" {{ post.image.url }}" class="img-fluid" alt="">
-            </div>
-            <div class="col-5">
-                <!-- The number of likes goes before the closing strong tag -->
+{% load crispy_forms_tags %}
+
+<div class="container">
+
+    <div class="row g-0">
+        <div class="col-md-6 masthead-text">
+            <h1 class="post-title">
+                {{ post.title}}
+            </h1>
+            <p class="post-subtitle"> {{ post.author }} | {{ post.created_on}} </p>
+        </div>
+        <div>
+            <img src=" {{ post.image.url }}" class="img-fluid" alt="">
+        </div>
+        <div class="row">
+            <div class="col-1">
+
                 <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
             </div>
-            
-        
-            <div class="container">
-                <h3>Description of the car</h3>
-                <p>{{ post.description | safe }}</p>
-                <p>Year: {{post.year}}</p>
-                <p>Road Tax: {{post.tax}}</p>
-                <p>NCT Expiry: {{post.nct}}</p>
-                <!-- <a href="post_your_add_edit/{{ post.id }}" class="post-link">
-                    <h2 class="card-title btn btn-primary">Edit</h2> -->
-                </a>
+            <div class="col-1">
+                {% with comments.count as total_comments %}
+                <strong class="text-secondary"><i class="far fa-comments"></i>
+                    {{ total_comments }}</strong>
+                {% endwith %}
             </div>
         </div>
-    </div>
-    
 
+
+        <div class="container">
+            <h3>Features</h3>
+            <p>Year: {{post.year}}</p>
+            <p>Road Tax: {{post.tax}}</p>
+            <p>NCT Expiry: {{post.nct}}</p>
+            <p>{{ post.description | safe }}</p>
+
+            <!-- <a href="post_your_add_edit/{{ post.id }}" class="post-link">
+                    <h2 class="card-title btn btn-primary">Edit</h2> -->
+            </a>
+        </div>
+    </div>
+
+    <!-- Comment Section -->
+    <div class="row">
+        <div class="col-md-8 card mb-4  mt-3 ">
+            <h3>Comments:</h3>
+            <div class="card-body">
+                {% for comment in comments %}
+                <div >
+                    <p class="font-weight-bold">
+                        {{ comment.name }}
+                        <span class=" text-muted font-weight-normal">
+                            {{ comment.created_on }}
+                        </span> commented:
+                    </p>
+                    {{ comment.body | linebreaks }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4 card mb-4  mt-3 ">
+            <div class="card-body">
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment is awaiting approval
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                
+                <!-- comment Form -->
+                <form method="post">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                {% else %}
+                    <a href="{% url 'login' %}">Log in </a><span>to add your comments</span>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</div>
     {% endblock content %}

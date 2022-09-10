@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from .models import PostAd
-from .forms import PostForm, NewUserForm
+from .forms import PostForm, NewUserForm, CustomerCommentForm
 # from django import forms
 # from cloudinary.forms import cl_init_js_callbacks
 
@@ -34,9 +34,42 @@ class PostDetail(View):
             {
                 "post": post,
                 "comments": comments,
-                "liked": liked
+                'commented': False,
+                "liked": liked,
+                "comment_form": CustomerCommentForm()
             },
         )
+
+    def post(self, request, slug, *args, **kwargs):
+        queryset = PostAd.objects
+        post = get_object_or_404(queryset, slug=slug)
+        comments = post.comments.filter(approved=True).order_by('created_on')
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
+        customer_comment_form = CustomerCommentForm(data=request.POST)
+
+        if customer_comment_form.is_valid():
+            customer_comment_form.instance.email = request.user.email
+            customer_comment_form.instance.name = request.user.username
+            comment = customer_comment_form.save(commit=False)
+            comment.post = post
+            comment.save()
+        else:
+            customer_comment_form = CustomerCommentForm()
+        return render(
+            request,
+            "post_detail.html",
+            {
+                "post": post,
+                "comments": comments,
+                'commented': True,
+                "liked": liked,
+                "comment_form": CustomerCommentForm()
+            },
+        )
+
 
 
 def post_your_add(request):
