@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
+from django.http import HttpResponseRedirect
 from .models import PostAd
 from .forms import PostForm, NewUserForm, CustomerCommentForm
 # from django import forms
@@ -23,7 +24,7 @@ class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = PostAd.objects
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('created_on')
+        comments = post.comments.filter(approved=True).order_by('-created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -43,7 +44,7 @@ class PostDetail(View):
     def post(self, request, slug, *args, **kwargs):
         queryset = PostAd.objects
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('created_on')
+        comments = post.comments.filter(approved=True).order_by('-created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -66,7 +67,7 @@ class PostDetail(View):
                 "comments": comments,
                 'commented': True,
                 "liked": liked,
-                "comment_form": CustomerCommentForm()
+                "comment_form": CustomerCommentForm
             },
         )
 
@@ -161,3 +162,21 @@ def logout_request(request):
     logout(request)
     messages.info(request, 'You have successfully logged out.')
     return redirect('home')
+
+
+class PostAdLike(View):
+    """
+    User can like or unlike a post
+    """
+    def post(self, request, slug, *args, **kwargs):
+        """
+        User can like or unlike a post
+        """
+        post = get_object_or_404(PostAd, slug=slug)   
+
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
