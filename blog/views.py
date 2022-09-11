@@ -76,7 +76,9 @@ def post_your_add(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            new_form = form.save(commit=False)
+            new_form.author = request.user
+            new_form.save()
             messages.info(request, 'Post added successfully.')
             return redirect('home')
     
@@ -85,6 +87,12 @@ def post_your_add(request):
         'form': form
     }
     return render(request, 'post_your_add.html', context)
+   
+
+# def form_valid(self, form):
+#     """ adding the username automatically for the post """
+#     form.instance.author = self.request.user
+#     return super().form_valid(form)
 
 
 def post_your_add_edit(request, post_id):

@@ -3,6 +3,7 @@
 
 {% load crispy_forms_tags %}
 
+{% if user.is_authenticated %}
 <div class="container col-md-6">
     <h2>Let's add your car</h2>
 
@@ -14,5 +15,16 @@
     </form>
 </div>
 
+{% else %}
+    <div class="container">
+        <p>Please login to create a new post</p>
+        <p> If you are a registered user please 
+            <span><a class="" aria-current="page" href="{% url 'login' %}">Login</a></span></p>
+        
+        <p>If you don not have an account please create an account 
+            <span><a class="" aria-current="page" href="{% url 'register' %}">Register</a></span>
+        </p>
 
+    </div>
+{% endif %}
 {% endblock content %}
