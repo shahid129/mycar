@@ -1,14 +1,27 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.forms import ModelForm
 from .models import PostAd, CustomerComment
 
+
+class DateInput(forms.DateInput):
+    """
+    Generate date picker for the form
+    """
+    input_type = 'date'
+    
 
 class PostForm(forms.ModelForm):
 
     class Meta:
         model = PostAd
         fields = ('title', 'price', 'image', 'year', 'nct', 'tax', 'description',)
+        widgets = {
+            'year': DateInput(),
+            'nct': DateInput(),
+            'tax': DateInput(),
+        }
 
 
 # Create user log in form
