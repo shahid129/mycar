@@ -11,4 +11,7 @@ urlpatterns = [
     path("login", views.login_request, name="login"),
     path("logout", views.logout_request, name="logout"),
     path('like/<slug:slug>/', views.PostAdLike.as_view(), name='post_like'),
+    path("search_car", views.search_car, name="search_car"),  # link to search car page
+    path('<slug:slug>/', views.search_car, name='search_car'),  # link to searcher car
+
 ]

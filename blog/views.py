@@ -180,3 +180,15 @@ class PostAdLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+def search_car(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        postads = PostAd.objects.filter(title__icontains=searched)
+
+        return render(request, "search_car.html", {'searched': searched, 'postads': postads})
+    else:
+        return render(request, "search_car.html")
+
+

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    {% if searched %}
+        <h1>You searched for {{searched}}</h1>
+        <br>
+        <h3>We found {{ postads.count }} cars in our records</h3>
+
+        {% for postad in postads %}
+            <a href="{% url 'post_detail' postad.slug %}">{{ postad | title }}</a><br>
+            <br>
+        {% endfor %}
+            
+    {% else %}
+        <h1>Please type something to start your search...</h1>
+    {% endif %}
+</div>
+
+{% endblock content %}

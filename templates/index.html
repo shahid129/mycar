@@ -13,7 +13,7 @@
             <img src=" {{ post.image.url }}" class="img-fluid rounded" alt="">
 
             <div class="card-body">
-                <h5 class="card-title ">{{ post.title | capfirst }}</h5>
+                <h5 class="card-title ">{{ post.title | title }}</h5>
                 <p class="card-text"> Price: €{{ post.price }}</p>
                 <p class="card-text"> Added on: {{ post.created_on }}</p>
                 <div>
