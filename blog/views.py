@@ -4,8 +4,9 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponseRedirect
-from .models import PostAd
-from .forms import PostForm, NewUserForm, CustomerCommentForm
+from django.forms import formset_factory
+from .models import PostAd, Images
+from .forms import PostForm, NewUserForm, CustomerCommentForm, ImagesForm
 # from django import forms
 # from cloudinary.forms import cl_init_js_callbacks
 
@@ -20,10 +21,15 @@ class PostAdList(generic.ListView):
 
 
 class PostDetail(View):
+    """
+    Renders post detail for every post
+    """
 
     def get(self, request, slug, *args, **kwargs):
         queryset = PostAd.objects
+
         post = get_object_or_404(queryset, slug=slug)
+        images = Images.objects.filter(name=post)
         comments = post.comments.filter(approved=True).order_by('-created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
@@ -37,7 +43,8 @@ class PostDetail(View):
                 "comments": comments,
                 'commented': False,
                 "liked": liked,
-                "comment_form": CustomerCommentForm()
+                "comment_form": CustomerCommentForm(),
+                'images': images
             },
         )
 
@@ -74,18 +81,40 @@ class PostDetail(View):
 
 
 def post_your_add(request):
+    """
+    Users can post their add and add multiple images for the same post
+    """
+
+    # Formset for Image class
+    ImageFormSet = formset_factory(ImagesForm, extra=3)  # Add 3 more fields to add image
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
-        if form.is_valid():
+        formset = ImageFormSet(request.POST, request.FILES)
+        if form.is_valid() and formset.is_valid():
             new_form = form.save(commit=False)
             new_form.author = request.user
             new_form.save()
-            messages.info(request, 'Post added successfully.')
-            return redirect('home')
-    
+
+        # loop through the image
+        for form_image in formset:
+            image = form_image.cleaned_data.get('images')
+            photo = Images(images=image, name=new_form)
+            photo.save()
+
+            # image = PostAd(request.FILES.getlist('image'))
+            # for img in request.FILES.getlist('image'):
+            #     image_obj = PostAd()
+            #     # image_obj.post_id = post.id
+            #     image_obj.image = img
+            #     image_obj.save()
+        messages.info(request, 'Post added successfully.')
+        return redirect('home')
+
     form = PostForm()
+    formset = ImageFormSet()
     context = {
-        'form': form
+        'form': form,
+        'formset': formset,
     }
     return render(request, 'post_your_add.html', context)
    
@@ -183,6 +212,10 @@ class PostAdLike(View):
 
 
 def search_car(request):
+    """
+    User can search for name of the car. The search engine looks for the title(name)
+    of the car
+    """
     if request.method == 'POST':
         searched = request.POST['searched']
         postads = PostAd.objects.filter(title__icontains=searched)

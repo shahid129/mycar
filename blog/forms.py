@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms import ModelForm
-from .models import PostAd, CustomerComment
+from .models import PostAd, CustomerComment, Images
 
 
 class DateInput(forms.DateInput):
@@ -13,6 +13,9 @@ class DateInput(forms.DateInput):
     
 
 class PostForm(forms.ModelForm):
+    # title = forms.CharField(widget=forms.TextInput(attrs={'class': 'title', 'placeholder': 'heda'}))                 
+
+    # image = forms.ImageField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
 
     class Meta:
         model = PostAd
@@ -22,6 +25,11 @@ class PostForm(forms.ModelForm):
             'nct': DateInput(),
             'tax': DateInput(),
         }
+        
+        # def __init__(self, *args, **kwargs):
+        #     super(ExampleForm, self).__init__(*args, **kwargs)
+        #     for visible in self.visible_fields():
+        #         visible.field.widget.attrs['class'] = 'form-control'
 
 
 # Create user log in form
@@ -54,3 +62,15 @@ class CustomerCommentForm(forms.ModelForm):
     class Meta:
         model = CustomerComment
         fields = ('body',)
+
+
+class ImagesForm(forms.ModelForm):
+    """
+    User can add multiple images
+    """
+    class Meta:
+        """
+        Only images field is rendered to the page
+        """
+        model = Images
+        fields = ('images',)

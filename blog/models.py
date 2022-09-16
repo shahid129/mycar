@@ -15,7 +15,7 @@ class PostAd(models.Model):
     created_on = models.DateTimeField(auto_now=True)
     updtaed_on = models.DateTimeField(auto_now=True)
     description = models.TextField(max_length=500)
-    image = CloudinaryField('image', default='placeholder')
+    image = models.ImageField()
     year = models.DateField(auto_now=False)
     tax = models.DateField(auto_now=False)
     nct = models.DateField(auto_now=False)
@@ -32,8 +32,8 @@ class PostAd(models.Model):
     def number_of_likes(self):
         return self.likes.count()
     
-    def year_only(self):
-        return self.year.strftime('%Y')
+    # def year_only(self):
+    #     return self.year.strftime('%Y')
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -54,3 +54,11 @@ class CustomerComment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
+
+class Images(models.Model):
+    """
+    Users can add more images along with their posts
+    """
+    name = models.ForeignKey(PostAd, on_delete=models.CASCADE, blank=True, null=True)
+    images = models.ImageField()

@@ -9,7 +9,10 @@
 
     <form action="post_your_add" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
+        {{formset.management_form}}
         {{ form | crispy }}
+        {{ formset | crispy}}
+        
         <br>
         <input type="submit" value="Submit">
     </form>

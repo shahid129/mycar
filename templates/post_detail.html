@@ -13,7 +13,16 @@
             <p class=""> {{ post.author }} | {{ post.created_on}} </p>
         </div>
         <div>
-            <img src=" {{ post.image.url }}" class="img-fluid" alt="Image of a car">
+            {{ formset.management_form }}
+            {% for image in images  %}
+            <img src="{{ image.images.url }}" class="img-fluid" alt="Image of a car">
+
+
+            {% endfor %}
+            <img src="{{ post.image.url }}" class="img-fluid" alt="Image of a car">
+            <!-- <img src="{{ image.images.url }}" class="img-fluid" alt="Image of a car"> -->
+            {{ form.images.url }}
+
         </div>
         <hr>
         <!-- like / unlike button -->
