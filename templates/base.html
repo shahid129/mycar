@@ -13,30 +13,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-</head>
-</script><!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-</script>
-<script src="https://kit.fontawesome.com/b16a869446.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/b16a869446.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
-    <nav class="navbar navbar-expand-lg bg-light">
+{% load active_link_tags %}
+<body class="d-flex flex-column h-100 main-bg ">
+    <nav class="navbar navbar-expand-lg bg-light nav">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">My Car</a>
+            <a class="navbar-brand brand-name" href="{% url 'home' %}">My<span class="mycar">Car</span>  <i class="fa-solid fa-car"></i></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link {% active_link 'home' '' %}" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{% url 'post_your_add' %}">Post Your Ad</a>
+                        <a class="nav-link {% active_link 'post_your_add' 'active' %}" aria-current="page" href="{% url 'post_your_add' %}" >Post Your Ad</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="">About</a>
@@ -52,16 +54,16 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{% url 'login' %}">Login</a>
+                        <a class="nav-link {% active_link 'login' 'active' %}" aria-current="page" href="{% url 'login' %}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{% url 'register' %}">Register</a>
+                        <a class="nav-link {% active_link 'register' 'active' %}" aria-current="page" href="{% url 'register' %}">Register</a>
                     </li>
                     {% endif %}
-                    <form class="d-flex" role="search" method="POST", action="{% url 'search_car' %}">
+                    <form class="d-flex " role="search" method="POST", action="{% url 'search_car' %}">
                         {% csrf_token %}
                         <input class="form-control me-2" type="search" placeholder="Search Cars" aria-label="Search" name="searched">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success button" type="submit">Search</button>
                       </form>
 
                 </ul>
@@ -71,43 +73,37 @@
     <div class="container"> {% block content %}{% endblock content %}
     </div>
     <!-- footer -->
-    <footer class="bg-light text-center text-white">
+    <footer class="bg-light text-center text-white mt-4">
         <!-- Grid container -->
         <div class="container p-4 pb-0">
-            <p class="text-dark">Find us On</p>
+            <!-- <p class="text-dark">Find us On</p> -->
             <!-- Section: Social media -->
             <section class="mb-4">
                 <!-- Facebook -->
-                <a class="btn text-white btn-floating m-1" style="background-color: #3b5998;"
+                <a class="btn text-white btn-floating m-1 facebook"
                     href="https://www.facebook.com/" , target="_blank" role="button">
                     <i class="fab fa-facebook-f"></i>
                 </a>
 
                 <!-- Twitter -->
-                <a class="btn text-white btn-floating m-1" style="background-color: #55acee;"
+                <a class="btn text-white btn-floating m-1 twitter"
                     href="https://www.twitter.com/" , target="_blank" role="button">
                     <i class="fab fa-twitter"></i>
                 </a>
 
                 <!-- Google -->
-                <a class="btn text-white btn-floating m-1" style="background-color: #dd4b39;"
+                <a class="btn text-white btn-floating m-1 google"
                     href="https://www.google.com/" , target="_blank" role="button">
                     <i class="fab fa-google"></i>
                 </a>
 
-                <!-- Instagram -->
-                <a class="btn text-white btn-floating m-1" style="background-color: #ac2bac;"
-                    href="https://www.instagram.com/" , target="_blank" role="button">
-                    <i class="fab fa-instagram"></i>
-                </a>
-
                 <!-- Linkedin -->
-                <a class="btn text-white btn-floating m-1" style="background-color: #0082ca;"
+                <a class="btn text-white btn-floating m-1 linkedin"
                     href="https://www.linkedin.com/" , target="_blank" role="button">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
                 <!-- Github -->
-                <a class="btn text-white btn-floating m-1" style="background-color: #333333;"
+                <a class="btn text-white btn-floating m-1 github"
                     href="https://www.githum.io/" , target="_blank" role="button">
                     <i class="fab fa-github"></i>
                 </a>
@@ -115,12 +111,6 @@
             <!-- Section: Social media -->
         </div>
         <!-- Grid container -->
-
-        <!-- Copyright -->
-        <div class="text-center p-3 text-dark" style="background-color: rgba(235, 221, 221, 0.2);">
-            © 2022 Shahid
-        </div>
-        <!-- Copyright -->
     </footer>
 
     <script>
