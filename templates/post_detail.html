@@ -8,9 +8,9 @@
     <div class="row g-0">
         <div class="col-md-6 masthead-text">
             <h1 class="post-title">
-                {{ post.title}}
+                {{ post.title | capfirst }}
             </h1>
-            <p class=""> {{ post.author }} | {{ post.created_on}} </p>
+            <p class=""> {{ post.author | capfirst}} | {{ post.created_on}} </p>
         </div>
         <div>
             <div id="carouselExampleIndicators" class="carousel slide carousel-fade carousel-dark w-75 p-3 mx-auto d-block" data-bs-ride="true">
@@ -45,20 +45,20 @@
             <!-- <img src="{{ post.image.url }}" class="img-fluid" alt="Image of a car"> -->
 
         </div>
-        <hr>
+        <!-- <hr> -->
         <!-- like / unlike button -->
-        <div class="row">
-            <div class="col-2">
+        <div class="row like-comments">
+            <div class="col-1">
                 <strong>
                     {% if user.is_authenticated %}
                     <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                         {% csrf_token %}
                         {% if liked %}
-                        <button type="submit" name="blogpost_id" value="{{post.slug}}" class=""><i
-                                class="fas fa-heart"></i></button>
+                        <button type="submit" name="blogpost_id" value="{{post.slug}}" class="liked-heart"><i
+                                class="fas fa-heart "></i></button>
                         {% else %}
-                        <button type="submit" name="blogpost_id" value="{{post.slug}}" class=""><i
-                                class="far fa-heart"></i></button>
+                        <button type="submit" name="blogpost_id" value="{{post.slug}}" class="unliked-heart"><i
+                                class="far fa-heart "></i></button>
                         {% endif %}
                     </form>
                     {% else %}
@@ -75,13 +75,14 @@
                 {% endwith %}
             </div>
         </div>
-
+        <hr>
 
         <div class="container mt-3">
-            <h3>Features</h3>
+            <h3>Key Info</h3>
             <p>Year: {{post.year}}</p>
             <p>Road Tax: {{post.tax}}</p>
             <p>NCT Expiry: {{post.nct}}</p>
+            <h3>Detailed Info</h3>
             <p>{{ post.description | safe }}</p>
 
             <!-- <a href="post_your_add_edit/{{ post.id }}" class="post-link">
@@ -91,17 +92,17 @@
     </div>
 
     <!-- Comment Section -->
-    <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Comments:</h3>
-            <div class="card-body">
+    <div class="row ">
+        <div class="col-md-7 card mb-4 me-5  mt-3">
+            <h3 class="container mt-3">Comments</h3>
+            <div class="card-body overflow-auto">
                 {% for comment in comments %}
-                <div>
+                <div class="overflow-auto">
                     <p class="font-weight-bold">
-                        {{ comment.name }}
+                        {{ comment.name | capfirst }} commented
                         <span class=" text-muted font-weight-normal">
                             {{ comment.created_on }}
-                        </span> commented:
+                        </span> 
                     </p>
                     {{ comment.body | linebreaks }}
                 </div>
@@ -125,10 +126,13 @@
                     {{ comment_form | crispy }}
                     {% csrf_token %}
                     <br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-outline-success button">Submit</button>
                 </form>
                 {% else %}
-                <span>To add your comments please </span><a href="{% url 'login' %}">Log in </a>
+                <p>To add your comments please </p><a href="{% url 'login' %}"><button type="submit" class="btn btn-outline-success button">Login</button> </a>
+                <!-- <button type="submit" class="btn btn-outline-success button"><a href="{% url 'login' %}"> </a> Login</button> -->
+
+                
                 {% endif %}
                 {% endif %}
             </div>

@@ -1,4 +1,5 @@
 /* navigation */
+/* base.html */
 .nav {
     padding: 20px;
     margin-bottom: 20px;
@@ -19,15 +20,19 @@
 
 
 .fa-car {
-    color: #5dbea3;
+    color: lightseagreen;
+}
+
+.fa-car:hover {
+    color: rgb(15, 127, 121);
 }
 
 .mycar {
     font-weight: 800;
 }
 
-.button:hover {
-    background-color:  #5dbea3;
+.btn:hover {
+    background-color:  lightseagreen;
 }
 
 /* Footer */
@@ -53,5 +58,56 @@
 }
 
 .btn-floating:hover {
-    background-color: #5dbea3;
+    background-color: lightseagreen;
+}
+
+
+/* index.html */
+.image-hover {
+    transition: transform .5s ease-in-out;
+}
+
+.image-hover:hover {
+    transform: scale(1.03);
+}
+
+.current {
+    border: 1px solid #198754;
+    padding: 7px;
+    border-radius: 5px;
+    padding-bottom: 11px;
+    margin: 5px;
+    margin-right: 8px;
+    color: white;
+    background-color: lightseagreen;
+}
+
+/* post_detail.html */
+
+/* .like-comments {
+    margin-left: 95px;
+} */
+
+.liked-heart {
+    color: #dd4b39;
+    border: none;
+    background-color: transparent;
+}
+
+.unliked-heart {
+    border: none;
+    background-color: transparent;
+
+}
+
+.fa-comments,
+.unliked-heart {
+    color: lightseagreen;
+    border: none;
+    background-color: transparent;
+}
+
+.overflow-auto {
+    max-height: 460px;
+    overflow-y: scroll;
 }
