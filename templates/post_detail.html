@@ -13,15 +13,36 @@
             <p class=""> {{ post.author }} | {{ post.created_on}} </p>
         </div>
         <div>
-            {{ formset.management_form }}
-            {% for image in images  %}
-            <img src="{{ image.images.url }}" class="img-fluid" alt="Image of a car">
-
-
-            {% endfor %}
-            <img src="{{ post.image.url }}" class="img-fluid" alt="Image of a car">
-            <!-- <img src="{{ image.images.url }}" class="img-fluid" alt="Image of a car"> -->
-            {{ form.images.url }}
+            <div id="carouselExampleIndicators" class="carousel slide carousel-fade carousel-dark w-75 p-3 mx-auto d-block" data-bs-ride="true">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <!-- Loop through the images from Images class Model -->
+                <div class="carousel-inner">
+                    {{ formset.management_form }}
+                    {% for image in images  %}
+                    <div class="carousel-item active ">
+                        <img src="{{ image.images.url }}" class="d-block rounded w-100" alt="Image of a car">
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <!-- <img src="{{ post.image.url }}" class="img-fluid" alt="Image of a car"> -->
 
         </div>
         <hr>
@@ -33,16 +54,18 @@
                     <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                         {% csrf_token %}
                         {% if liked %}
-                        <button type="submit" name="blogpost_id" value="{{post.slug}}" class=""><i class="fas fa-heart"></i></button>
+                        <button type="submit" name="blogpost_id" value="{{post.slug}}" class=""><i
+                                class="fas fa-heart"></i></button>
                         {% else %}
-                        <button type="submit" name="blogpost_id" value="{{post.slug}}" class=""><i class="far fa-heart"></i></button>
+                        <button type="submit" name="blogpost_id" value="{{post.slug}}" class=""><i
+                                class="far fa-heart"></i></button>
                         {% endif %}
                     </form>
                     {% else %}
                     <span class="text-secondary"><i class="far fa-heart"></i></span>
                     {% endif %}
-                <!-- The number of likes  -->
-                <span class="text-secondary">{{ post.number_of_likes }} </span>
+                    <!-- The number of likes  -->
+                    <span class="text-secondary">{{ post.number_of_likes }} </span>
                 </strong>
             </div>
             <div class="col-2">
@@ -73,7 +96,7 @@
             <h3>Comments:</h3>
             <div class="card-body">
                 {% for comment in comments %}
-                <div >
+                <div>
                     <p class="font-weight-bold">
                         {{ comment.name }}
                         <span class=" text-muted font-weight-normal">
@@ -96,7 +119,7 @@
 
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
-                
+
                 <!-- comment Form -->
                 <form method="POST">
                     {{ comment_form | crispy }}
@@ -113,4 +136,4 @@
 
     </div>
 </div>
-    {% endblock content %}
+{% endblock content %}

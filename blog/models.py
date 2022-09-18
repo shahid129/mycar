@@ -13,7 +13,7 @@ class PostAd(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_PostAds")
     created_on = models.DateTimeField(auto_now=True)
-    updtaed_on = models.DateTimeField(auto_now=True)
+    updated_on = models.DateTimeField(auto_now=True)
     description = models.TextField(max_length=500)
     image = models.ImageField()
     year = models.DateField(auto_now=False)
