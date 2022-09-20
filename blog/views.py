@@ -78,10 +78,8 @@ class PostDetail(View):
                 "liked": liked,
                 "comment_form": CustomerCommentForm(),
                 'images': images
-
             },
         )
-
 
 
 def post_your_add(request):
@@ -100,33 +98,25 @@ def post_your_add(request):
             new_form.save()
 
         # loop through the image
-        for form_image in formset:
-            image = form_image.cleaned_data.get('images')
-            photo = Images(images=image, name=new_form)
-            photo.save()
+            for form_image in formset:
+                image = form_image.cleaned_data.get('images')
+                photo = Images(images=image, name=new_form)
+                photo.save()
 
-            # image = PostAd(request.FILES.getlist('image'))
-            # for img in request.FILES.getlist('image'):
-            #     image_obj = PostAd()
-            #     # image_obj.post_id = post.id
-            #     image_obj.image = img
-            #     image_obj.save()
-        messages.info(request, 'Post added successfully.')
-        return redirect('home')
+            print('formvalid: ', form.is_valid())  # Check if form is valid
+            print('formsetvalid: ', formset.is_valid())  # Check if form is valid
+            messages.info(request, 'Post added successfully.')
+            return redirect('home')
+        
+    else:
+        form = PostForm()
+        formset = ImageFormSet()
 
-    form = PostForm()
-    formset = ImageFormSet()
     context = {
         'form': form,
         'formset': formset,
     }
     return render(request, 'post_your_add.html', context)
-   
-
-# def form_valid(self, form):
-#     """ adding the username automatically for the post """
-#     form.instance.author = self.request.user
-#     return super().form_valid(form)
 
 
 def post_your_add_edit(request, post_id):

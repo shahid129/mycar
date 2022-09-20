@@ -111,3 +111,11 @@
     max-height: 460px;
     overflow-y: scroll;
 }
+
+/* post_your_add.html */
+
+.title:hover {
+    /* color: red; */
+    border: 1px solid lightseagreen;
+}
+

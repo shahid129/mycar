@@ -13,27 +13,25 @@ class DateInput(forms.DateInput):
     
 
 class PostForm(forms.ModelForm):
-    # title = forms.CharField(widget=forms.TextInput(attrs={'class': 'title', 'placeholder': 'heda'}))                 
-
-    # image = forms.ImageField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Car Name'}))                
+    price = forms.CharField(widget=forms.TextInput(attrs={'class': 'title', 'placeholder': 'Price in Euro'}))
+    description = forms.CharField(widget=forms.Textarea(attrs={'class': 'title', 'placeholder': 'Details about car'}))
+    # year = forms.DateField(widget=forms.TextInput(attrs={'class': 'date', 'placeholder': 'Model Year'}))
+    # nct = forms.DateField(widget=forms.TextInput(attrs={'class': 'date', 'placeholder': 'NCT Expiry'}))
+    # tax = forms.DateField(widget=forms.TextInput(attrs={'class': 'date', 'placeholder': 'Tax Expiry'}))
+    image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control', 'id': 'customFile'}))
+    
 
     class Meta:
         model = PostAd
         fields = ('title', 'price', 'image', 'year', 'nct', 'tax', 'description',)
         widgets = {
-            'year': DateInput(),
-            'nct': DateInput(),
-            'tax': DateInput(),
+            'year': DateInput(attrs={'class': 'title', 'placeholder': 'heda'}),
+            'nct': DateInput(attrs={'class': 'title'}),
+            'tax': DateInput(attrs={'class': 'title'}),
         }
-        
-        # def __init__(self, *args, **kwargs):
-        #     super(ExampleForm, self).__init__(*args, **kwargs)
-        #     for visible in self.visible_fields():
-        #         visible.field.widget.attrs['class'] = 'form-control'
-
 
 # Create user log in form
-
 class NewUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
@@ -44,6 +42,7 @@ class NewUserForm(UserCreationForm):
     # Add custom help text
     # help was taken from 
     # https://stackoverflow.com/questions/56464571/how-to-disable-django-registration-password-help-text
+
 
     def __init__(self, *args, **kwargs):
         super(NewUserForm, self).__init__(*args, **kwargs)    
@@ -58,6 +57,7 @@ class NewUserForm(UserCreationForm):
             user.save()
         return user
 
+
 class CustomerCommentForm(forms.ModelForm):
     class Meta:
         model = CustomerComment
@@ -68,6 +68,8 @@ class ImagesForm(forms.ModelForm):
     """
     User can add multiple images
     """
+    images = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control', 'id': 'customFile'}))
+
     class Meta:
         """
         Only images field is rendered to the page
