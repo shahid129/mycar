@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container">
+<div class="container col-md-8 card p-5 title list-group">
     {% if searched %}
-        <h1>You searched for {{searched}}</h1>
+        <h2>You searched for {{searched}}</h2>
         <br>
-        <h3>We found {{ postads.count }} cars in our records</h3>
+        <p>We found {{ postads.count }} cars in our records.</p>
 
         {% for postad in postads %}
-            <a href="{% url 'post_detail' postad.slug %}">{{ postad | title }}</a><br>
+            <a class="list-group-item list-group-item-action rounded" href="{% url 'post_detail' postad.slug %}">{{ postad | title }}</a>
             <br>
         {% endfor %}
             

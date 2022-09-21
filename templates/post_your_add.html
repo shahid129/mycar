@@ -4,8 +4,8 @@
 {% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
-<div class="container col-md-6">
-    <h2>Let's add your car</h2>
+<div class="container col-md-8 card p-5 title">
+    <h2>Let's add your car <i class="fas fa-car-side"></i></h2>
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -19,13 +19,13 @@
 </div>
 
 {% else %}
-    <div class="container">
-        <p>Please login to create a new post</p>
-        <p> If you are a registered user please 
-            <span><a class="" aria-current="page" href="{% url 'login' %}">Login</a></span></p>
-        
-        <p>If you don not have an account please create an account 
-            <span><a class="" aria-current="page" href="{% url 'register' %}">Register</a></span>
+    <div class="container col-md-7 card p-5 title">
+        <p>Please login or create an account to make a new post.</p>
+        <p> If you are a registered user please,
+            <span><a class="btn btn-outline-success button" href="{% url 'login' %}">login</a></span>
+        </p>
+        <p>If you don not have an account please, 
+            <span><a class="btn btn-outline-success button" href="{% url 'register' %}">Register</a></span>
         </p>
 
     </div>

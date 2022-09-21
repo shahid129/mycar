@@ -13,7 +13,7 @@ class DateInput(forms.DateInput):
     
 
 class PostForm(forms.ModelForm):
-    title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Car Name'}))                
+    title = forms.CharField(widget=forms.TextInput(attrs={'class': 'title', 'placeholder': 'Car Name'}))                
     price = forms.CharField(widget=forms.TextInput(attrs={'class': 'title', 'placeholder': 'Price in Euro'}))
     description = forms.CharField(widget=forms.Textarea(attrs={'class': 'title', 'placeholder': 'Details about car'}))
     # year = forms.DateField(widget=forms.TextInput(attrs={'class': 'date', 'placeholder': 'Model Year'}))

@@ -19,11 +19,19 @@
 }
 
 
-.fa-car {
+.fa-car,
+.fa-handshake,
+.fa-key,
+.fa-edit,
+.fa-car-side {
     color: lightseagreen;
 }
 
-.fa-car:hover {
+.fa-car:hover,
+.fa-handshake:hover,
+.fa-key:hover,
+.fa-edit:hover,
+.fa-car-side:hover {
     color: rgb(15, 127, 121);
 }
 

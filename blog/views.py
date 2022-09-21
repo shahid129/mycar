@@ -120,15 +120,21 @@ def post_your_add(request):
 
 
 def post_your_add_edit(request, post_id):
+    """
+    A function that lets uer update their post
+    """
     item = get_object_or_404(PostAd, id=post_id)
+    ImageFormSet = formset_factory(ImagesForm, extra=3)  # Add 3 more fields to add image
+    formset = ImageFormSet(request.POST or None, request.FILES or None)
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=item)
-        if form.is_valid():
+        if form.is_valid() and formset.is_valid():
             form.save()
             return redirect('home')
     form = PostForm(instance=item)
     context = {
-        'form': form
+        'form': form,
+        'formset': formset
     }
     return render(request, 'post_your_add_edit.html', context)
 
