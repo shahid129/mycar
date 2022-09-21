@@ -45,7 +45,6 @@
             <!-- <img src="{{ post.image.url }}" class="img-fluid" alt="Image of a car"> -->
 
         </div>
-        <!-- <hr> -->
         <!-- like / unlike button -->
         <div class="row like-comments">
             <div class="col-1">
@@ -82,12 +81,10 @@
             <p>Year: {{post.year}}</p>
             <p>Road Tax: {{post.tax}}</p>
             <p>NCT Expiry: {{post.nct}}</p>
+            <br>
             <h3>Detailed Info</h3>
-            <p>{{ post.description | safe }}</p>
+            <p class="text-justify">{{ post.description }}</p>
 
-            <!-- <a href="post_your_add_edit/{{ post.id }}" class="post-link">
-                    <h2 class="card-title btn btn-primary">Edit</h2> -->
-            </a>
         </div>
     </div>
 
