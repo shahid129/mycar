@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+<!-- <div class="container col-md-8 card p-5 title">
+    <form method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        {{ form | crispy }}
+        <br>
+        <input type="submit" class="btn btn-outline-success button">
+    </form>
+</div> -->
+<div class="container col-md-6 card p-5 title">
+   {% for item in items %}
+   
+    <img src="{{ item.image.url }}" class="img-thumbnail" alt="Image of {{ user.username}}">
+    <span>{{ item.first_name }}
+        {{ item.last_name }}</span>
+        
+
+   {% endfor %}
+{% endblock %}

@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'bootstrap_datepicker_plus',
     'active_link',
     'blog',
+    'user_profile',
 ]
 
 SITE_ID = 1
