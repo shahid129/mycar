@@ -9,4 +9,5 @@ class UserProfileForms(forms.ModelForm):
     """
     class Meta:
         model = UserProfile
-        fields = '__all__'
+        # fields = '__all__'
+        fields = ['first_name', 'last_name', 'email', 'date_of_birth', 'phone', 'image', 'about_me', ]
