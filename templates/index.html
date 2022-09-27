@@ -9,15 +9,16 @@
     <div class="row">
         {% for post in object_list %}
         <div class="card m-1 " style="width: 23rem;">
-            <!-- Image URl -->
-            <img src=" {{ post.image.url }}" class="img-fluid rounded image-hover" alt="">
-
+            <!-- Image URl which directs to post details -->
+            <a href="{% url 'post_detail' post.slug %}">
+                <img src=" {{ post.image.url }}" class="img-fluid rounded image-hover" alt="">
+            </a>
             <div class="card-body">
                 <h5 class="card-title ">{{ post.title | title }}</h5>
                 <p class="card-text"> Price: €{{ post.price }}</p>
                 <p class="card-text"> Added on: {{ post.created_on }}</p>
                 <div>
-                    <a class=" btn btn-outline-success button" href="{% url 'post_detail' post.slug %}">Details</a>
+                    <!-- <a class=" btn btn-outline-success button" href="{% url 'post_detail' post.slug %}">Details</a> -->
                     <!-- Athenticate User -->
                     {% if user.username == post.author.username %}
                         <!-- Link to post your add page -->
