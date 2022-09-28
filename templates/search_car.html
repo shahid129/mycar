@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="contaner-fluid">
+<div class="container col-md-9 p-5">
     {% if searched %}
     <h2>You searched for {{searched}}</h2>
     <br>
@@ -15,7 +15,7 @@
             </a>
         </div>
 
-        {% if forloop.counter|divisibleby:5%}
+        {% if forloop.counter|divisibleby:3%}
             </div>
             <br>
             <div class="row">

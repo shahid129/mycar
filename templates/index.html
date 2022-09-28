@@ -17,6 +17,7 @@
                 <h5 class="card-title ">{{ post.title | title }}</h5>
                 <p class="card-text"> Price: €{{ post.price }}</p>
                 <p class="card-text"> Added on: {{ post.created_on }}</p>
+                <hr>
                 <div>
                     <!-- <a class=" btn btn-outline-success button" href="{% url 'post_detail' post.slug %}">Details</a> -->
                     <!-- Athenticate User -->
@@ -52,7 +53,7 @@
                         </div>
                     {% endif %}
                 </div>
-                <hr />
+                <!-- <hr /> -->
             </div>
         </div>
 
@@ -67,7 +68,7 @@
     </div>
 </div>
 <br>
-<div class="pagination justify-content-center">
+<div class="pagination justify-content-center mb-3">
     <span class="step-links">
         {% if page_obj.has_previous %}
             <a class="btn btn-outline-success button" href="?page=1">&laquo; first</a>

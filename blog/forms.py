@@ -5,31 +5,36 @@ from django.forms import ModelForm
 from .models import PostAd, CustomerComment, Images
 
 
-class DateInput(forms.DateInput):
-    """
-    Generate date picker for the form
-    """
-    input_type = 'date'
+# class DateInput(forms.DateInput):
+#     """
+#     Generate date picker for the form
+#     """
+#     input_type = 'date'
     
 
 class PostForm(forms.ModelForm):
-    title = forms.CharField(widget=forms.TextInput(attrs={'class': 'title', 'placeholder': 'Car Name'}))                
-    price = forms.CharField(widget=forms.TextInput(attrs={'class': 'title', 'placeholder': 'Price in Euro'}))
-    description = forms.CharField(widget=forms.Textarea(attrs={'class': 'title', 'placeholder': 'Details about car'}))
-    # year = forms.DateField(widget=forms.TextInput(attrs={'class': 'date', 'placeholder': 'Model Year'}))
-    # nct = forms.DateField(widget=forms.TextInput(attrs={'class': 'date', 'placeholder': 'NCT Expiry'}))
-    # tax = forms.DateField(widget=forms.TextInput(attrs={'class': 'date', 'placeholder': 'Tax Expiry'}))
-    image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control', 'id': 'customFile'}))
+    title = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Car Name'}), label='')                
+    price = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Price in Euro'}), label='')
+    description = forms.CharField(widget=forms.Textarea(attrs={'class': 'register_form', 'placeholder': 'Details about car', 'style': 'height: 10em;'}), label='')
+    year = forms.DateField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Model Year', 'type': 'date'}), label='Model Year')
+    nct = forms.DateField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'NCT Expiry', 'type': 'date'}), label='NCT Expiry')
+    tax = forms.DateField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Tax Expiry', 'type': 'date'}), label='Tax Expiry')
+    image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control register_form', 'id': 'customFile'}), label='')
     
 
     class Meta:
         model = PostAd
         fields = ('title', 'price', 'image', 'year', 'nct', 'tax', 'description',)
-        widgets = {
-            'year': DateInput(attrs={'class': 'title', 'placeholder': 'heda'}),
-            'nct': DateInput(attrs={'class': 'title'}),
-            'tax': DateInput(attrs={'class': 'title'}),
-        }
+        # widgets = {
+        #     'year': DateInput(attrs={'class': 'register_form'}),
+        #     'nct': DateInput(attrs={'class': 'register_form'}),
+        #     'tax': DateInput(attrs={'class': 'register_form'}),
+        # }
+
+    # Remove image label
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['image'].label = ''
 
 # Create user log in form
 class NewUserForm(UserCreationForm):
@@ -38,6 +43,11 @@ class NewUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'User Name'}), label='')
+    email = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Email'}), label='')
+    password1 = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Password'}), label='')
+    password2 = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Confirm'}), label='')
 
     # Add custom help text
     # help was taken from 
@@ -68,7 +78,7 @@ class ImagesForm(forms.ModelForm):
     """
     User can add multiple images
     """
-    images = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control', 'id': 'customFile'}))
+    images = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control register_form', 'id': 'customFile'}))
 
     class Meta:
         """
@@ -76,3 +86,8 @@ class ImagesForm(forms.ModelForm):
         """
         model = Images
         fields = ('images',)
+    
+    # Remove images label
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['images'].label = ''
