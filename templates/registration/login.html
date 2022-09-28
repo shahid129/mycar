@@ -10,6 +10,7 @@
   <form method="POST">
       {% csrf_token %}
       <!-- {{ form | crispy}} -->
+      <!-- Manually created form so that css can be added -->
       <input class="form-control register_form" type="text" name="username" autofocus="" placeholder="Username"></p>
       <input class="form-control register_form" type="password" name="password" placeholder="Password"></p>
       <br>
