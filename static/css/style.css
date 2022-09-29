@@ -101,6 +101,12 @@ h1, h2, h3, h5 {
     background-color: lightseagreen;
 }
 
+.main-image {
+    max-width: 100%;
+    height: 250px;
+    width: 400px;
+    object-fit: cover;
+}
 /* post_detail.html */
 
 /* .like-comments {
@@ -136,6 +142,13 @@ h1, h2, h3, h5 {
     line-height: 2em;
 }
 
+/* .carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    max-height: 460px;
+} */
+
 /* post_your_add.html */
 
 .title:hover {
@@ -158,3 +171,12 @@ h1, h2, h3, h5 {
     border-color: lightseagreen;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 127, 121, 0.6);
 }
+
+/* Media Queries */
+@media only screen and (min-width: 780px) {
+    .image-width {
+        width: 80%;
+      
+    }
+  }
+  

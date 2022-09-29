@@ -46,8 +46,8 @@ class NewUserForm(UserCreationForm):
 
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'User Name'}), label='')
     email = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Email'}), label='')
-    password1 = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Password'}), label='')
-    password2 = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Confirm'}), label='')
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'register_form', 'placeholder': 'Password'}), label='')
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'register_form', 'placeholder': 'Confirm'}), label='')
 
     # Add custom help text
     # help was taken from 

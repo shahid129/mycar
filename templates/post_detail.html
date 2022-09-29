@@ -13,7 +13,7 @@
             <p class=""> {{ post.author | capfirst}} | {{ post.created_on}} </p>
         </div>
         <div>
-            <div id="carouselExampleIndicators" class="carousel slide carousel-fade carousel-dark w-75 p-3 mx-auto d-block" data-bs-ride="true">
+            <div id="carouselExampleIndicators" class="carousel slide carousel-fade carousel-dark image-width p-3 mx-auto d-block" data-bs-ride="true">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
                         class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -27,7 +27,7 @@
                     {{ formset.management_form }}
                     {% for image in images  %}
                     <div class="carousel-item active ">
-                        <img src="{{ image.images.url }}" class="d-block rounded w-100" alt="Image of a car">
+                        <img src="{{ image.images.url }}" class="d-block img-fluid rounded w-100" alt="Image of a car">
                     </div>
                     {% endfor %}
                 </div>
@@ -47,7 +47,7 @@
         </div>
         <!-- like / unlike button -->
         <div class="row like-comments">
-            <div class="col-1">
+            <div class="col-2">
                 <strong>
                     {% if user.is_authenticated %}
                     <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
