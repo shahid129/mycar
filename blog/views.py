@@ -5,6 +5,10 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponseRedirect
 from django.forms import formset_factory
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.conf import settings
 from .models import PostAd, Images
 from .forms import PostForm, NewUserForm, CustomerCommentForm, ImagesForm
 # from django import forms
@@ -152,12 +156,33 @@ def register_request(request):
     """
     if request.method == "POST":
         form = NewUserForm(request.POST)
-        if form.is_valid():
+        username = request.POST['username']
+        email = request.POST['email']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
+        # Check if Email id exists
+        if User.objects.filter(email=email).exists():
+            messages.error(request, 'Email is already in use')
+        # Check if passwords match
+        elif password1 != password2:
+            messages.error(request, 'Passwords does not match')
+        # Check if Username  exists
+        elif User.objects.filter(username=username).exists():
+            messages.error(request, 'Username is already taken')
+        elif form.is_valid():
+            print('valid')
+            # User to receive email on registraions
+            subject = 'Account Registration'
+            message = 'Test Email'
+            recipient = form.cleaned_data.get('email')
+            send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
             user = form.save()
             login(request, user)
             messages.success(request, "Registration successful.")
             return redirect("home")
-        messages.error(request, "Unsuccessful registration. Invalid information.")
+        # messages.error(request, "Unsuccessful registration. Invalid information.")
+    else:
+        print('invalid')
     form = NewUserForm()
     return render(request=request, template_name="registration/register.html", context={"form":form})
 
