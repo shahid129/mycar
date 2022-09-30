@@ -8,9 +8,17 @@ from django.forms import formset_factory
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
+
+from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.contrib.sites.shortcuts import get_current_site
+from django.urls import reverse
+from .utils import account_activation_token
+from django.contrib import auth
 from django.conf import settings
 from .models import PostAd, Images
 from .forms import PostForm, NewUserForm, CustomerCommentForm, ImagesForm
+# from .utils import token_generator
 # from django import forms
 # from cloudinary.forms import cl_init_js_callbacks
 
@@ -156,6 +164,8 @@ def register_request(request):
     """
     if request.method == "POST":
         form = NewUserForm(request.POST)
+        user = request.user
+        user.is_active = False
         username = request.POST['username']
         email = request.POST['email']
         password1 = request.POST['password1']
@@ -172,14 +182,22 @@ def register_request(request):
         elif form.is_valid():
             print('valid')
             # User to receive email on registraions
+
+            uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
+            domain = get_current_site(request).domain
+            link = reverse('activate', kwargs={
+                'uidb64': uidb64, 'token': account_activation_token.make_token(user)
+            })
+            activate_url = 'https://' + domain + link
+
             subject = 'Account Registration'
-            message = 'Test Email'
+            message = 'Hello ' + username + ', please clink on the link to verify your account ' + activate_url
             recipient = form.cleaned_data.get('email')
             send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
             user = form.save()
-            login(request, user)
+            # login(request, user)
             messages.success(request, "Registration successful.")
-            return redirect("home")
+            return redirect("login")
         # messages.error(request, "Unsuccessful registration. Invalid information.")
     else:
         print('invalid')
@@ -207,6 +225,35 @@ def login_request(request):
             messages.error(request, 'Invalid username or password')
     form = AuthenticationForm()
     return render(request=request, template_name='registration/login.html', context={"form": form})
+
+
+class Verification(View):
+    """
+    Send verification email with a link
+    When user clicks on the link, their account will 
+    be activated
+    """
+    def get(self, request, uidb64, token):
+        
+        try:
+            id = force_text(urlsafe_base64_decode(uidb64))
+            user = User.objects.get(pk=id)
+
+            if not account_activation_token.check_token(user, token):
+                return redirect('login'+'?message='+'User already activated')
+
+            if user.is_active:
+                return redirect('login')
+            user.is_active = True
+            user.save()
+
+            messages.success(request, 'Account activated succesfully')
+            return redirect('login')
+
+        except Exception as ex:
+            pass
+
+        return redirect('login')
 
 
 def logout_request(request):
