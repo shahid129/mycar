@@ -26,7 +26,7 @@
                 <div class="carousel-inner">
                     {{ formset.management_form }}
                     {% for image in images  %}
-                    <div class="carousel-item active ">
+                    <div class="carousel-item ">
                         <img src="{{ image.images.url }}" class="d-block img-fluid rounded w-100" alt="Image of a car">
                     </div>
                     {% endfor %}

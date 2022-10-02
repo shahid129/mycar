@@ -70,6 +70,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # content security policy
+    # 'csp.middleware.CSPMiddleware',
 ]
 
 ROOT_URLCONF = 'mycar.urls'
@@ -169,3 +171,29 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
     DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+
+# Content security policy (CSP)
+# CSP_DEFAULT_SRC = ["'none'"]
+# CSP_IMG_SRC = ['res.cloudinary.com']
+# CSP_SCRIPT_SRC = [
+#     "'self'",
+#     "https://stackpath.bootstrapcdn.com",
+#     "https://cdn.jsdelivr.net",
+#     "https://code.jquery.com",
+# ]
+# CSP_FONT_SRC = ("'self'", 'fonts.googleapis.com')
+# CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com',)
+
+# CSP_STYLE_SRC = (
+#     "'self'", 'fonts.googleapis.com',
+#     'https://stackpath.bootstrapcdn.com',
+#     'https://cdnjs.cloudflare.co',
+#     'res.cloudinary.com',
+#     'https://kit.fontawesome.com',
+#     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome',
+#     'https://cdn.jsdelivr.net',
+#     'https://fontawesome.com/',
+#     'https://kit.fontawesome.com',
+#     'https://cdnjs.cloudflare.com',
+#     'https://stackpath.bootstrapcdn.com',
+#     )

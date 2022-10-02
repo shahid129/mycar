@@ -8,7 +8,7 @@
 <div class="contaner-fluid">
     <div class="row">
         {% for post in object_list %}
-        <div class="card m-1 " style="width: 23rem;">
+        <div class="card m-1 main-card">
             <!-- Image URl which directs to post details -->
             <a href="{% url 'post_detail' post.slug %}">
                 <img src=" {{ post.image.url }}" class="img-fluid main-image rounded image-hover" alt="">
