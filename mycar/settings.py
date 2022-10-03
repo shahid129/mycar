@@ -28,7 +28,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -180,20 +180,12 @@ else:
 #     "https://stackpath.bootstrapcdn.com",
 #     "https://cdn.jsdelivr.net",
 #     "https://code.jquery.com",
+#     'unsafe-inline' 'https://kit.fontawesome.com'
 # ]
-# CSP_FONT_SRC = ("'self'", 'fonts.googleapis.com')
-# CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com',)
+# CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
 
 # CSP_STYLE_SRC = (
 #     "'self'", 'fonts.googleapis.com',
-#     'https://stackpath.bootstrapcdn.com',
-#     'https://cdnjs.cloudflare.co',
-#     'res.cloudinary.com',
-#     'https://kit.fontawesome.com',
-#     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome',
+#     'https://www.bootstrapcdn.com',
 #     'https://cdn.jsdelivr.net',
-#     'https://fontawesome.com/',
-#     'https://kit.fontawesome.com',
-#     'https://cdnjs.cloudflare.com',
-#     'https://stackpath.bootstrapcdn.com',
 #     )

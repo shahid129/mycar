@@ -13,6 +13,6 @@ urlpatterns = [
     path('like/<slug:slug>/', views.PostAdLike.as_view(), name='post_like'),
     path("search_car", views.search_car, name="search_car"),  # link to search car page
     path('<slug:slug>/', views.search_car, name='search_car'),  # link to searcher car
-    path('activate/<uidb64>/<token>', views.Verification.as_view(), name='activate')
-
+    path('activate/<uidb64>/<token>', views.Verification.as_view(), name='activate'),
+    path('about', views.about, name='about'),
 ]

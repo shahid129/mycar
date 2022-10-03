@@ -296,4 +296,6 @@ def search_car(request):
     else:
         return render(request, "search_car.html")
 
-
+def about(request):
+    
+    return render(request, 'about.html')
