@@ -31,3 +31,13 @@ $(".contact").hover(function(){
     // $(".show-privacy").slideUp(1000);
     // $(".show-mission").slideUp(1000);
 })
+
+
+$(".brand-name").hover(function(){
+    $(".my").css("color", "black");
+    $(".mycar").css("color", "#D9391E");
+},
+    function(){
+        $(".my").css("color", "#D9391E");
+    $(".mycar").css("color", "black");
+    })

@@ -10,8 +10,8 @@
         {% for postad in postads %}
         <div class="card m-3 " style="width: 13rem;">
             <!-- Image URl -->
-            <a class="list-group-item list-group-item-action rounded " href="{% url 'post_detail' postad.slug %}"> <h5>{{ postad | title }}</h5>
-                <img src=" {{ postad.image.url }}" class="img-fluid rounded image-hover" alt="">
+            <a class="list-group-item list-group-item-action rounded " href="{% url 'post_detail' postad.slug %}"> <h5 class="text-justify car-title">{{ postad | title }}</h5>
+                <img src=" {{ postad.image.url }}" class="img-fluid rounded image-hover" alt="Image of a car">
             </a>
         </div>
 

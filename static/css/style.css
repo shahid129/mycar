@@ -15,7 +15,7 @@ h1, h2, h3, h5 {
 }
 
 .nav-link:hover {
-    color: black;
+    color:black;
 }
 
 .brand-name {
@@ -23,9 +23,11 @@ h1, h2, h3, h5 {
     font-family: lato;
 }
 
-.active {
+/* .active {
     text-decoration: underline;
-}
+    text-underline-offset: 12px;
+    text-decoration-color: #D9391E;
+} */
 
 
 .fa-car,
@@ -33,7 +35,7 @@ h1, h2, h3, h5 {
 .fa-key,
 .fa-edit,
 .fa-car-side {
-    color: lightseagreen;
+    color: #D9391E;
 }
 
 .fa-car:hover,
@@ -50,8 +52,49 @@ h1, h2, h3, h5 {
     /* font-family: Maven Pro; */
 }
 
+.my {
+    color: #D9391E;
+}
+
+.nav-link {
+    color: black;
+    position: relative;
+    text-decoration: none;
+  }
+  
+.nav-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    background-color: #D9391E;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s 
+  }
+  
+.nav-link:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+.active {
+    text-decoration: underline 0.05em;
+    /* text-decoration-thickness: 2px; */
+    text-underline-offset: 12px;
+    text-decoration-color: #D9391E;
+}
+
 .btn:hover {
     background-color:  lightseagreen;
+}
+
+.nav-line {
+    color: #D9391E;
+    font-weight: bolder;
 }
 
 /* Footer */
@@ -90,7 +133,7 @@ h1, h2, h3, h5 {
     transform: scale(1.03);
 }
 
-.current {
+/* .current {
     border: 1px solid #198754;
     padding: 7px;
     border-radius: 5px;
@@ -99,13 +142,21 @@ h1, h2, h3, h5 {
     margin-right: 8px;
     color: white;
     background-color: lightseagreen;
-}
+} */
 
 .main-image {
     max-width: 100%;
     height: 250px;
     width: 400px;
     object-fit: cover;
+}
+
+.car-title {
+    /* margin-bottom: var(--bs-card-title-spacer-y); */
+    /* border-bottom: 2px solid red; */
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-color: #D9391E;
 }
 /* post_detail.html */
 
@@ -189,7 +240,7 @@ h1, h2, h3, h5 {
 } */
 
 hr.red {
-    width: 15%;
+    width: 5%;
     margin: auto;
     border: 2px solid #D9391E;
     opacity: 1;

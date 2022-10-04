@@ -6,15 +6,15 @@
 {% endfor %}
 
 <div class="contaner-fluid">
-    <div class="row">
+    <div class="row justify-content-center">
         {% for post in object_list %}
-        <div class="card m-1 main-card">
+        <div class="card m-1 mb-3 main-card shadow">
             <!-- Image URl which directs to post details -->
             <a href="{% url 'post_detail' post.slug %}">
-                <img src=" {{ post.image.url }}" class="img-fluid main-image rounded image-hover" alt="">
+                <img src=" {{ post.image.url }}" class="img-fluid main-image rounded image-hover" alt="Image of a car">
             </a>
             <div class="card-body">
-                <h5 class="card-title ">{{ post.title | title }}</h5>
+                <h5 class="card-title car-title">{{ post.title | title }}</h5>
                 <p class="card-text"> Price: €{{ post.price }}</p>
                 <p class="card-text"> Added on: {{ post.created_on }}</p>
                 <hr>
@@ -56,12 +56,13 @@
                 <!-- <hr /> -->
             </div>
         </div>
+        <br>
 
-        {% if forloop.counter|divisibleby:3%}
+        <!-- {% if forloop.counter|divisibleby:3%}
             </div>
             <br>
             <div class="row">
-        {% endif %}
+        {% endif %} -->
 
 
         {% endfor %}
