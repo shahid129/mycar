@@ -4,8 +4,9 @@
 {% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
-<div class="container col-md-8 card p-5 title">
-    <h2>Let's add your car <i class="fas fa-car-side"></i></h2>
+<div class="container col-md-8 card p-5">
+    <h5 class="text-center">Let's add your car</h5>
+    <hr class="red">
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -14,7 +15,7 @@
         {{ formset | crispy}}
         
         <br>
-        <input type="submit" class="btn btn-outline-success button">
+        <input type="submit" class="btn btn-outline-success button ">
     </form>
 </div>
 

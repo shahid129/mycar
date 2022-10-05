@@ -7,9 +7,9 @@
 
     <div class="row g-0">
         <div class="col-md-6 masthead-text">
-            <h1 class="post-title">
+            <h3 class="post-title">
                 {{ post.title | capfirst }}
-            </h1>
+            </h3>
             <p class=""> {{ post.author | capfirst}} | {{ post.created_on}} </p>
         </div>
         <div>
@@ -77,12 +77,14 @@
         <hr>
 
         <div class="container mt-3">
-            <h3>Key Info</h3>
+            <h5>Key Info</h5>
+            <hr class="red-left">
             <p>Year: {{post.year}}</p>
             <p>Road Tax: {{post.tax}}</p>
             <p>NCT Expiry: {{post.nct}}</p>
             <br>
-            <h3>Detailed Info</h3>
+            <h5>Detailed Info</h5>
+            <hr class="red-left">
             <p class="text-justify">{{ post.description }}</p>
 
         </div>
@@ -91,7 +93,7 @@
     <!-- Comment Section -->
     <div class="row ">
         <div class="col-md-7 card mb-4 me-5  mt-3">
-            <h3 class="container mt-3">Comments</h3>
+            <h5 class="container mt-3">Comments</h5>
             <div class="card-body overflow-auto">
                 {% for comment in comments %}
                 <div class="overflow-auto">
@@ -115,7 +117,7 @@
                 {% else %}
                 {% if user.is_authenticated %}
 
-                <h3>Leave a comment:</h3>
+                <h5>Leave a comment:</h5>
                 <p>Posting as: {{ user.username }}</p>
 
                 <!-- comment Form -->

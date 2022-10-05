@@ -4,8 +4,9 @@
 {% load crispy_forms_tags %}
 
 
-<div class="container col-md-8 card p-5 title">
-    <h2> Update <i class="fas fa-edit"></i></h2>
+<div class="container col-md-8 card p-5 mb-3">
+    <h5 class="text-center">Let's update your car</h5>
+    <hr class="red">
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form | crispy }}

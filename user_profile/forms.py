@@ -9,7 +9,7 @@ class UserProfileForms(forms.ModelForm):
     """
     first_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'First Name'}), label='')
     last_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Last Name'}), label='')
-    email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Email'}), label='')
+    email = forms.CharField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}), label='')
     date_of_birth = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Date of birth', 'type': 'date'}), label='')
     phone = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Phone'}), label='')
     image = forms.ImageField(widget=forms.FileInput(attrs={'id': 'customFile'}), label='')

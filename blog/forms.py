@@ -16,9 +16,9 @@ class PostForm(forms.ModelForm):
     title = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Car Name'}), label='')                
     price = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Price in Euro'}), label='')
     description = forms.CharField(widget=forms.Textarea(attrs={'class': 'register_form', 'placeholder': 'Details about car', 'style': 'height: 10em;'}), label='')
-    year = forms.DateField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Model Year', 'type': 'date'}), label='Model Year')
-    nct = forms.DateField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'NCT Expiry', 'type': 'date'}), label='NCT Expiry')
-    tax = forms.DateField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Tax Expiry', 'type': 'date'}), label='Tax Expiry')
+    year = forms.DateField(widget=forms.DateInput(attrs={'class': 'register_form', 'placeholder': 'Model Year', 'type': 'date'}), label='Model Year')
+    nct = forms.DateField(widget=forms.DateInput(attrs={'class': 'register_form', 'placeholder': 'NCT Expiry', 'type': 'date'}), label='NCT Expiry')
+    tax = forms.DateField(widget=forms.DateInput(attrs={'class': 'register_form', 'placeholder': 'Tax Expiry', 'type': 'date'}), label='Tax Expiry')
     image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control register_form', 'id': 'customFile'}), label='')
     
 
@@ -45,7 +45,7 @@ class NewUserForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'User Name'}), label='')
-    email = forms.CharField(widget=forms.TextInput(attrs={'class': 'register_form', 'placeholder': 'Email'}), label='')
+    email = forms.CharField(widget=forms.EmailInput(attrs={'class': 'register_form', 'placeholder': 'Email'}), label='')
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'register_form', 'placeholder': 'Password'}), label='')
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'register_form', 'placeholder': 'Confirm'}), label='')
 

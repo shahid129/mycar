@@ -1,25 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container col-md-9 p-5">
+<div class="container col-md-9">
     {% if searched %}
-    <h2>You searched for {{searched}}</h2>
+    <h3 class="text-center">Serch Results</h3>
+    <hr class="red">
     <br>
-    <p>We found {{ postads.count }} cars in our records.</p>
-    <div class="row">
+    <p class="text-center">We found {{ postads.count }} cars in our records.</p>
+    <p class="text-center"> You searched for {{searched}}</p>
+    <div class="row justify-content-center">
         {% for postad in postads %}
-        <div class="card m-3 " style="width: 13rem;">
+        <div class="card col-md-3 m-3 " style="width: 13rem;">
             <!-- Image URl -->
             <a class="list-group-item list-group-item-action rounded " href="{% url 'post_detail' postad.slug %}"> <h5 class="text-justify car-title">{{ postad | title }}</h5>
                 <img src=" {{ postad.image.url }}" class="img-fluid rounded image-hover" alt="Image of a car">
             </a>
         </div>
 
-        {% if forloop.counter|divisibleby:3%}
+        <!-- {% if forloop.counter|divisibleby:3%}
             </div>
             <br>
             <div class="row">
-        {% endif %}
+        {% endif %} -->
 
         {% endfor %}
     </div>
