@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
-<div class="container col-md-8 card p-5">
+<div class="container col-md-8 mb-3 p-5 rounded shadow">
     <h5 class="text-center">Let's add your car</h5>
     <hr class="red">
 
@@ -20,7 +20,7 @@
 </div>
 
 {% else %}
-    <div class="container col-md-7 card p-5 title">
+    <div class="container col-md-7 rounded shadow p-5 ">
         <p>Please login or create an account to make a new post.</p>
         <p> If you are a registered user please,
             <span><a class="btn btn-outline-success button" href="{% url 'login' %}">login</a></span>

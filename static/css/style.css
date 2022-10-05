@@ -32,19 +32,19 @@ h1, h2, h3, h5 {
 
 .fa-car,
 .fa-handshake,
-.fa-key,
+.fa-sign-in-alt,
 .fa-edit,
 .fa-car-side {
     color: #D9391E;
 }
 
-.fa-car:hover,
+/* .fa-car:hover,
 .fa-handshake:hover,
 .fa-key:hover,
 .fa-edit:hover,
 .fa-car-side:hover {
     color: rgb(15, 127, 121);
-}
+} */
 
 .mycar {
     font-weight: 900;
@@ -87,7 +87,7 @@ h1, h2, h3, h5 {
     text-decoration-color: #D9391E;
 } */
 
-.active:after {
+.active-link-dot:after {
     content: '';
     position: absolute;
     height: 5px;

@@ -41,14 +41,15 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link {% active_link 'home' 'active' %}" aria-current="page" href="{% url 'home' %}">Home <span class="nav-line"> |</span></a>
+                    <li class="nav-item ">
+                        <!-- active_link was not working, hence request.resolver_match.view_name  used instead  -->
+                        <a class="nav-link {% if request.resolver_match.view_name == 'home' %}active-link-dot{% endif %}" aria-current="page" href="{% url 'home' %}">Home <span class="nav-line"> |</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% active_link 'post_your_add' 'active' %}" aria-current="page" href="{% url 'post_your_add' %}" >Post Your Ad <span class="nav-line"> |</span></a>
+                        <a class="nav-link {% active_link 'post_your_add' 'active-link-dot' %}" aria-current="page" href="{% url 'post_your_add' %}" >Post Your Ad <span class="nav-line"> |</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% active_link 'about' 'active' %}" aria-current="page" href="{% url 'about' %}">About  <span class="nav-line"> |</span></a>
+                        <a class="nav-link {% active_link 'about' 'active-link-dot' %}" aria-current="page" href="{% url 'about' %}">About  <span class="nav-line"> |</span></a>
                     </li>
                     {% if user.is_authenticated %}
 
@@ -56,15 +57,15 @@
                         <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Logout  <span class="nav-line"> |</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% active_link 'user_profile' 'active' %}" aria-current="page" href="{% url 'user_profile' %}">
+                        <a class="nav-link {% active_link 'user_profile' 'active-link-dot' %}" aria-current="page" href="{% url 'user_profile' %}">
                             {{ user.username | title }}'s Profile <span class="nav-line"> |</span></a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% active_link 'login' 'active' %}" aria-current="page" href="{% url 'login' %}">Login  <span class="nav-line"> |</span></a>
+                        <a class="nav-link {% active_link 'login' 'active-link-dot' %}" aria-current="page" href="{% url 'login' %}">Login  <span class="nav-line"> |</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% active_link 'register' 'active' %}" aria-current="page" href="{% url 'register' %}">Register  <span class="nav-line"> |</span> </a>
+                        <a class="nav-link {% active_link 'register' 'active-link-dot' %}" aria-current="page" href="{% url 'register' %}">Register  <span class="nav-line"> |</span> </a>
                     </li>
                     {% endif %}
                     <form class="d-flex " role="search" method="POST", action="{% url 'search_car' %}">
