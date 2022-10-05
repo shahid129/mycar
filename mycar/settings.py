@@ -28,7 +28,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -174,40 +174,3 @@ else:
 
 
 # Content security policy (CSP)
-CSP_DEFAULT_SRC = ["'none'"]
-CSP_IMG_SRC = [
-    'res.cloudinary.com',
-    'data:',
-]
-
-CSP_SCRIPT_SRC = [
-    'strict-dynamic',
-    "'self' 'sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx'", 'https://stackpath.bootstrapcdn.com',
-    'https://cdn.jsdelivr.net',
-    "https://code.jquery.com",
-    'https://kit.fontawesome.com'
-]
-
-CSP_INCLUDE_NONCE_IN = ['script-src']
-
-CSP_STYLE_SRC = [
-    'https://fonts.googleapis.com',
-    "'self'", 'https://www.bootstrapcdn.com',
-    'https://cdn.jsdelivr.net',
-    'https://cdnjs.cloudflare.com',
-]
-
-CSP_FONT_SRC = [
-    'https://fonts.gstatic.com',
-    'https://cdnjs.cloudflare.com',
-    'https://ka-f.fontawesome',
-    'https://kit.fontawesome.com',
-]
-
-CSP_CONNECT_SRC = [
-    'https://ka-f.fontawesome.com',
-]
-
-CSP_OBJECT_SRC = [
-    "'none'"
-]
