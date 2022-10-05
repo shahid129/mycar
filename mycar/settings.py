@@ -71,7 +71,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # content security policy
-    # 'csp.middleware.CSPMiddleware',
+    'csp.middleware.CSPMiddleware',
 ]
 
 ROOT_URLCONF = 'mycar.urls'
@@ -172,20 +172,42 @@ else:
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
     DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
 
-# Content security policy (CSP)
-# CSP_DEFAULT_SRC = ["'none'"]
-# CSP_IMG_SRC = ['res.cloudinary.com']
-# CSP_SCRIPT_SRC = [
-#     "'self'",
-#     "https://stackpath.bootstrapcdn.com",
-#     "https://cdn.jsdelivr.net",
-#     "https://code.jquery.com",
-#     'unsafe-inline' 'https://kit.fontawesome.com'
-# ]
-# CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
 
-# CSP_STYLE_SRC = (
-#     "'self'", 'fonts.googleapis.com',
-#     'https://www.bootstrapcdn.com',
-#     'https://cdn.jsdelivr.net',
-#     )
+# Content security policy (CSP)
+CSP_DEFAULT_SRC = ["'none'"]
+CSP_IMG_SRC = [
+    'res.cloudinary.com',
+    'data:',
+]
+
+CSP_SCRIPT_SRC = [
+    'strict-dynamic',
+    "'self' 'sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx'", 'https://stackpath.bootstrapcdn.com',
+    "'sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa'", 'https://cdn.jsdelivr.net',
+    "https://code.jquery.com",
+    'https://kit.fontawesome.com'
+]
+
+CSP_INCLUDE_NONCE_IN = ['script-src']
+
+CSP_STYLE_SRC = [
+    "'unsafe-inline'", 'https://fonts.googleapis.com',
+    "'self'", 'https://www.bootstrapcdn.com',
+    'https://cdn.jsdelivr.net',
+    'https://cdnjs.cloudflare.com',
+]
+
+CSP_FONT_SRC = [
+    'https://fonts.gstatic.com',
+    'https://cdnjs.cloudflare.com',
+    'https://ka-f.fontawesome',
+    'https://kit.fontawesome.com',
+]
+
+CSP_CONNECT_SRC = [
+    'https://ka-f.fontawesome.com',
+]
+
+CSP_OBJECT_SRC = [
+    "'none'"
+]

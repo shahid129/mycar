@@ -81,12 +81,23 @@ h1, h2, h3, h5 {
     transform: scaleX(1);
   }
   
-.active {
+/* .active {
     text-decoration: underline 0.05em;
-    /* text-decoration-thickness: 2px; */
     text-underline-offset: 12px;
     text-decoration-color: #D9391E;
-}
+} */
+
+.active:after {
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    left: 40%;
+    /* display: block; */
+    background-color: #D9391E;
+    bottom: -2px;
+  }
 
 .btn:hover {
     background-color:  lightseagreen;
@@ -247,6 +258,18 @@ hr.red {
 }
 
 /* Media Queries */
+@media only screen and (max-width: 991px) {
+    .nav-line {
+        display: none;
+    }
+    .active:after {
+        left: 3%;
+    }
+    .nav-link::before {
+        width: 12%;
+    }
+  }
+
 @media only screen and (min-width: 780px) {
     .image-width {
         width: 80%;
