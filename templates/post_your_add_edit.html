@@ -3,6 +3,9 @@
 
 {% load crispy_forms_tags %}
 
+{% for message in messages %}
+    <div id="msg" class="alert alert-danger">{{message}}</div>
+{% endfor %}
 
 <div class="container col-md-8 card p-5 mb-3">
     <h5 class="text-center">Let's update your car</h5>

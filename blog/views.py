@@ -142,7 +142,11 @@ def post_your_add_edit(request, post_id):
         form = PostForm(request.POST, request.FILES, instance=item)
         if form.is_valid() and formset.is_valid():
             form.save()
+            messages.success(request, 'Updated successfully.')
             return redirect('home')
+        else:
+            messages.info(request, 'Invalid Information')
+
     form = PostForm(instance=item)
     context = {
         'form': form,
@@ -154,6 +158,8 @@ def post_your_add_edit(request, post_id):
 def post_your_add_delete(request, post_id):
     item = get_object_or_404(PostAd, id=post_id)
     item.delete()
+    messages.info(request, 'Deleted Succesfully')
+
     return redirect('home')
 
 

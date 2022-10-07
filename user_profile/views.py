@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForms
 
@@ -31,6 +32,7 @@ def edit_user_profile(request, username):
         if form.is_valid():
             print('valid')  # Check if form is valid
             form.save()
+            messages.info(request, 'Profile updated successfully.')
             return redirect('user_profile')
         else:
             print('not posting')

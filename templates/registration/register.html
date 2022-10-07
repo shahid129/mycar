@@ -3,6 +3,10 @@
 
 {% load crispy_forms_tags %}
 
+{% for message in messages %}
+    	<div id="msg" class="alert alert-info">{{message}}</div>
+{% endfor %}
+
 <div class="container col-md-6 p-5 mb-3 rounded shadow ">
 	<h3>Register  <i class="fas fa-handshake"></i></h3>
     <p>To post your addvertisement, comment or like please Register.</p>
@@ -16,10 +20,6 @@
 	<br>
 	<p>Already have an account?</p> 
 	<a class="btn btn-outline-success button" href="{% url 'login' %}">login</a>
-
-	{% for message in messages %}
-    	<div id="msg" class="alert alert-info">{{message}}</div>
-	{% endfor %}
 </div>
 
 {% endblock content%}

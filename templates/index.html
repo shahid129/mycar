@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+
+{% for message in messages %}
+    <div id="msg" class="alert alert-info">{{message}}</div>
+{% endfor %}
+
 <div class="hero-image">
     <img class="img-fluid" src="https://res.cloudinary.com/shahid129/image/upload/v1665095656/static/images/rsz_2hero-image_h3jdqq.jpg" alt="">
     <div class="container hero-text">
@@ -8,10 +13,6 @@
         </h2>
     </div>
 </div>
-
-{% for message in messages %}
-    <div id="msg" class="alert alert-info">{{message}}</div>
-{% endfor %}
 
 <div class="contaner-fluid">
     <div class="row justify-content-center">
