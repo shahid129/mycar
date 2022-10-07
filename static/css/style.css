@@ -136,6 +136,46 @@ h1, h2, h3, h5 {
 
 
 /* index.html */
+
+.hero-image {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.hero-image img {
+    height: auto;
+}
+
+/* opacity for image not text */
+.hero-image:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+/* .hero-image:hover {
+    opacity: .5;
+    transition: 2s;
+} */
+
+.hero-text {
+    width: inherit;
+    position: absolute;
+    top: 20%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    border-bottom: 3px solid #D9391E;
+    border-left: 3px solid #D9391E;
+    /* 30% less border on top left */
+    border-image: linear-gradient(to top, #D9391E 30%, rgba(0,0,0,0) 70%);
+    border-image-slice: 2;
+    color: white;
+}
+
 .image-hover {
     transition: transform .5s ease-in-out;
 }
@@ -237,7 +277,7 @@ h1, h2, h3, h5 {
 /* About page */
 
 .set-height {
-    min-height: 450px;
+    min-height: 480px;
 }
 .opacity:hover {
     opacity: 85%;
@@ -264,12 +304,12 @@ hr.red {
     opacity: 1;
 }
 
-/* Media Queries */
+/* --------- Media Queries --------- */
 @media only screen and (max-width: 991px) {
     .nav-line {
         display: none;
     }
-    .active:after {
+    .active-link-dot:after {
         left: 3%;
     }
     .nav-link::before {
@@ -287,4 +327,16 @@ hr.red {
 
 .main-card {
     width: 23rem;
+}
+/* hero image text */
+@media only screen and (max-width: 537px) {
+    .hero-text {
+        top: 50%;
+        left: 50%; 
+    }
+}
+
+@media only screen and (max-width: 254px) {
+    .hero-text {
+        display: none;
 }
