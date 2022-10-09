@@ -37,3 +37,18 @@ $(".brand-name").hover(function () {
         $(".my").css("color", "#D9391E");
         $(".mycar").css("color", "black");
     })
+
+// Burger menu hide and toggle
+
+$("#navbar-toggler-icon-2").hide();
+let click = 0;
+$(".navbar-toggler").click(function(){
+    if (click % 2 == 0){
+        $("#navbar-toggler-icon-2").fadeIn(500);
+        $("#navbar-toggler-icon").hide();
+    } else {
+        $("#navbar-toggler-icon").fadeIn(500);
+        $("#navbar-toggler-icon-2").hide();
+    }
+    click++;
+});
