@@ -185,26 +185,25 @@ h1, h2, h3, h5 {
 
 #view-cars {
     position:absolute;
+    padding: 12px;
     top: 35%;
     left: 50%;
+    background-color: rgba(217, 57, 30, 1);
+    border: none;
     transform: translate(-50%, -50%);
-    border-bottom: 3px solid #D9391E;
-    border-left: 3px solid #D9391E;
-    border-right: 0;
-    /* 10% less border on top left */
-    border-image: linear-gradient(to top, #D9391E 30%, rgba(0,0,0,0) 80%);
-    border-image-slice: 2;
     color: white;
-    font-size: 1.5em;
+    font-size: 1rem;
 }
 
 #view-cars:hover{
-    border-image: none;
+    background-color: white;
+    color: #D9391E;
 }
 
-.hero-image .btn:hover{
+/* .hero-image .btn:hover{
     background-color: rgba(217, 57, 30, 1);
-}
+    
+} */
 
 .image-hover {
     transition: transform .5s ease-in-out;
