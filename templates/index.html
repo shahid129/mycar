@@ -6,14 +6,20 @@
 {% endfor %}
 
 <div class="hero-image">
-    <img class="img-fluid" src="https://res.cloudinary.com/shahid129/image/upload/v1665095656/static/images/rsz_2hero-image_h3jdqq.jpg" alt="">
+    <img class="img-fluid" src="https://res.cloudinary.com/shahid129/image/upload/v1665415751/static/images/hero-image_xfimn7.jpg" alt="">
     <div class="container hero-text">
         <h2>
             Find Your Perfact Car
         </h2>
     </div>
+    <button class="btn " id="view-cars">
+        View Cars <i class="fas fa-arrow-down"></i>
+    </button>
 </div>
 
+<h2 class="text-center">Our Latest Cars</h2>
+<hr class="red">
+<br>
 <div class="contaner-fluid">
     <div class="row justify-content-center">
         {% for post in object_list %}

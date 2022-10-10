@@ -52,3 +52,12 @@ $(".navbar-toggler").click(function(){
     }
     click++;
 });
+
+
+// View car button
+
+$("#view-cars").click(function() {
+    $('html, body').animate({
+        scrollTop: $(".contaner-fluid").offset().top
+    }, 20);
+});

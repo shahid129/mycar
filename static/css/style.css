@@ -144,7 +144,7 @@ h1, h2, h3, h5 {
 
 .hero-image {
     position: relative;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 .hero-image img {
@@ -179,6 +179,31 @@ h1, h2, h3, h5 {
     border-image: linear-gradient(to top, #D9391E 30%, rgba(0,0,0,0) 70%);
     border-image-slice: 2;
     color: white;
+}
+
+/* view car button positioning */
+
+#view-cars {
+    position:absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-bottom: 3px solid #D9391E;
+    border-left: 3px solid #D9391E;
+    border-right: 0;
+    /* 10% less border on top left */
+    border-image: linear-gradient(to top, #D9391E 30%, rgba(0,0,0,0) 80%);
+    border-image-slice: 2;
+    color: white;
+    font-size: 1.5em;
+}
+
+#view-cars:hover{
+    border-image: none;
+}
+
+.hero-image .btn:hover{
+    background-color: rgba(217, 57, 30, 1);
 }
 
 .image-hover {
@@ -329,19 +354,22 @@ hr.red {
     }
   }
   
-
 .main-card {
     width: 23rem;
 }
+
 /* hero image text */
-@media only screen and (max-width: 537px) {
+@media only screen and (max-width: 555px) {
     .hero-text {
+        width: 51%;
+    }
+    #view-cars {
         top: 50%;
-        left: 50%; 
     }
 }
 
-@media only screen and (max-width: 254px) {
+@media only screen and (max-width: 327px) {
     .hero-text {
         display: none;
+    }
 }
