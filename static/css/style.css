@@ -196,8 +196,9 @@ h1, h2, h3, h5 {
 }
 
 #view-cars:hover{
-    background-color: white;
-    color: #D9391E;
+    /* background-color: white;
+    color: #D9391E; */
+    background-color: rgba(217, 57, 30, .85);
 }
 
 /* .hero-image .btn:hover{
