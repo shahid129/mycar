@@ -71,6 +71,73 @@ There are 18 user stories.
 
 
 ## Design
+The design of the website was made using balsamic wireframes. Each page was created with ideas from the frameworks. Three images are displayed in each wireframe, first one is a laptop, the middle one is a tablet and the last one is a phone.
+- Home
+
+![Home](https://res.cloudinary.com/shahid129/image/upload/v1665688036/static/wireframes/home_utbee6.jpg)
+
+
+- Post Your Add
+
+![Post Your Add](https://res.cloudinary.com/shahid129/image/upload/v1665689144/static/wireframes/post-your-add_edit-post_fg8vga.jpg)
+
+- Post Your Add (Unregistered or not logged in user)
+
+![Post Your Add](https://res.cloudinary.com/shahid129/image/upload/v1665688774/static/wireframes/post-your-add-unregistered-user_xqql98.jpg)
+
+- About
+
+![About](https://res.cloudinary.com/shahid129/image/upload/v1665688036/static/wireframes/about_xprjvo.jpg)
+
+- Login 
+
+![Login](https://res.cloudinary.com/shahid129/image/upload/v1665688036/static/wireframes/login_ipbb4a.jpg)
+
+- Register
+
+![Register](https://res.cloudinary.com/shahid129/image/upload/v1665688036/static/wireframes/register_ogirhx.jpg)
+
+- User Profile
+
+![User Profile](https://res.cloudinary.com/shahid129/image/upload/v1665688036/static/wireframes/user-profile_v1ztor.jpg)
+
+### Color
+To maintain the contrast between the foreground and the background of the website, only a few colors were used throughout the page. 
+
+### Main Colors
+
+![main colors](https://res.cloudinary.com/shahid129/image/upload/v1665690491/static/wireframes/main-colors_gfirw3.png)
+
+- #D9391E was used for the logo and mainly hr and underline color to focus on the background and foreground color
+
+- #198754 was used on forms, buttons and hover effects
+
+- #FFFFFF was used for background 
+
+- #000000 was used for text
+
+### Footer colors
+
+![footer colors](https://res.cloudinary.com/shahid129/image/upload/v1665690491/static/wireframes/footer_colors_e8lg2t.png)
+
+- #3B5998 for Facebook background
+
+- #55ACEE for Twitter background
+
+- #DD4B39 for Google background
+
+- #0082CA for Linkedin background
+
+- #0082CA for Github background
+
+### Bootstrap  colors
+![bootstrap colors](https://res.cloudinary.com/shahid129/image/upload/v1665691421/static/wireframes/bootstrap_color_rlxabb.png)
+
+- #5BC0DE was used to provide info to the user
+
+- #D9534F was used to provide warning to the user
+
+
 ## Features
 ## Technology
 ## Deployment
