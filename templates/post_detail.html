@@ -98,17 +98,25 @@
     <div class="row ">
         <div class="col-md-7 card mb-4 me-5  mt-3">
             <h5 class="container mt-3">Comments</h5>
+            <div class="container">
+                {% if comments.count == 0  %}
+                    <p>Be the first one to comment.</p>
+                {% else %}
+                    <p>Total comments: {{ comments.count }}</p>
+                {% endif %}
+            </div>
             <div class="card-body overflow-auto">
                 {% for comment in comments %}
                 <div class="overflow-auto">
-                    <p class="font-weight-bold">
-                        {{ comment.name | capfirst }} commented
-                        <span class=" text-muted font-weight-normal">
+                    <p class="">
+                        {{ comment.name | capfirst }} commented on
+                        <span class=" text-muted">
                             {{ comment.created_on }}
                         </span> 
                     </p>
                     {{ comment.body | linebreaks }}
                 </div>
+                <hr>
                 {% endfor %}
             </div>
         </div>
