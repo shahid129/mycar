@@ -137,8 +137,87 @@ To maintain the contrast between the foreground and the background of the websit
 
 - #D9534F was used to provide warning to the user
 
+### Data Models
+There are four data models in this project. PostAd model, Customer Comment model, Images model and a User Profile model. User profile model is in a separate app inside the project. 
+
+- PostAd model
+
+![PostAd model](https://res.cloudinary.com/shahid129/image/upload/v1665750792/static/wireframes/model-post-ad_izkocl.png)
+
+- Customer Comment model
+
+![Customer Comment model](https://res.cloudinary.com/shahid129/image/upload/v1665750792/static/wireframes/model-customer-comment_wlitup.png)
+
+- Images model
+
+Images model was created because I wanted give the opportunity to the user to upload multiple images.
+
+![Images model](https://res.cloudinary.com/shahid129/image/upload/v1665750791/static/wireframes/model-images_xaniwl.png)
+
+-  User Profile model
+
+The user Profile model was created so that the user can have a profile of their own when they sign up for the website. I could have put the User Profile model in the same app, but I wanted to create a new app for the user model so that everything does not jumble up too much and looks cleaner.
+
+![ User Profile model](https://res.cloudinary.com/shahid129/image/upload/v1665750792/static/wireframes/model-user-profile_eaehps.png)
 
 ## Features
+The planning and execution of this project were a vital part of the project. You need to know exactly what you want to have in your project. The main objective of this project was to allow the users to have CRUD functionalities where they can post an ad, and edit and delete it. To allow them to have CRUD functionalities they needed to create an account. In addition to these some extra features have also been added to the project, like search cars and user profiles. This makes the website looks complete. The main pages of the websites are Home, Post Your Ad, About, Login, and Register. When the user logs in there is another option User's Profile.
+
+### Logo
+
+- The logo for the website is simply the name of the website "MyCar". The logo has a hover effect, when you hover on it the vermillion color of "Car" turns to balck and black color of "Car turns to vermillion. Jquery was used to enable this effect.
+![](https://res.cloudinary.com/shahid129/image/upload/v1665774682/static/documents/logo_k10jr3.png)
+
+### Nav Bar
+
+- The nav bar when user is not signed in.
+![](https://res.cloudinary.com/shahid129/image/upload/v1665775651/static/documents/nav-not-signed-in_rjqps6.png)
+
+
+- The nav bar changes when a user is signed in. A logout button replaces the login button and a user's profile button replaces the register button.
+![](https://res.cloudinary.com/shahid129/image/upload/v1665775651/static/documents/nav-signed-in_jwbcko.png)
+
+- Nav bar on small device 
+![](https://res.cloudinary.com/shahid129/image/upload/v1665776050/static/documents/nav-small-device-collapse_ds1zpj.png)
+
+- Nav bar on small device when it is clicked 
+![](https://res.cloudinary.com/shahid129/image/upload/v1665776050/static/documents/nav-small-device-open_mnlcwo.png)
+
+- There is also active status on the nav bar. A small vermillion dot appears under the name of the nav bar, which ensures the user which page they are on.
+
+### Home Page
+
+- Hero Image 
+    - Hero Image represents the purpose of the website showing car images with the heading Find Your Perfect Car. Opacity is added to the hero image to make the text clear out. The "View Car" button scrolls smoothly to the cars ad section. Anyone visiting the website can view cars.
+
+- Latest Cars
+
+    The pages are fully responsive, thus the layout of the page changes depending on user's device. Significant information about the car is available to see on the main page. A user can get the full details of a car by clicking on the image.
+
+    - Laptop View
+        
+        Six car ad is the maximum number that can appear on a page. Hence it is broken down to two lines of three.
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1665777741/static/documents/latest-car-laptop_jbl0kv.png)
+
+    - Tablet View
+
+        Posts appear in two columns on the tablet view
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1665777360/static/documents/latest-car-tablet_jqbz92.png)
+    
+    - Mobile View 
+
+        On a smaller device a single post appears.
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1665777359/static/documents/latest-car-mobile_pvdssm.png)
+
+
+    - Signed in user
+
+        When a user is signed in and has a post, the page recognises the user and his relevant ads, and gives him the option to "Edit" or "Delete" the post.
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1665777742/static/documents/latest_car_logged_in_ujfyhd.png)
+
+    ### Post Detail Page
+
 ## Technology
 ## Deployment
 ## Credits
