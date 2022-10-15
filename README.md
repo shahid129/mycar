@@ -216,8 +216,57 @@ The planning and execution of this project were a vital part of the project. You
         When a user is signed in and has a post, the page recognises the user and his relevant ads, and gives him the option to "Edit" or "Delete" the post.
         ![](https://res.cloudinary.com/shahid129/image/upload/v1665777742/static/documents/latest_car_logged_in_ujfyhd.png)
 
-    ### Post Detail Page
+### Post Detail Page
 
+- Image Carousel
+
+    Once the user clicks on an ad and goes to the post detail page, an image carousel appears with the images they uploaded when making the post. Three images are layered on top of each other using the bootstrap carousel.
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1665785729/static/documents/carosel_wdwz0c.png)
+
+- Like an Ad and Comment
+
+    Users can like and unlike a post. When users like a post the icon changes to vermillion showing number of likes 
+
+    The number of comments shows on the right of the comment icon.
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1665785828/static/documents/like-comment_nwsxfb.png)
+
+- Unlike an Ad and no comment
+    When there is no like on a post the like count shows zero with its base color lightseagreen
+
+    When there is no comment on a post the comment count shows zero with its base color lightseagreen
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1665785829/static/documents/no-likes-no-coment_vg40mn.png)
+
+- Key info and detail info
+
+    Three key facts about a car are represented by key info. The year indicates the year the car was manufactured. Road tax is the road tax's expiration date, and NCT expiry informs you of the NCT expiration date. (The terms used here are based in Ireland; they may vary in other nations.)
+
+    You can get more particular information by looking at detailed information. The car's official pages provide comprehensive information. For instance, information on Mercedes was obtained from the official Mercedes website.
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1665786270/static/documents/info_hlcv6a.png)
+
+- Comment
+
+    Django was used to create a couple of features in the comment section. If no comments have been made, the page displays "Be the first to comment." If there is a comment, the page displays the number of comments, the author's name, the date and time, and the comment.
+
+    - Without comment
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1665831407/static/documents/before-comment_zvnyqe.png)
+
+    - With comment 
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1665831407/static/documents/after-comment_s8ai1z.png)
+
+    To leave a comment on a post, the user must first create an account and be logged in. Unregistered users are not permitted to leave comments on posts.
+
+    - Not logged in users
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1665833844/static/documents/not-logged-in_afay5w.png)
+
+    - Users who are logged in can comment on a post. Additionally, when a user posts a comment, their name is displayed.: User's Name
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1665833844/static/documents/logged-in_uudgjg.png)
+
+    - Comment Approval
+    The user receives a pop-up notification after leaving a comment that reads, "Your comment is awaiting approval." This notifies the user that their remark was accepted while also retaining the admin's right to accept or reject a comment. This prevents other users from posting offensive comments on the page. Following admin approval, the comment appears in the comment section.
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1665834289/static/documents/comment-approval_hdfmyq.png)
 ## Technology
 ## Deployment
 ## Credits
