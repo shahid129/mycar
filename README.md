@@ -267,6 +267,41 @@ The planning and execution of this project were a vital part of the project. You
     - Comment Approval
     The user receives a pop-up notification after leaving a comment that reads, "Your comment is awaiting approval." This notifies the user that their remark was accepted while also retaining the admin's right to accept or reject a comment. This prevents other users from posting offensive comments on the page. Following admin approval, the comment appears in the comment section.
     ![](https://res.cloudinary.com/shahid129/image/upload/v1665834289/static/documents/comment-approval_hdfmyq.png)
+
+
+## Post Your Ad Page
+
+If a person is logged in, they can create a post to sell their car on the Post Your Ad page. If a user is not signed in, he will be prompted to create an account or, if he already has one, to log in.
+
+- User not logged in 
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1665836381/static/documents/post-ad-not-logged_l5wb6z.png)
+
+- Logged in user
+
+    Users must complete the form with all required fields (All fields are required). The first image is a profile of the car, while the other three are supplemental images.
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1665836380/static/documents/post-ad-logged-in_gkjlok.png)
+
+    - If the user provides incorrect information, feedback is provided to the user. In this situation, the user was intended to enter numbers rather than letters into the supplied field.
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1665836919/static/documents/post-ad-1_hddohi.png)
+
+    - If there is an empty field left on the form, the user gets a pop-up message to "Please fill in this field."
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1665837117/static/documents/post-ad-2_vnxo22.png)
+
+    - If an image field is left blank, the user is brought back to the image field, which is highlighted with a light sea green color.
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1665837479/static/documents/post-ad-3_hwjgpy.png)
+
+    - The user is not allowed to have a post title with the same name as one that already exists.
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1665837681/static/documents/post-ad-4_krrcya.png)
+
+    - When all fields are correctly filled out and the post is successful, the user is redirected to the home page with the message "Post was successful."
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1665838018/static/documents/post-successful_tbunmq.png)
+
 ## Technology
 ## Deployment
 ## Credits
