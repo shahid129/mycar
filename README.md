@@ -348,6 +348,48 @@ If a person is logged in, they can create a post to sell their car on the Post Y
 
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666037271/static/documents/search-result_swgfsa.png)
 
+- Login
+
+   - A user can log in by providing their name and password if they are already registered.
+Unregistered users can access the registration page by clicking the "register" button, which will take them there.
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666037876/static/documents/sign-in_f2gp4q.png)
+    
+    - After successfully logging in, the user is returned to the home page and is given the message "You are logged in as USERNAME."
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666038457/static/documents/login-successful_fii6yo.png)
+
+- Registration
+
+    - By entering their name, email address, and a password of their    choice, users can register for an account. They click the sign in   button to access the sign in page if they already have an account.
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666038233/static/documents/registration_inhbjf.png)
+    
+    - The user is taken back to the login page after registering successfully and is greeted with the message "Registration successful."
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666038764/static/documents/registration-successful_fov7ja.png)
+
+- Logout
+
+    The user is promptly logged out and returned to the home page after clicking the logout button, along with a message stating, "You have successfully logged out."
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666039021/static/documents/log-out_dhszbs.png)
+
+
+## FUTURE FEATURES
+The website is always being improved. There is always something interesting and novel to do. Despite the fact that my site may benefit from some more features to liven it up, some of them are listed below.
+
+- At the moment, only a user can CRUD and sell a car, but there is no option for buyers to purchase a car. In the future, a buyer can add an item to the basket and make a purchase with their credit card or cash in hand.
+
+- Payment with paypal can also be added in the future
+
+- No one can now message a seller about the car, but that option could be added in the future so that anyone who wants more information can do so.
+
+- There is no "forget password" option at the minute. Forgetting your password and resetting your password are very important for a well defined webpage. That feature is a must in the future.
+
+- The home page's vehicle advertisement might have a tiny pop-up button added to it. So, when a user clicks on it, a pop-up window displaying all the important details about the car.
+
+- Giving more flexibility to users by allowing them to edit their comments, At the same time, it will show the original comments and edited comments.
+
 
 ## Technology
 ## Deployment
