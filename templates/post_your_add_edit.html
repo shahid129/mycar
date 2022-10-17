@@ -12,14 +12,25 @@
     <hr class="red">
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
+        {{formset.management_form}}
         {{ form | crispy }}
-        {{ formset | crispy }}
+        {{ formset | crispy}}
         {% if user.is_authenticated %}
         <br>
         <input type="submit" class="btn btn-outline-success button" value="Update">
 
             <!-- <input type="submit" value="Delete"> -->
         {% endif %}
+<!-- 
+        {% for image in image_form_list %} 
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{ image }}
+                <input type="submit" class="btn btn-outline-success button" value="Update">
+            </form>
+        {% endfor %}
+         -->
     </form>
 </div>
 

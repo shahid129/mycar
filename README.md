@@ -302,6 +302,53 @@ If a person is logged in, they can create a post to sell their car on the Post Y
     - When all fields are correctly filled out and the post is successful, the user is redirected to the home page with the message "Post was successful."
         ![](https://res.cloudinary.com/shahid129/image/upload/v1665838018/static/documents/post-successful_tbunmq.png)
 
+## Post Your Ad Edit Page
+
+- Users that are logged in can only make changes to their ad. On their ad, an edit and delete button will appear, giving them the opportunity to either edit or delete their ad. When they click the edit button, the edit page with all of the formatting fields from their original post will appear.
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666033830/static/documents/Screenshot_2022-10-17_at_20.03.35_wu7u8p.png)
+
+- When the user hits "Update" after altering all of the details, the form updates itself along with the database and returns them to the home page. A message appears on the home page that says "Update Successful."
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666034059/static/documents/Screenshot_2022-10-17_at_20.11.26_hmutwa.png)
+
+## About Page
+
+- The About page contains information about the website and the company. Anyone who has internet connection is able to see this page. A brief overview of the company is followed by three important features of the company, namely Mission, Privacy, and Contact Us. 
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666034615/static/documents/about_wye2ow.png)
+
+- JQuery is used to add a hover effect to this page. When a user hovers their cursor over one of the primary aspects, the column softly expands out to show a description of it.
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666034712/static/documents/about-hover_yi7xf4.png)
+
+## User's Profile
+
+- Every time a user registers themselves, a user profile is created. They will have the chance to see their profile and alter any changes to their details after they have logged in. This is entirely up to the user and is optional. A user is also permitted to add their profile picture and certain essential data.
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666035697/static/documents/user-profile_edttpq.png)
+
+- Additionally, users can view their most recent login date and time.
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666035391/static/documents/profile-last-login_qvbajz.png)
+
+- A user can edit their profile and update anything they wish to. All fields are prepopulating from their original post
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666035925/static/documents/user-profile-edit_yjqsev.png)
+
+- When the user hits "Update" after altering all of the details, the form updates itself along with the database and returns them to the home page. A message appears on the home page that says "Profile Update Successful."
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666036046/static/documents/profile-updating_osn6sk.png)
+
+## Search Bar
+
+- Users can easily search for any cars using the search bar that is available. Anyone can visit the search bar and look for cars there. The title name of the cars will be used to search for matched vehicles. Any close match to the search title will seek for cars and display on the page; exact matches are not required.
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666036482/static/documents/search_josuz5.png)
+
+- The names of the cars and their primary images are displayed alongside the search results on a well-structured page. It also indicates how many results were found after a search and what was being looked for. When the user clicks on the search result, it brings them to the relevant page.
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666037271/static/documents/search-result_swgfsa.png)
+
+
 ## Technology
 ## Deployment
 ## Credits
