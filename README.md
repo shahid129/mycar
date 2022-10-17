@@ -392,6 +392,75 @@ The website is always being improved. There is always something interesting and 
 
 
 ## Technology
+
+### Languages 
+
+    - [HTML5](https://en.wikipedia.org/wiki/HTML)
+    was used build core front end of the website.
+
+    - [CSS](https://en.wikipedia.org/wiki/CSS)
+    was used to add style to html and responsivenes
+
+    - [JavaScript](https://www.javascript.com/)
+    was used to add one or a few interactivities to the page. It was used mainly with bootstrap to add interactivity to the front end
+    - [JQuery](https://jquery.com/)
+    was used to add interactivity to the page
+
+    - [Bootstrap 5](https://getbootstrap.com/)
+    was used throughout to add interactivity, style, and responsiveness to the page.
+
+    - [Python](https://www.python.org/) 
+    was used to code the backend of the project
+    
+
+### Frameworks
+
+    - [Django 3.2.15](https://www.djangoproject.com/)
+    was used throughout the project along with its supporting libraries
+
+    - Supporting libraries - 
+
+        - [crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+        was used to add style to django forms
+
+        - [summernote](https://summernote.org/) 
+        as a editor 
+
+        - [psycopg2](https://www.psycopg.org/docs/)
+        as a database adaptor for python PostgreSQL databases
+
+        - [gunicorn](https://gunicorn.org/) 
+        as a server for heroku
+
+        - [django active link](https://pypi.org/project/django-active-link/)
+        was used to highlight active links in your Django app.
+
+        - [pillow](https://pypi.org/project/Pillow/)
+        was used as python imaging library
+### Database 
+    - Heroku Postgres was used for the production database
+
+    - SQLite3 was used for automated testing in the local environment
+
+### Other Technologies
+
+- [Gitpod](https://www.gitpod.io/) - as the IDE
+- [Cloudinary](https://cloudinary.com/) - to host static files
+- [Git](https://git-scm.com/) - as a version control
+- [Github](https://github.com/) - to store code in the repository
+- [Heroku](https://www.heroku.com/) - to deploy on a cloud based platform
+- [Google Chrome](https://www.google.com/chrome/?brand=CHBD&brand=CHBD&gclid=EAIaIQobChMIxrSx5p_o-gIVE-vtCh3qvA4EEAAYASABEgIB0vD_BwE&gclsrc=aw.ds) - as a main browser
+- [Google Fonts](https://fonts.google.com/)  - for the fonts
+- [Google Sheet](https://www.google.com/sheets/about/) - to create tables for db model
+- [Fontawesome](https://fontawesome.com/) - for icons
+- [Favicon](https://favicon.io/) - to create the favicon
+- [Balsamic](https://balsamiq.com/) - to create the wireframes
+- [Coolors](https://coolors.co/) - to create the color palate
+- [Compressor](https://compressor.io/) - to compress the image
+- [W3C Markup Validation Service](https://validator.w3.org/) - to validate html
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) - to validate css
+- [PEP8](https://peps.python.org/pep-0008/) - to validate python code
+
 ## Deployment
 ## Credits
 ## Acknowledgement
