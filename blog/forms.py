@@ -80,14 +80,14 @@ class ImagesForm(forms.ModelForm):
     """
     images = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control register_form', 'id': 'customFile'}))
 
-    class Meta:
-        """
-        Only images field is rendered to the page
-        """
-        model = Images
-        fields = ('images',)
+    # class Meta:
+    #     """
+    #     Only images field is rendered to the page
+    #     """
+    #     model = Images
+    #     fields = ('images',)
     
-    # Remove images label
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['images'].label = ''
+    # # Remove images label
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.fields['images'].label = ''

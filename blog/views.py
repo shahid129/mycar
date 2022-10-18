@@ -8,6 +8,7 @@ from django.forms import formset_factory
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
+from django.forms import inlineformset_factory
 
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -100,10 +101,10 @@ def post_your_add(request):
     """
 
     # Formset for Image class
-    ImageFormSet = formset_factory(ImagesForm, extra=3)  # Add 3 more fields to add image
+    ImageInlineFormSet = inlineformset_factory(PostAd, Images, fields=('images',), extra=3, can_delete=False)  # Add 3 more fields to add image
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
-        formset = ImageFormSet(request.POST, request.FILES)
+        formset = ImageInlineFormSet(request.POST, request.FILES)
         if form.is_valid() and formset.is_valid():
             new_form = form.save(commit=False)
             new_form.author = request.user
@@ -122,7 +123,7 @@ def post_your_add(request):
         
     else:
         form = PostForm()
-        formset = ImageFormSet()
+        formset = ImageInlineFormSet()
 
     context = {
         'form': form,
@@ -135,19 +136,26 @@ def post_your_add_edit(request, post_id):
     """
     A function that lets uer update their post
     """
+    # Creat instance of post-item
     item = get_object_or_404(PostAd, id=post_id)
-    ImageFormSet = formset_factory(ImagesForm, extra=3)  # Add 3 more fields to add image
-    formset = ImageFormSet(request.POST or None, request.FILES or None)
+    
+    # Create instance of formset
+    ImageInlineFormSet = inlineformset_factory(PostAd, Images, fields=('images',), max_num=3, can_delete=False)  # Add 3 more fields to add image
+    # formset = ImageFormSet(request.POST or None, request.FILES or None)
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=item)
+        formset = ImageInlineFormSet(request.POST, request.FILES, instance=item)
+
         if form.is_valid() and formset.is_valid():
             form.save()
+            formset.save()
             messages.success(request, 'Updated successfully.')
             return redirect('home')
         else:
             messages.info(request, 'Invalid Information')
 
     form = PostForm(instance=item)
+    formset = ImageInlineFormSet(instance=item)
     context = {
         'form': form,
         'formset': formset
