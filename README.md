@@ -419,36 +419,49 @@ Manual testing was conducted for this project and they are as follows:
 - As a User I can I can login and logout so that I can access my content (must have/ completete) 
 [[#2](https://github.com/shahid129/mycar/issues/2)]
 
-- Login
+**Login**
 
 **Testing steps**
-
 1. Navigate to the home page and click on Login button on the nav bar
 2. You will be brought to the login page
 3. Enter your login credentials to log in.
 
 **Expected Results**
-1. After enetring your login credentials, click on the login
-2. If you login is successfull, you will be redirected to home page, saying "You are logged in as USERNAME".
-3. With an unsucssfull login you will be notified saying "Invalid username or password"
+1. If you login is successfull, you will be redirected to home page, saying "You are logged in as USERNAME".
+2. With an unsucssfull login you will be notified saying "Invalid username or password"
+3. You will receive notification stating "Invalid username or password" if your login attempt is unsuccessful.
+4. Login button changes to Logout
 
 **Actual Results**
-1. After enetring your login credentials, click on the login
-2. You will be redirected to the home page with the message "You are logged in as "USERNAME" if your login is successful.
-![](https://res.cloudinary.com/shahid129/image/upload/v1666180893/static/testing%20doc/login-successful_jcy0vo.png)
-
+1. If you login is successfull, you will be redirected to home page, saying "You are logged in as USERNAME".
+2. With an unsucssfull login you will be notified saying "Invalid username or password"
 3. You will receive notification stating "Invalid username or password" if your login attempt is unsuccessful.
-![](https://res.cloudinary.com/shahid129/image/upload/v1666180851/static/testing%20doc/login_unsuccess_ppp5ne.png)
+4. Login button changes to Logout
 
-- Logout
+- Login is successfull
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666180893/static/testing%20doc/login-successful_jcy0vo.png)
+
+- Login is unsuccessfull
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666180851/static/testing%20doc/login_unsuccess_ppp5ne.png)
+
+**Logout**
+
+**Testing steps**
+1. If you are logged in, Click on the log out button in the nav bar to log out
 
 **Expected Result**
 1. When you click on the logout button, You will be logged out, with a notification that you are logged out
 2. After logout the user is brought back to the home page
+3. you get a notification stating "You have successfully logged out"
+4. Logout button changes  to Login
 
 **Actual Result**
 1. When you click on the logout button, You will be logged out, with a notification that you are logged out
 2. After logout the user is brought back to the home page
+3. You get a notification stating "You have successfully logged out"
+4. Logout button changes  to Login
 
 ![](https://res.cloudinary.com/shahid129/image/upload/v1666183460/static/testing%20doc/logout_sb3gqe.png)
 
@@ -501,26 +514,27 @@ once the comment is approved by admin
 
 
 **User Story 5**
-- As a User I can Register an account so that I can post my add and comments (must have/ completete)
+- As a User I can Register an account so that I can post my add and comments (must have/ completed)
 [[#4](https://github.com/shahid129/mycar/issues/4)]
 
-**Expected Results**
+**Testing Steps**
 1. Navigate to the Register page from the nav bar.
 2. Enter your Name, email, password to register.
-3. If username already exists, users need to pick a different username.
-4. Email field needs to have a proper email id
-5. Passowrds needs to match
-6. User will be notified if any of the above details are not correct
-7. Upon successfull registration they are redirecto login page with a "Registration successfull" message
+
+**Expected Results**
+
+1. If username already exists, users need to pick a different username.
+2. Email field needs to have a proper email id
+3. Passowrds needs to match
+4. User will be notified if any of the above details are not correct
+5. Upon successfull registration they are redirected to login page with a "Registration successfull" message
 
 **Actual Results**
-1. Navigate to the Register page from the nav bar.
-2. Enter your Name, email, password to register.
-3. If username already exists, users need to pick a different username.
-4. Email field needs to have a proper email id
-5. Passowrds needs to match
-6. User will be notified if any of the above details are not correct
-7. Upon successfull registration they are redirected to login page with a "Registration successfull" message
+1. If username already exists, users need to pick a different username.
+2. Email field needs to have a proper email id
+3. Passowrds needs to match
+4. User will be notified if any of the above details are not correct
+5. Upon successfull registration they are redirected to login page with a "Registration successfull" message
 
     - Username already exists
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666185618/static/testing%20doc/registation-1_bgmfuo.png)
@@ -537,82 +551,285 @@ once the comment is approved by admin
 
 **User Story 6**
 - As a User I can Create, read, update and delete items so that I have control on my post and contents
-(Would have been 3 user stories for create, update and delete) (must have/ completete)
+(Would have created 3 user stories for create, update and delete) (must have/ completete)
 [[[#6](https://github.com/shahid129/mycar/issues/6)]
 
-- Create 
-**Expected Results**
+**Create** 
+
+**Testing Steps**
 1. Login to the page by putting your log in details
 2. Navigate to "Post Your Ad" page
 3. All details are mandatory on this page
-4. The user will be taken back to the highlighted area if any fields are left blank or are filled out incorrectly.
-5. The user will return to the home page after uploading something successfully and see the message "Post Successful."
+
+**Expected Results**
+1. The user will be taken back to the highlighted area if any fields are left blank or are filled out incorrectly.
+2. The user will return to the 'Home' page after uploading something successfully and see the message "Post Successful."
 
 **Actual Results**
-1. Login to the page by putting your log in details
-2. Navigate to "Post Your Ad" page
-3. All details are mandatory on this page
-4. The user will be taken back to the highlighted area if any fields are left blank or are filled out incorrectly.
-5. The user will return to the home page after uploading something successfully and see the message "Post Successful."
+1. The user will be taken back to the highlighted area if any fields are left blank or are filled out incorrectly.
+2. The user will return to the 'Home' page after uploading something successfully and see the message "Post Successful."
 
     - Incorrectly filled out form (Highlighted is Model Year in this case)
+
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666186564/static/testing%20doc/post-add-wrong-1_sxku1a.png)
 
     - Successful post
+
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666186564/static/testing%20doc/post-successful_c1zh7t.png)
 
 
-- Update 
-**Expected Results**
+**Update**
+
+**Testing Steps**
 1. Login to the page by putting your log in details
 2. Navigate to "Edit" page
 3. All details are mandatory on this page
-4. The user will be taken back to the highlighted area if any fields are left blank or are filled out incorrectly.
-5. The user will return to the home page after Editing and updating something successfully and see the message "Updated Successfully."
+
+
+**Expected Results**
+1. The user will be taken back to the highlighted area if any fields are left blank or are filled out incorrectly.
+2. The user will return to the home page after Editing and updating something successfully and see the message "Updated Successfully."
 
 **Actual Results**
-1. Login to the page by putting your log in details
-2. Navigate to "Edit" page
-3. All details are mandatory on this page
-4. The user will be taken back to the highlighted area if any fields are left blank or are filled out incorrectly.
-5. The user will return to the home page after Editing and updating something successfully and see the message "Updated Successfully."
+1. The user will be taken back to the highlighted area if any fields are left blank or are filled out incorrectly.
+2. The user will return to the home page after Editing and updating something successfully and see the message "Updated Successfully."
 
-    - Incorrectly filled out form (Highlighted is Model Year in this case)
+    - Incorrectly filled out form (Model Year is Highlighted in this case)
+
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666186564/static/testing%20doc/post-add-wrong-1_sxku1a.png)
 
     - Updated Successfully
+
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666186947/static/testing%20doc/update-add-success_nz0w6o.png)
 
 
 - Delete 
-**Expected Results**
+
+**Testing Steps**
 1. Login to the page by putting your log in details
 2. Navigate to your relevant post and you will see 'Delete' option
-3. Once you click 'Delete', a modal will appear asking for confirmation to delete
-4. Once you confirm to delete it, it will be deleted
-5. You will be redirected to 'Home' page after deletion of a post
+
+**Expected Results**
+1. Once you click 'Delete', a modal will appear asking for confirmation to delete
+2. Once you confirm to delete it, it will be deleted
+3. You will be redirected to 'Home' page after deletion of a post
+4. A message pops up stating 'Deleted Successfully'
 
 **Actual Results**
-1. Login to the page by putting your log in details
-2. Navigate to your relevant post and you will see 'Delete' option
-3. Once you click 'Delete', a modal will appear asking for confirmation to delete
-4. Once you confirm to delete it, it will be deleted
-5. You will be redirected to 'Home' page after deletion of a post
+1. Once you click 'Delete', a modal will appear asking for confirmation to delete
+2. Once you confirm to delete it, it will be deleted
+3. You will be redirected to 'Home' page after deletion of a post
+4. A message pops up stating 'Deleted Successfully'
 
     - Delete Button
+
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666187391/static/testing%20doc/delete-1_qe2jpz.png)
 
     - Delete Modal
+
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666187390/static/testing%20doc/delete-modal_tf4bad.png)
 
     - Deleted Message
+
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666187389/static/testing%20doc/delete-message_qiiubm.png)
 
 
+**User Story 7**
+- As a User I can Like a post and see the number of likes so that I know which posts are popular. (must have/ completed) [[#7](https://github.com/shahid129/mycar/issues/7)]
+
+**Testing Steps**
+1. Login to your account
+2. Navigate to the details of any car
+3. At the bottom of the image there is a 'Love' icon. Click on it to like and unlike
+
+**Expected Results**
+1. When the button is liked, it turns red; when it is unliked, it turns lightseagreen. 
+2. It also shows the number of likes 
+
+**Actual Results**
+1. When the button is liked, it turns red; when it is unliked, it turns lightseagreen. 
+2. It also shows the number of likes 
+
+- Unliked post
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666207746/static/testing%20doc/unliked_yglss0.png)
+
+- Liked 
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666207753/static/testing%20doc/liked_d2exl2.png)
+
+
+**User Story 8**
+- As a User I can Login using Facebook so that I can easily create an account
+ (could have/ Incomplete) [[#8](https://github.com/shahid129/mycar/issues/8)]
+
+ 1. Navigate to login page
+ 2. Click on login with facebook
+ 3. Redirected to facebook authorisation for third party app/service
+ 4. Once confirmed, your account is created and you can login.
+
+ - Facebook login has not been integrated due to project requirements and a lack of time. But this might be a feature in the future.
+
+
+ **User Story 9**
+- As a User I can Login using Google so that I can easily create an account
+ (could have/ Incomplete) [[#9](https://github.com/shahid129/mycar/issues/9)]
+
+ 1. Navigate to login page
+ 2. Click on login with google
+ 3. Redirected to google authorisation for third party app/service
+ 4. Once confirmed, your account is created and you can login.
+
+ - Google login has not been integrated due to project requirements and a lack of time. But this might be a feature in the future.
+
+
+**User Story 10**
+- As a User I can Search content so that I can find content easily
+ (could have/ completed) [[#10](https://github.com/shahid129/mycar/issues/10)]
+
+**Testing Steps**
+1. Navigate to the search bar in the nav nar
+2. Type the key or the name of the car that you want to search for and hit the search button
+
+**Expected Results**
+1. A new page appears with the search result
+2. The page must show number of search results
+3. When you click on the search result, you are redirected to the details of that car
+
+**Actual Results**
+ 1. A new page appears with the search result
+2. The page must show number of search results
+3. When you click on the search result, you are redirected to the details of that car
+
+ - Number of cars found
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666208905/static/testing%20doc/search-1_cspuel.png)
+
+- Search results
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666208906/static/testing%20doc/search-2_zu6pcd.png)
+
+
+**User Story 11**
+- As a User I can easily select/pick a date so that I don't have to write the date manually
+ (must have/ completed) [[#11](https://github.com/shahid129/mycar/issues/11)]
+
+ **Testing Steps**
+ 1. Whenever the page asks you to input a date, the page will give you a clickable option to pick a date
+ 2. Navigate to post your ad
+ 3. Scroll down to 'Model year', 'NCT Expiry' or 'Tax Expiry'
+ 4. Click on the widget for a pop-up date picker and pick your desired date
+
+**Expected Results**
+ 1. A calender pops up when you click the widget
+ 2. Once you selec the date, it adds to the form
+
+**Actual Results**
+1. A calender pops up when you click the widget
+2. Once you selec the date, it adds to the form
+
+ - Clickable date picker
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666209492/static/testing%20doc/date-picker-1_sdpnmj.png)
+
+- Date Picker
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666209493/static/testing%20doc/date-picker-2_dxomaf.png)
+
+
+**User Story 12**
+- As a User I can Upload multiple Images for every post so that others can know more about my post from the image
+ (must have/ completed) [[#12](https://github.com/shahid129/mycar/issues/12)]
+
+**Testing Steps**
+ 1. Navigate to post your ad page.
+ 2. The first image on the top is the profile image of the car
+ 3. You can upload another three images for the car, which is located at the bottom of the page
+ 4. Click'submit' to upload your post. The post is available to view on the home page
+
+**Expected Results**
+1. Click on the relevant post to view uploaded images.
+2. Images appear in a carosel
+
+**Actual Results**
+1. Click on the relevant post to view uploaded images
+2. Images appear in a carosel
+
+- Multiple images upload (Because images are uploaded in a bootstrap carousel, multiple images cannot be captured)
+
+![](https://res.cloudinary.com/shahid129/image/upload/v1666210032/static/testing%20doc/multi-images_t8dkpk.png)
 
 
 
+**User Story 13**
+- As a user I should have a profile so that I can store my details
+(must have/ completed) [[#13](https://github.com/shahid129/mycar/issues/13)]
 
+**Testing Steps**
+1. Login to the page and navigate to the user profile from the top
+2. A user is able to upload a profile picture
+
+**Expected Results**
+1. A user profile is created automatically when the account is created
+2. The page indicates "none" to all of the details for a new user because no information about the user has yet been submitted.
+
+
+**Actual Results**
+1. A user profile is created automatically when the account is created
+2. The page indicates "none" to all of the details for a new user because no information about the user has yet been submitted.
+
+- User prorile
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666210924/static/testing%20doc/user-profile_gi2ycj.png)
+
+
+**User Story 14**
+- As a user I can edit my profile so that I can update my details when needed
+(must have/ completed) [[#14](https://github.com/shahid129/mycar/issues/14)]
+
+**Testing Steps**
+1. Login to the page and navigate to the user profile from the top
+2. At the bottom of the page, click 'Edit Details'
+3. Fill up the form and hit 'Update Profile'
+
+**Expected Results**
+1. The profile is updated and you are redirected to 'Pofile' page
+2. A message appears stating that 'Profile updated successfully.'
+
+**Actual Results**
+1. The profile is updated and you are redirected to 'Pofile' page
+2. A message appears stating that 'Profile updated successfully.'
+
+- Profile Edit page
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666211456/static/testing%20doc/user-profiel-update-form_jgaebu.png)
+
+- Profile updated successfully
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666211456/static/testing%20doc/Profile_updated_successfully._e3gggy.png)
+
+**User Story 15**
+- As a user I can view the about page so that I know more about the page and find the company's contact details (must have/ completed) [[#15](https://github.com/shahid129/mycar/issues/15)]
+
+**Testing Steps**
+1. Navigat to the 'About' page from the nav bar
+
+**Expected Results**
+1. About page shows up with all the detail abou the company
+2. The main sections of this page are "Mission," "Your privacy," and "Contact us." 
+3. Users hover on any of the section and details of that section shows up
+
+**Actual Results**
+1. About page shows up with all the detail abou the company
+2. The main sections of this page are "Mission," "Your privacy," and "Contact us." 
+3. Users hover on any of the section and details of that section shows up
+
+- Hover effect on a section
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666215467/static/testing%20doc/about-hover_khnaec.png)
+
+
+    
 
 
 
