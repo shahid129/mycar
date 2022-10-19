@@ -390,6 +390,231 @@ The website is always being improved. There is always something interesting and 
 
 - Giving more flexibility to users by allowing them to edit their comments, At the same time, it will show the original comments and edited comments.
 
+## Testing
+
+Manual testing was conducted for this project and they are as follows:
+
+**User Story 1**
+- As a Site User I can View a paginated list of posts so that I can easily select a post to view(must have/ completete) [#1](https://github.com/shahid129/mycar/issues/1)
+
+**Testing steps**
+
+1. Navigate to the home page and scroll to the bottom of the page
+2. Click on the button where it says "Next" to go to next page or "Last" to go to the last page
+
+**Expected Results**
+
+1. If you click on the next page, you will be navigated to the next page.
+2. If you click on the last page, you be navigatd to the last page and so on
+
+**Actual Results**
+
+1. If you click on the next page, you will be navigated to the next page.
+2. If you click on the last page, you be navigatd to the last page and so on
+
+![](https://res.cloudinary.com/shahid129/image/upload/v1666179970/static/testing%20doc/pagination_whggru.png)
+
+
+**User Story 2**
+- As a User I can I can login and logout so that I can access my content (must have/ completete) 
+[[#2](https://github.com/shahid129/mycar/issues/2)]
+
+- Login
+
+**Testing steps**
+
+1. Navigate to the home page and click on Login button on the nav bar
+2. You will be brought to the login page
+3. Enter your login credentials to log in.
+
+**Expected Results**
+1. After enetring your login credentials, click on the login
+2. If you login is successfull, you will be redirected to home page, saying "You are logged in as USERNAME".
+3. With an unsucssfull login you will be notified saying "Invalid username or password"
+
+**Actual Results**
+1. After enetring your login credentials, click on the login
+2. You will be redirected to the home page with the message "You are logged in as "USERNAME" if your login is successful.
+![](https://res.cloudinary.com/shahid129/image/upload/v1666180893/static/testing%20doc/login-successful_jcy0vo.png)
+
+3. You will receive notification stating "Invalid username or password" if your login attempt is unsuccessful.
+![](https://res.cloudinary.com/shahid129/image/upload/v1666180851/static/testing%20doc/login_unsuccess_ppp5ne.png)
+
+- Logout
+
+**Expected Result**
+1. When you click on the logout button, You will be logged out, with a notification that you are logged out
+2. After logout the user is brought back to the home page
+
+**Actual Result**
+1. When you click on the logout button, You will be logged out, with a notification that you are logged out
+2. After logout the user is brought back to the home page
+
+![](https://res.cloudinary.com/shahid129/image/upload/v1666183460/static/testing%20doc/logout_sb3gqe.png)
+
+
+**User Story 3**
+
+- As a User I can Comment on a content so that *I can involve in the conversation. (must have/ completete) [[#3](https://github.com/shahid129/mycar/issues/3)]
+
+**Expected Results**
+1. Login to your account
+2. Navigate to the details of the car
+3. On the right bottom of the page users can leave a comment.
+4. Once you hit submit, you get a notification stating "Your comment is awaiting
+approval"
+5. Comment shows in the comment section
+
+**Actual Results**
+1. Login to your account
+2. Navigate to the details of the car
+3. On the right bottom of the page users can leave a comment.
+4. Once you hit submit, you get a notification stating "Your comment is awaiting
+approval"
+5. Wait for admin to approve your comments
+6. Comment shows in the comment section
+
+![](https://res.cloudinary.com/shahid129/image/upload/v1666183906/static/testing%20doc/comment-approval_yfms7u.png)
+
+once the comment is approved by admin
+
+![](https://res.cloudinary.com/shahid129/image/upload/v1666183907/static/testing%20doc/after-comment_bijz7z.png)
+
+
+**User Story 4**
+- As an Admin I can access the user comments so that I can remove the inappropriate contents from the page. (must have/ completete)
+[#5](https://github.com/shahid129/mycar/issues/5)
+
+**Expected Results**
+1. Navigate to the admin page of the website and login using the admin credentials
+2. Navigate to customer comments section in the admin panel where you can see all the comments.
+3. On the 'Action' tab, from the drop down menu select, approve or delete a comment
+4. Click on 'Go' for the relevant action.
+
+**Actual Results**
+1. Navigate to the admin page of the website and login using the admin credentials
+2. Navigate to customer comments section in the admin panel where you can see all the comments.
+3. On the 'Action' tab, from the drop down menu select, approve or delete a comment
+4. Click on 'Go' for the relevant action.
+
+![](https://res.cloudinary.com/shahid129/image/upload/v1666184370/static/testing%20doc/admin-comments_ah3dzg.png)
+
+
+**User Story 5**
+- As a User I can Register an account so that I can post my add and comments (must have/ completete)
+[[#4](https://github.com/shahid129/mycar/issues/4)]
+
+**Expected Results**
+1. Navigate to the Register page from the nav bar.
+2. Enter your Name, email, password to register.
+3. If username already exists, users need to pick a different username.
+4. Email field needs to have a proper email id
+5. Passowrds needs to match
+6. User will be notified if any of the above details are not correct
+7. Upon successfull registration they are redirecto login page with a "Registration successfull" message
+
+**Actual Results**
+1. Navigate to the Register page from the nav bar.
+2. Enter your Name, email, password to register.
+3. If username already exists, users need to pick a different username.
+4. Email field needs to have a proper email id
+5. Passowrds needs to match
+6. User will be notified if any of the above details are not correct
+7. Upon successfull registration they are redirected to login page with a "Registration successfull" message
+
+    - Username already exists
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666185618/static/testing%20doc/registation-1_bgmfuo.png)
+
+    - Email field needs to have a proper email id
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666185618/static/testing%20doc/registation-3_ato4tj.png)
+
+    - Passowrds needs to match
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666185618/static/testing%20doc/registration-2_f6t8f8.png)
+
+    - Successfull registration 
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666185803/static/testing%20doc/registration-successful_sclpgu.png)
+
+
+**User Story 6**
+- As a User I can Create, read, update and delete items so that I have control on my post and contents
+(Would have been 3 user stories for create, update and delete) (must have/ completete)
+[[[#6](https://github.com/shahid129/mycar/issues/6)]
+
+- Create 
+**Expected Results**
+1. Login to the page by putting your log in details
+2. Navigate to "Post Your Ad" page
+3. All details are mandatory on this page
+4. The user will be taken back to the highlighted area if any fields are left blank or are filled out incorrectly.
+5. The user will return to the home page after uploading something successfully and see the message "Post Successful."
+
+**Actual Results**
+1. Login to the page by putting your log in details
+2. Navigate to "Post Your Ad" page
+3. All details are mandatory on this page
+4. The user will be taken back to the highlighted area if any fields are left blank or are filled out incorrectly.
+5. The user will return to the home page after uploading something successfully and see the message "Post Successful."
+
+    - Incorrectly filled out form (Highlighted is Model Year in this case)
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666186564/static/testing%20doc/post-add-wrong-1_sxku1a.png)
+
+    - Successful post
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666186564/static/testing%20doc/post-successful_c1zh7t.png)
+
+
+- Update 
+**Expected Results**
+1. Login to the page by putting your log in details
+2. Navigate to "Edit" page
+3. All details are mandatory on this page
+4. The user will be taken back to the highlighted area if any fields are left blank or are filled out incorrectly.
+5. The user will return to the home page after Editing and updating something successfully and see the message "Updated Successfully."
+
+**Actual Results**
+1. Login to the page by putting your log in details
+2. Navigate to "Edit" page
+3. All details are mandatory on this page
+4. The user will be taken back to the highlighted area if any fields are left blank or are filled out incorrectly.
+5. The user will return to the home page after Editing and updating something successfully and see the message "Updated Successfully."
+
+    - Incorrectly filled out form (Highlighted is Model Year in this case)
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666186564/static/testing%20doc/post-add-wrong-1_sxku1a.png)
+
+    - Updated Successfully
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666186947/static/testing%20doc/update-add-success_nz0w6o.png)
+
+
+- Delete 
+**Expected Results**
+1. Login to the page by putting your log in details
+2. Navigate to your relevant post and you will see 'Delete' option
+3. Once you click 'Delete', a modal will appear asking for confirmation to delete
+4. Once you confirm to delete it, it will be deleted
+5. You will be redirected to 'Home' page after deletion of a post
+
+**Actual Results**
+1. Login to the page by putting your log in details
+2. Navigate to your relevant post and you will see 'Delete' option
+3. Once you click 'Delete', a modal will appear asking for confirmation to delete
+4. Once you confirm to delete it, it will be deleted
+5. You will be redirected to 'Home' page after deletion of a post
+
+    - Delete Button
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666187391/static/testing%20doc/delete-1_qe2jpz.png)
+
+    - Delete Modal
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666187390/static/testing%20doc/delete-modal_tf4bad.png)
+
+    - Deleted Message
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666187389/static/testing%20doc/delete-message_qiiubm.png)
+
+
+
+
+
+
+
+
 
 ## Technology
 
