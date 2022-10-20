@@ -101,7 +101,7 @@ def post_your_add(request):
     """
 
     # Formset for Image class
-    ImageInlineFormSet = inlineformset_factory(PostAd, Images, fields=('images',), extra=3, can_delete=False)  # Add 3 more fields to add image
+    ImageInlineFormSet = inlineformset_factory(PostAd, Images, fields=('images',), extra=3, can_delete=False, form=ImagesForm)  # Add 3 more fields to add image
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         formset = ImageInlineFormSet(request.POST, request.FILES)
@@ -140,7 +140,7 @@ def post_your_add_edit(request, post_id):
     item = get_object_or_404(PostAd, id=post_id)
     
     # Create instance of formset
-    ImageInlineFormSet = inlineformset_factory(PostAd, Images, fields=('images',), max_num=3, can_delete=False)  # Add 3 more fields to add image
+    ImageInlineFormSet = inlineformset_factory(PostAd, Images, fields=('images',), max_num=3, can_delete=False, form=ImagesForm)  # Add 3 more fields to add image
     # formset = ImageFormSet(request.POST or None, request.FILES or None)
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=item)

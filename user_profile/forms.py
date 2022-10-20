@@ -12,7 +12,7 @@ class UserProfileForms(forms.ModelForm):
     email = forms.CharField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}), label='')
     date_of_birth = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Date of birth', 'type': 'date'}), label='')
     phone = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Phone'}), label='')
-    image = forms.ImageField(widget=forms.FileInput(attrs={'id': 'customFile'}), label='')
+    image = forms.ImageField(widget=forms.ClearableFileInput(attrs={'id': 'customFile'}), label='')
     about_me = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'About me', 'style': 'height: 10em;'}), label='')
 
     # image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control', 'id': 'customFile'}), label='')
