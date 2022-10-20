@@ -1,16 +1,16 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 {% load crispy_forms_tags %}
 
 {% for message in messages %}
-    	<div id="msg" class="alert alert-info">{{message}}</div>
+    <div id="msg" class="alert alert-info">{{ message }}</div>
 {% endfor %}
 
 <div class="container col-md-6 p-5 mb-3 rounded shadow ">
-	<h3>Register  <i class="fas fa-handshake"></i></h3>
-    <p>To post your addvertisement, comment or like please Register.</p>
-
+	<h3>Register<i class="fas fa-handshake"></i></h3>
+    <p>Please log in to post your advertisement, comment, or like. </p>
 	<form method="POST">
 		{% csrf_token %}
 		{{ form | crispy }} 

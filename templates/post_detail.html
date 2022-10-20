@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 {% load crispy_forms_tags %}
 
 {% for message in messages %}
-    <div id="msg" class="alert alert-success">{{message}}</div>
+    <div id="msg" class="alert alert-success">{{ message }}</div>
 {% endfor %}
 
 <div class="container">
-
     <div class="row g-0">
         <div class="col-md-6 masthead-text">
             <h3 class="post-title">
                 {{ post.title | capfirst }}
             </h3>
-            <p class=""> {{ post.author | capfirst}} | {{ post.created_on}} </p>
+            <p class="text-muted"> {{ post.author | capfirst}} | {{ post.created_on }} </p>
         </div>
         <div>
-            <div id="carouselExampleIndicators" class="carousel slide carousel-fade carousel-dark image-width p-3 mx-auto d-block" data-bs-ride="true">
+            <div id="carouselExampleIndicators"
+                class="carousel slide carousel-fade carousel-dark image-width p-3 mx-auto d-block" data-bs-ride="true">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
                         class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -29,7 +30,7 @@
                 <!-- Loop through the images from Images class Model -->
                 <div class="carousel-inner">
                     {{ formset.management_form }}
-                    {% for image in images  %}
+                    {% for image in images %}
                     <div class="carousel-item ">
                         <img src="{{ image.images.url }}" class="d-block img-fluid rounded w-100" alt="Image of a car">
                     </div>
@@ -46,8 +47,6 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <!-- <img src="{{ post.image.url }}" class="img-fluid" alt="Image of a car"> -->
-
         </div>
         <!-- like / unlike button -->
         <div class="row like-comments">
@@ -83,13 +82,13 @@
         <div class="container mt-3">
             <h5>Key Info</h5>
             <hr class="red-left">
-            <p>Year: {{post.year}}</p>
-            <p>Road Tax: {{post.tax}}</p>
-            <p>NCT Expiry: {{post.nct}}</p>
+            <p>Year: {{ post.year }}</p>
+            <p>Road Tax: {{ post.tax} }</p>
+            <p>NCT Expiry: {{ post.nct }}</p>
             <br>
             <h5>Detailed Info</h5>
             <hr class="red-left">
-            <p class="text-justify">{{ post.description | linebreaks}}</p>
+            <p class="text-justify">{{ post.description | linebreaks }}</p>
 
         </div>
     </div>
@@ -100,7 +99,7 @@
             <h5 class="container mt-3">Comments</h5>
             <div class="container">
                 {% if comments.count == 0  %}
-                    <p>Be the first one to comment.</p>
+                    <p>Be the first to comment.</p>
                 {% else %}
                     <p>Total comments: {{ comments.count }}</p>
                 {% endif %}
@@ -112,7 +111,7 @@
                         {{ comment.name | capfirst }} commented on
                         <span class=" text-muted">
                             {{ comment.created_on }}
-                        </span> 
+                        </span>
                     </p>
                     {{ comment.body | linebreaks }}
                 </div>
@@ -128,10 +127,8 @@
                 </div>
                 {% else %}
                 {% if user.is_authenticated %}
-
                 <h5>Leave a comment:</h5>
-                <p>Posting as: {{ user.username }}</p>
-
+                <p class="text-muted">Posting as: {{ user.username }}</p>
                 <!-- comment Form -->
                 <form method="POST">
                     {{ comment_form | crispy }}
@@ -140,15 +137,16 @@
                     <button type="submit" class="btn btn-outline-success button">Submit</button>
                 </form>
                 {% else %}
-                <p>To add your comments please </p><a href="{% url 'login' %}"><button type="submit" class="btn btn-outline-success button">Login</button> </a>
-                <!-- <button type="submit" class="btn btn-outline-success button"><a href="{% url 'login' %}"> </a> Login</button> -->
-
-                
-                {% endif %}
-                {% endif %}
+                    <p>To add your comments please </p>
+                    <a href="{% url 'login' %}">
+                        <button type="submit"
+                            class="btn btn-outline-success button">Login
+                        </button> 
+                    </a>
+                {% endif %} <!-- End if for authenticated user -->
+                {% endif %}  <!-- End if for comment -->
             </div>
         </div>
-
     </div>
 </div>
 {% endblock content %}

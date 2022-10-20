@@ -829,7 +829,192 @@ once the comment is approved by admin
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666215467/static/testing%20doc/about-hover_khnaec.png)
 
 
-    
+## Testing Features
+
+### Logo
+**Testing Steps**
+1. Click on the logo
+2. Navigate to different page and click on the logo
+
+**Expected Results**
+1. Logo links back to home page from any other pages
+
+**Actual Result Results**
+1. Logo links back to home page from any other pages
+
+**Results: Pass**
+
+### Footer
+**Testing Steps**
+1. Click on any icon on the footer
+2. Navigate to different page and and follow step 1
+
+**Expected Results**
+1. Each icon opens in a different tab
+2. Each icon opens the right page when clicked
+
+**Actual Result Results**
+1. Each icon opens in a different tab
+2. Each icon opens the right page when clicked
+
+**Results: Pass**
+
+### Navigation and Button
+Check all navigation if they are working as expected
+
+### Home
+**Testing Steps**
+1. Click on the Home
+2. Navigate to different page and click on the Home
+
+**Expected Results**
+1. Home links back to home page from any other pages
+2. Home button is only vissible to everyone
+
+**Actual Result Results**
+1. Home links back to home page from any other pages
+2. Home button is only vissible to everyone
+
+**Results: Pass**
+
+### Post Your Ad
+**Testing Steps**
+1. Click on the Post Your Ad
+2. Navigate to different page and click on the Post Your Ad
+
+**Expected Results**
+1. Post Your Ad links back to Post Your Ad page from any other pages
+2. Post Your Ad button is only vissible to everyone
+3. Only logged in users can make a post
+
+**Actual Result Results**
+1. Post Your Ad links back to Post Your Ad page from any other pages
+2. Post Your Ad button is only vissible to everyone
+3. Only logged in users can make a post
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1665836381/static/documents/post-ad-not-logged_l5wb6z.png)
+
+**Results: Pass**
+
+### About
+**Testing Steps**
+1. Click on the About
+2. Navigate to different page and click on the About
+
+**Expected Results**
+1. About links back to About page from any other pages
+2. Post Your Ad button is only vissible to everyone
+
+**Actual Result Results**
+1. About links back to About page from any other pages
+2. Post Your Ad button is only vissible to everyone
+
+**Results: Pass**
+
+### Login
+**Testing Steps**
+1. Click on the Login
+2. Navigate to different page and click on the Login
+
+**Expected Results**
+1. Login links back to Login page from any other pages
+2. User logs in 
+3. Hide login button
+4. Show logout button
+5. Hide register button
+
+**Actual Result Results**
+1. Login links back to Login page from any other pages
+2. User logs in 
+3. Hide login button
+4. Show logout button
+5. Hide register button
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1665775651/static/documents/nav-signed-in_jwbcko.png)
+
+**Results: Pass**
+
+### Logout
+**Testing Steps**
+1. Click on the Logout
+2. Navigate to different page and click on the Logout
+
+**Expected Results**
+1. Logout links back to Logout page from any other pages
+2. User logged out 
+3. Show login button
+4. Hide logout button
+5. Show register button
+
+**Actual Result Results**
+1. Logout links back to Logout page from any other pages
+2. User logged out 
+3. Show login button
+4. Hide logout button
+5. Show register button
+
+![](https://res.cloudinary.com/shahid129/image/upload/v1665775651/static/documents/nav-not-signed-in_rjqps6.png)
+
+**Results: Pass**
+
+### Register
+**Testing Steps**
+1. Click on the Register
+2. Navigate to different page and click on the Register
+
+**Expected Results**
+1. Register button is only vissible to not logged in users
+2. Register links back to Register page from any other pages
+
+**Actual Result Results**
+1. Register button is only vissible to not logged in users
+2. Register links back to Register page from any other pages
+
+**Results: Pass**
+
+### Search
+**Testing Steps**
+1. Click on the Search
+2. Navigate to different page and click on the Search
+
+**Expected Results**
+1. Search button is only vissible to everyone
+2. Type any key and hit search
+3. Show results of searched car
+
+**Actual Result Results**
+1. Search button is only vissible to everyone
+2. Type any key and hit search
+3. Show results of searched car
+
+**Results: Pass**
+
+### View Cars Button
+**Testing Steps**
+1. Navigate to Home and click on the View Cars
+
+**Expected Results**
+1. The View Cars button brings you to the relevant section for car ads.
+
+**Actual Result Results**
+1. The View Cars button brings you to the relevant section for car ads.
+
+**Results: Pass**
+
+
+
+### Image button to view car details
+**Testing Steps**
+1. Navigate to Home and click on the image
+
+**Expected Results**
+1. You will be redirected to the post details page to view the relevant car
+
+**Actual Result Results**
+1. You will be redirected to the post details page to view the relevant car
+
+**Results: Pass**
+
 
 
 

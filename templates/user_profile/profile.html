@@ -1,26 +1,30 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 {% load crispy_forms_tags %}
 
 {% for message in messages %}
-    <div id="msg" class="alert alert-success">{{message}}</div>
+    <div id="msg" class="alert alert-success">{{ message }}</div>
 {% endfor %}
 
 <div class="container col-md-8 card p-5 mb-3">
     <div class="container">
         <div class="row">
-        <h3>{{ user.username | capfirst}}</h3>
-        <hr class="red-left">
-        <p class="text-muted">Last Login: {{ user.last_login }}</p>
-
+            <h3>{{ user.username | capfirst }}</h3>
+            <hr class="red-left">
+            <!-- Show users last login details -->
+            <p class="text-muted">Last Login: {{ user.last_login }}</p>
             <div class="col-lg">
-                <p><img src=" {{ profile.image.url }}" class="img-fluid rounded image-hover" alt="Image of {{ user.username }}">
+                <p>
+                    <img src="{{ profile.image.url }}" class="img-fluid rounded image-hover"
+                        alt="Image of {{ user.username }}">
+                </p>
             </div>
             <div class="col-lg">
-                <p>First Name: {{ profile.first_name}}</p>
-                <p>Last Name:{{ profile.last_name}}</p>
-                <p>Date of Birth: {{ profile.date_of_birth}}</p>
+                <p>First Name: {{ profile.first_name }}</p>
+                <p>Last Name:{{ profile.last_name }}</p>
+                <p>Date of Birth: {{ profile.date_of_birth }}</p>
                 <p>Email: {{ profile.email }}</p>
                 <p>Phone: {{ profile.phone }}</p>
             </div>
@@ -33,7 +37,7 @@
             <br>
         </div>
     </div>
-    <a class=" btn btn-outline-success button" href="{% url 'edit_profile' user %}">Edit Details</a>
+    <a class="btn btn-outline-success button" href="{% url 'edit_profile' user %}">Edit Details</a>
 </div>
 
-    {% endblock %}
+{% endblock %}

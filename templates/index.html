@@ -1,19 +1,21 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 {% for message in messages %}
-    <div id="msg" class="alert alert-info">{{message}}</div>
+    <div id="msg" class="alert alert-info">{{ message }}</div>
 {% endfor %}
 
 <div class="hero-image">
-    <img class="img-fluid" src="https://res.cloudinary.com/shahid129/image/upload/v1665520823/static/images/hero-image_dapspb.jpg" alt="image of cars">
+    <img class="img-fluid"
+        src="https://res.cloudinary.com/shahid129/image/upload/v1665520823/static/images/hero-image_dapspb.jpg"
+        alt="image of cars">
     <div class="container hero-text">
         <h2>
             Find Your Perfact Car
         </h2>
     </div>
-    <button class="btn " id="view-cars">
-        View Cars <i class="fas fa-arrow-down"></i>
+    <button class="btn " id="view-cars">View Cars <i class="fas fa-arrow-down"></i>
     </button>
 </div>
 
@@ -34,76 +36,64 @@
                 <p class="card-text"> Added on: {{ post.created_on }}</p>
                 <hr>
                 <div>
-                    <!-- <a class=" btn btn-outline-success button" href="{% url 'post_detail' post.slug %}">Details</a> -->
                     <!-- Athenticate User -->
                     {% if user.username == post.author.username %}
-                        <!-- Link to post your add page -->
-                        <a class=" btn btn-outline-success button" href="post_your_add_edit/{{ post.id }}">Edit</a>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-outline-success button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Delete
-                        </button>
+                    <!-- Link to post your add page -->
+                    <a class=" btn btn-outline-success button" href="post_your_add_edit/{{ post.id }}">Edit</a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-success button" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        Delete
+                    </button>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Once you delete it, there is no way of retrieving it.
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-success button"
-                                            data-bs-dismiss="modal">Close</button>
-                                            <!-- Link to delete your add page -->
-                                        <a class="btn btn-danger" href="post_your_add_delete/{{ post.id }}">Delete</a>
-                                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Once you delete it, there is no way of retrieving it.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-success button"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <!-- Link to delete your add page -->
+                                    <a class="btn btn-danger" href="post_your_add_delete/{{ post.id }}">Delete</a>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     {% endif %}
                 </div>
-                <!-- <hr /> -->
             </div>
         </div>
         <br>
-
-        <!-- {% if forloop.counter|divisibleby:3%}
-            </div>
-            <br>
-            <div class="row">
-        {% endif %} -->
-
-
         {% endfor %}
     </div>
 </div>
 <br>
+<!-- Pagination -->
 <div class="pagination justify-content-center mb-3">
     <span class="step-links">
         {% if page_obj.has_previous %}
-            <a class="btn btn-outline-success button" href="?page=1">&laquo; first</a>
-            <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-            </span>
-            <a class="btn btn-outline-success button" href="?page={{ page_obj.previous_page_number }}">previous</a>
+        <a class="btn btn-outline-success button" href="?page=1">&laquo; First</a>
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+        <a class="btn btn-outline-success button" href="?page={{ page_obj.previous_page_number }}">Previous</a>
         {% endif %}
 
-        <!-- <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span> -->
-
         {% if page_obj.has_next %}
-            <a class="btn btn-outline-success button" href="?page={{ page_obj.next_page_number }}">next</a>
-            <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-            </span>
-            <a class="btn btn-outline-success button" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        <a class="btn btn-outline-success button" href="?page={{ page_obj.next_page_number }}">Next</a>
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+        <a class="btn btn-outline-success button" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
         {% endif %}
     </span>
 </div>

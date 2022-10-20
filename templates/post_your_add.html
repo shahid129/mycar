@@ -1,8 +1,10 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 {% load crispy_forms_tags %}
 
+<!-- If user is authenticated show form, else show login/register page link -->
 {% if user.is_authenticated %}
 <div class="container col-md-8 mb-3 p-5 rounded shadow">
     <h5 class="text-center">Let's add your car</h5>
@@ -10,25 +12,27 @@
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{formset.management_form}}
+        {{ formset.management_form }}
         {{ form | crispy }}
-        {{ formset | crispy}}
-        
+        {{ formset | crispy }}
         <br>
         <input type="submit" class="btn btn-outline-success button ">
     </form>
 </div>
 
 {% else %}
-    <div class="container col-md-7 rounded shadow p-5 ">
-        <p>Please login or create an account to make a new post.</p>
-        <p> If you are a registered user please,
-            <span><a class="btn btn-outline-success button" href="{% url 'login' %}">login</a></span>
-        </p>
-        <p>If you don not have an account please, 
-            <span><a class="btn btn-outline-success button" href="{% url 'register' %}">Register</a></span>
-        </p>
-
-    </div>
+<div class="container col-md-7 rounded shadow p-5 ">
+    <p>Please login or create an account to make a new post.</p>
+    <p> If you are a registered user please,
+        <span>
+            <a class="btn btn-outline-success button" href="{% url 'login' %}">Login</a>
+        </span>
+    </p>
+    <p>If you don not have an account please,
+        <span>
+            <a class="btn btn-outline-success button" href="{% url 'register' %}">Register</a>
+        </span>
+    </p>
+</div>
 {% endif %}
 {% endblock content %}
