@@ -2,11 +2,19 @@ from django.contrib import admin
 from .models import PostAd, CustomerComment, Images
 from django_summernote.admin import SummernoteModelAdmin
 
+
 class ImagesAdmin(admin.StackedInline):
+    """
+    Users can add multiple images
+    """
     model = Images
-    
+
+
 @admin.register(PostAd)
 class PostAdAdmin(SummernoteModelAdmin):
+    """
+    Add Different fields to admin
+    """
     prepopulated_fields = {'slug': ('title',)}
     list_filter = ('price', 'created_on', 'year')
     list_display = ('title', 'author', 'created_on', 'tax', 'nct')
@@ -17,6 +25,9 @@ class PostAdAdmin(SummernoteModelAdmin):
 
 @admin.register(CustomerComment)
 class CustomerCommentAdmin(admin.ModelAdmin):
+    """
+    Admin can approve customer comments
+    """
     list_display = ('name', 'body', 'post', 'created_on')
     list_filter = ('approved', 'created_on')
     search_fields = ('name', 'email', 'body')
@@ -24,5 +35,3 @@ class CustomerCommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
-
-
