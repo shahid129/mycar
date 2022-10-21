@@ -2,33 +2,30 @@
 /* base.html */
 
 body {
-    font-family: Maven Pro, sans-serif;
+    font-family: "Maven Pro", sans-serif;
 }
-h1, h2, h3, h5 {
+
+h1,
+h2,
+h3,
+h5 {
     font-family: Lato, sans-serif;
     font-weight: bold;
 }
+
 .nav {
     padding: 20px;
     margin-bottom: 20px;
-    /* background-color: rgb(246, 243, 243); */
 }
 
 .nav-link:hover {
-    color:black;
+    color: black;
 }
 
 .brand-name {
     font-size: 2.5em;
     font-family: lato;
 }
-
-/* .active {
-    text-decoration: underline;
-    text-underline-offset: 12px;
-    text-decoration-color: #D9391E;
-} */
-
 
 .fa-car,
 .fa-handshake,
@@ -38,18 +35,9 @@ h1, h2, h3, h5 {
     color: #D9391E;
 }
 
-/* .fa-car:hover,
-.fa-handshake:hover,
-.fa-key:hover,
-.fa-edit:hover,
-.fa-car-side:hover {
-    color: rgb(15, 127, 121);
-} */
-
 .mycar {
     font-weight: 900;
     font-weight: bolder;
-    /* font-family: Maven Pro; */
 }
 
 .my {
@@ -60,8 +48,8 @@ h1, h2, h3, h5 {
     color: black;
     position: relative;
     text-decoration: none;
-  }
-  
+}
+
 .nav-link::before {
     content: '';
     position: absolute;
@@ -73,19 +61,13 @@ h1, h2, h3, h5 {
     left: 0;
     transform-origin: right;
     transform: scaleX(0);
-    transition: transform .3s 
-  }
-  
+    transition: transform .3s
+}
+
 .nav-link:hover::before {
     transform-origin: left;
     transform: scaleX(1);
-  }
-  
-/* .active {
-    text-decoration: underline 0.05em;
-    text-underline-offset: 12px;
-    text-decoration-color: #D9391E;
-} */
+}
 
 .active-link-dot:after {
     content: '';
@@ -94,13 +76,12 @@ h1, h2, h3, h5 {
     width: 5px;
     border-radius: 50%;
     left: 40%;
-    /* display: block; */
     background-color: #D9391E;
     bottom: -2px;
-  }
+}
 
 .btn:hover {
-    background-color:  lightseagreen;
+    background-color: lightseagreen;
 }
 
 .nav-line {
@@ -159,32 +140,26 @@ h1, h2, h3, h5 {
     right: 0;
     left: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
 }
-
-/* .hero-image:hover {
-    opacity: .5;
-    transition: 2s;
-} */
 
 .hero-text {
     width: inherit;
     position: absolute;
     top: 20%;
-    left: 50%; 
+    left: 50%;
     transform: translate(-50%, -50%);
     border-bottom: 3px solid #D9391E;
     border-left: 3px solid #D9391E;
     /* 30% less border on top left */
-    border-image: linear-gradient(to top, #D9391E 30%, rgba(0,0,0,0) 70%);
+    border-image: linear-gradient(to top, #D9391E 30%, rgba(0, 0, 0, 0) 70%);
     border-image-slice: 2;
     color: white;
 }
 
 /* view car button positioning */
-
 #view-cars {
-    position:absolute;
+    position: absolute;
     padding: 12px;
     top: 35%;
     left: 50%;
@@ -195,16 +170,9 @@ h1, h2, h3, h5 {
     font-size: 1rem;
 }
 
-#view-cars:hover{
-    /* background-color: white;
-    color: #D9391E; */
+#view-cars:hover {
     background-color: rgba(217, 57, 30, .85);
 }
-
-/* .hero-image .btn:hover{
-    background-color: rgba(217, 57, 30, 1);
-    
-} */
 
 .image-hover {
     transition: transform .5s ease-in-out;
@@ -214,17 +182,6 @@ h1, h2, h3, h5 {
     transform: scale(1.03);
 }
 
-/* .current {
-    border: 1px solid #198754;
-    padding: 7px;
-    border-radius: 5px;
-    padding-bottom: 11px;
-    margin: 5px;
-    margin-right: 8px;
-    color: white;
-    background-color: lightseagreen;
-} */
-
 .main-image {
     max-width: 100%;
     height: 250px;
@@ -233,17 +190,10 @@ h1, h2, h3, h5 {
 }
 
 .car-title {
-    /* margin-bottom: var(--bs-card-title-spacer-y); */
-    /* border-bottom: 2px solid red; */
     text-decoration: underline;
     text-underline-offset: 8px;
     text-decoration-color: #D9391E;
 }
-/* post_detail.html */
-
-/* .like-comments {
-    margin-left: 95px;
-} */
 
 .liked-heart {
     color: #dd4b39;
@@ -254,7 +204,6 @@ h1, h2, h3, h5 {
 .unliked-heart {
     border: none;
     background-color: transparent;
-
 }
 
 .fa-comments,
@@ -274,13 +223,6 @@ h1, h2, h3, h5 {
     line-height: 2em;
 }
 
-/* .carousel-inner {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    max-height: 460px;
-} */
-
 /* post_your_add.html */
 
 .title:hover {
@@ -292,33 +234,28 @@ h1, h2, h3, h5 {
     border: none;
     line-height: 2.0em;
     border-bottom: .5px solid lightseagreen;
-    border-color: none;
     margin-bottom: 10px;
     margin-top: 10px;
 }
+
 .register_form:hover {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 127, 121, 0.6);;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 127, 121, 0.6);
+    ;
 }
+
 .form-control:focus {
     border-color: lightseagreen;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(15, 127, 121, 0.6);
 }
 
 /* About page */
-
 .set-height {
-    min-height: 480px;
+    min-height: 500px;
 }
+
 .opacity:hover {
     opacity: 85%;
 }
-/* hr {
-    margin: auto;
-    width: 50%;
-    border: 1px solid #D9391E;
-    opacity: 1;
-    margin-bottom: 10px;
-} */
 
 hr.red {
     width: 5%;
@@ -339,21 +276,23 @@ hr.red {
     .nav-line {
         display: none;
     }
+
     .active-link-dot:after {
         left: 3%;
     }
+
     .nav-link::before {
         width: 12%;
     }
-  }
+}
 
 @media only screen and (min-width: 780px) {
     .image-width {
         width: 80%;
-      
+
     }
-  }
-  
+}
+
 .main-card {
     width: 23rem;
 }
@@ -363,6 +302,7 @@ hr.red {
     .hero-text {
         width: 51%;
     }
+
     #view-cars {
         top: 50%;
     }
