@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import PostAd, CustomerComment, Images
 from django_summernote.admin import SummernoteModelAdmin
+from .models import PostAd, CustomerComment, Images
 
 
 class ImagesAdmin(admin.StackedInline):
