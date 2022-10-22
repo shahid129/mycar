@@ -4,33 +4,27 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponseRedirect
-from django.forms import formset_factory
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
-from django.core.mail import EmailMessage
 from django.forms import inlineformset_factory
-
-from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
+from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.sites.shortcuts import get_current_site
-from django.urls import reverse
-from .utils import account_activation_token
-from django.contrib import auth
 from django.conf import settings
+from .utils import account_activation_token
 from .models import PostAd, Images
 from .forms import PostForm, NewUserForm, CustomerCommentForm, ImagesForm
-# from .utils import token_generator
-# from django import forms
-# from cloudinary.forms import cl_init_js_callbacks
-
 
 
 class PostAdList(generic.ListView):
+    """
+    Show all the post on the home page
+    maximum post on a page is six
+    """
     model = PostAd
     queryset = PostAd.objects.order_by("-created_on")
     template_name = "index.html"
     paginate_by = 6
-    
 
 
 class PostDetail(View):
@@ -39,6 +33,9 @@ class PostDetail(View):
     """
 
     def get(self, request, slug, *args, **kwargs):
+        """
+        Get all the queryset and renders on the post_detail page
+        """
         queryset = PostAd.objects
 
         post = get_object_or_404(queryset, slug=slug)
@@ -62,6 +59,9 @@ class PostDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
+        """
+        Post all the queryset objects on the post_detail template
+        """
         queryset = PostAd.objects
         post = get_object_or_404(queryset, slug=slug)
         images = Images.objects.filter(name=post)
@@ -101,7 +101,9 @@ def post_your_add(request):
     """
 
     # Formset for Image class
-    ImageInlineFormSet = inlineformset_factory(PostAd, Images, fields=('images',), extra=3, can_delete=False, form=ImagesForm)  # Add 3 more fields to add image
+    # Add 3 more fields to add image
+    ImageInlineFormSet = inlineformset_factory(PostAd, Images, fields=(
+        'images',), extra=3, can_delete=False, form=ImagesForm)
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         formset = ImageInlineFormSet(request.POST, request.FILES)
@@ -116,11 +118,9 @@ def post_your_add(request):
                 photo = Images(images=image, name=new_form)
                 photo.save()
 
-            print('formvalid: ', form.is_valid())  # Check if form is valid
-            print('formsetvalid: ', formset.is_valid())  # Check if form is valid
             messages.info(request, 'Post added successfully.')
             return redirect('home')
-        
+
     else:
         form = PostForm()
         formset = ImageInlineFormSet()
@@ -134,17 +134,19 @@ def post_your_add(request):
 
 def post_your_add_edit(request, post_id):
     """
-    A function that lets uer update their post
+    A function that lets user update their post
     """
     # Creat instance of post-item
     item = get_object_or_404(PostAd, id=post_id)
-    
+
     # Create instance of formset
-    ImageInlineFormSet = inlineformset_factory(PostAd, Images, fields=('images',), max_num=3, can_delete=False, form=ImagesForm)  # Add 3 more fields to add image
-    # formset = ImageFormSet(request.POST or None, request.FILES or None)
+    # Add 3 more fields to add image
+    ImageInlineFormSet = inlineformset_factory(PostAd, Images, fields=(
+        'images',), max_num=3, can_delete=False, form=ImagesForm)
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES, instance=item)
-        formset = ImageInlineFormSet(request.POST, request.FILES, instance=item)
+        formset = ImageInlineFormSet(
+            request.POST, request.FILES, instance=item)
 
         if form.is_valid() and formset.is_valid():
             form.save()
@@ -164,6 +166,9 @@ def post_your_add_edit(request, post_id):
 
 
 def post_your_add_delete(request, post_id):
+    """
+    User can delete their own post
+    """
     item = get_object_or_404(PostAd, id=post_id)
     item.delete()
     messages.info(request, 'Deleted Succesfully')
@@ -194,29 +199,34 @@ def register_request(request):
         elif User.objects.filter(username=username).exists():
             messages.error(request, 'Username is already taken')
         elif form.is_valid():
-            print('valid')
             # User to receive email on registraions
 
             uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
             domain = get_current_site(request).domain
             link = reverse('activate', kwargs={
-                'uidb64': uidb64, 'token': account_activation_token.make_token(user)
+                'uidb64': uidb64,
+                'token': account_activation_token.make_token(user)
             })
             activate_url = 'https://' + domain + link
 
             subject = 'Account Registration'
-            message = 'Hello ' + username + ', please clink on the link to verify your account ' + activate_url
+            message = 'Hello ' + username + \
+                ', please clink on the link to verify your account ' + \
+                activate_url
             recipient = form.cleaned_data.get('email')
-            send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
+            send_mail(subject, message, settings.EMAIL_HOST_USER,
+                      [recipient], fail_silently=False)
             user = form.save()
-            # login(request, user)
             messages.success(request, "Registration successful.")
             return redirect("login")
-        # messages.error(request, "Unsuccessful registration. Invalid information.")
     else:
         print('invalid')
     form = NewUserForm()
-    return render(request=request, template_name="registration/register.html", context={"form":form})
+    return render(
+        request=request,
+        template_name="registration/register.html",
+        context={"form": form}
+    )
 
 
 def login_request(request):
@@ -238,7 +248,11 @@ def login_request(request):
         else:
             messages.error(request, 'Invalid username or password')
     form = AuthenticationForm()
-    return render(request=request, template_name='registration/login.html', context={"form": form})
+    return render(
+        request=request,
+        template_name='registration/login.html',
+        context={"form": form}
+    )
 
 
 class Verification(View):
@@ -247,8 +261,11 @@ class Verification(View):
     When user clicks on the link, their account will 
     be activated
     """
+
     def get(self, request, uidb64, token):
-        
+        """
+        Verify if the sent link to user is correct
+        """
         try:
             id = force_text(urlsafe_base64_decode(uidb64))
             user = User.objects.get(pk=id)
@@ -283,11 +300,12 @@ class PostAdLike(View):
     """
     User can like or unlike a post
     """
+
     def post(self, request, slug, *args, **kwargs):
         """
         User can like or unlike a post
         """
-        post = get_object_or_404(PostAd, slug=slug)   
+        post = get_object_or_404(PostAd, slug=slug)
 
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
@@ -299,17 +317,28 @@ class PostAdLike(View):
 
 def search_car(request):
     """
-    User can search for name of the car. The search engine looks for the title(name)
-    of the car
+    User can search for name of the car. The search engine looks for the
+    title(name) of the car
     """
     if request.method == 'POST':
         searched = request.POST['searched']
         postads = PostAd.objects.filter(title__icontains=searched)
 
-        return render(request, "search_car.html", {'searched': searched, 'postads': postads})
+        return render(
+            request,
+            "search_car.html",
+            {
+                'searched': searched,
+                'postads': postads
+            }
+        )
     else:
         return render(request, "search_car.html")
 
+
 def about(request):
-    
+    """
+    Render about page on request
+    """
+
     return render(request, 'about.html')
