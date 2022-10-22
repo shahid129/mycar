@@ -1,5 +1,4 @@
 from django.db import models
-from blog.models import PostAd
 from django.contrib.auth.models import User
 
 
