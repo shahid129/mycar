@@ -1089,5 +1089,227 @@ Check all navigation if they are working as expected
 - [PEP8](https://peps.python.org/pep-0008/) - to validate python code
 
 ## Deployment
+
+### Create app in django
+Type the codes in the terminal in the following series of process
+
+- Install Django and gunicorn: `pip3 install django gunicorn` 
+
+- Install database libraries dj_database_url and psycopg2 library: `pip3 install dj_database_url psycopg2`
+
+- Install Cloudinary libraries to manage photos: `pip3 install dj-3-cloudinary-storage`
+
+- Create file for requirements file: `pip freeze --local > requirements.txt`
+
+- Create your project: `django-admin startproject your_project_name .`
+
+    - Do not miss the dot '.' in the end
+
+- Create your app: `django-admin startapp your_app_name`
+
+- Make migrations: `python3 manage.py makemigrations`
+
+- Migrate changes: `python3 manage.py migrate`
+
+- Run the server to test if the app is installed: `python3 manage.py runserver`
+
+
+### Heroku
+
+- To create your heroku app
+
+    - Navigate to the Heroku website
+
+    - Create an account by entering your email address and a password (log in if you already have an account)
+
+    - Use the authentication email that was sent to your email account to activate the account
+
+    - Choose "create a new app" from the dropdown menu by clicking the "new" button
+
+    - Give the application a name; it must be unique; in this case, the app is called "MyCar"
+
+    - Select a region, in this case Europe
+
+    - Click create app
+
+- Create the database
+
+    - Click on the newly created app
+
+    - Navigate to heroku dashboard and click "Resources" button
+
+    - Scroll down to Add-Ons, search for and select 'Heroku Postgres'
+
+    - In the Settings tab, scroll down to 'Reveal Config Vars' and copy the text in the box beside DATABASE_URL (you will need this in the next step)
+
+- Set up Environment Variables
+
+    - Create a new env.py file in the root directory of Gitpod
+
+    - To the .gitignore file, add env.py
+
+    - Import the os library into env.py: `import os`
+
+    - In env.py add `os.environ["DATABASE_URL"] = "Paste in the text link copied`
+
+    - Go back to heroku settings and click reveal config vars
+
+    - Paste the 'SECRET KEY' in the secret key box
+
+- Connect the environment variables to Django
+
+    - Go to 'settings.py' file in Django and add the code:
+
+            from pathlib import Path
+            import os
+            import dj_database_url
+            if os.path.isfile('env.py'):
+                import env
+    - Remove the default insecure secret key in settings.py and replace with the link to the secret key variable i Heroku by typing: `SECRET_KEY = os.environ.get(SECRET_KEY)`
+
+    - Comment out the DATABASES section in settings.py 
+
+    - And add the following 
+
+            DATABASES = {
+                'default': {
+                    'ENGINE': 'django.db.backends.sqlite3',
+                    'NAME': BASE_DIR / 'db.sqlite3',
+                }
+            }
+
+    - Make the migrations
+
+        `python3 manage.py makemigrations`
+
+        `python3 manage.py migrate`
+
+
+- Set up Cloudinary for static and media files storage
+
+    - Navigate to cloudinary page, signin or create an account
+
+    - Go to your cloudinary account and from the 'Dashboard' in Cloudinary copy your url into the env.py file by typing: `os.environ["CLOUDINARY_URL"] = "cloudinary://<insert-your-url>"`
+
+    - Go to Heroku and add add cloudinary url to 'config vars'
+
+    - Add DISABLE COLLECTSTATIC with a value of "1" to the Heroku configuration variables (note: this must be removed for final deployment)
+
+    - In the following order, add the Cloudinary libraries to the Django settings.py section for installed apps:
+
+            'cloudinary_storage'
+            'django.contrib.staticfiles''
+            'cloudinary'
+
+    - Add the follwing in settings.py to connect cloudinary to Django
+
+            STATIC_URL = '/static/'
+            STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+            STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+            STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+            MEDIA_URL = '/media/'
+            DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+    - Link file to the templates directory in Heroku 
+
+    - Add this under the BASE_DIR: `TEMPLATES_DIR = os.path.join(BASE_DIR,
+    'templates')`
+
+    - Change the templates directory to TEMPLATES_DIR. Add this within the TEMPLATES array: `'DIRS': [TEMPLATES_DIR]`
+
+    - To ALLOWED_HOSTS Add Heroku Hostname: `ALLOWED_HOSTS = ['shahid-my-car.herokuapp.com', 'localhost']`
+
+- Create three folders in the root directory media, static and templates
+
+- Create Procfile in the root directory
+
+- In the Procfile add: `web: gunicorn favoureats .wsgi`
+
+- In terminal add, commit, and push:
+    
+    - add to add items
+
+    - commit - to add short messages
+
+    - push - to push it to github
+
+            git add <filename>
+            git commit -m “Deployment Commit”
+            git push
+
+- Deployment to Heroku
+
+    - Go to heroku and click on your app
+
+    - Click 'Deploy' and scroll down to 'Deployment method' section
+
+    - Select 'Github' and click the 'connect to Github' button to confirm
+
+    - Enter the project's Github repository name in the search field
+
+    - In order to connect the Heroku app and the Github repository, first click search and then click connect
+    - Once connected the display will show that Heroku is linked to the repository
+
+- Final Deployment
+
+    - Upon completion of development, change the debug setting to: In settings.py: `DEBUG = False`
+
+    - In order for this project's use of the Summernote editor to function in Heroku, add the following line to settings.py: `X FRAME OPTIONS = "SAMEORIGIN"`
+
+    - In Heroku settings config vars change the DISABLE_COLLECTSTATIC value to 0
+
+    - It is advised that only manual deployment be used in Heroku since DEBUG must be set to 'True' for development and 'False' for production
+
+    - 'Choose a branch to deploy' should be 'main'
+
+    - To manually deploy click the button 'Deploy Branch'
+
+    - Your app was successfully deployed will be displayed when the app is deployed. 
+
+    - The deployed app will appear in the browser after you click "view."
+
+
+### Local Deployment
+
+- Forking the Repository
+
+    - To fork the project navigate to the mycar repository at https://github.com/shahid129/mycar
+
+    - Click on the drop down menu CODE
+
+    - Choose the https option, then copy the link
+
+    - Open the terminal
+
+    - Change the location of the current working directory to the desired destination
+
+    - At the top right of the page, select "Fork" 
+    
+    - The repository's forked version will show up in your Repositories tab.
+
+
+- Cloning Repository
+
+    - To fork the project navigate to the mycar repository at https://github.com/shahid129/mycar
+
+    - Click on the drop down menu 'Code'
+
+    - Choose the https option, then copy the link
+
+    - Open the terminal
+
+    - Change the location of the current working directory to the desired destination
+
+    - Type the git clone command with the copied URL
+
+            git clone https://github.com/shahid129/mycar.git
+    - To build the local clone, press enter
+
+    - As mentioned above in 'Set up Environment Variables' an env.py file needs to be created in order for the project to start. This won't be copied along with the other files because it isn't kept on Github.
+
+
+
+
 ## Credits
 ## Acknowledgement
