@@ -258,7 +258,7 @@ def login_request(request):
 class Verification(View):
     """
     Send verification email with a link
-    When user clicks on the link, their account will 
+    When user clicks on the link, their account will
     be activated
     """
 

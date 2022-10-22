@@ -48,7 +48,7 @@ class PostForm(forms.ModelForm):
     year = forms.DateField(
         widget=forms.DateInput(
             attrs={
-                'class': 'register_form', 
+                'class': 'register_form',
                 'placeholder': 'Model Year',
                 'type': 'date'
                 }
@@ -155,7 +155,7 @@ class NewUserForm(UserCreationForm):
                 'class': 'register_form',
                 'placeholder': 'Password'
                 }
-            ), 
+            ),
         label=''
     )
 
@@ -171,13 +171,13 @@ class NewUserForm(UserCreationForm):
     )
 
     # Add custom help text
-    # help was taken from 
+    # help was taken from
     # https://stackoverflow.com/questions/56464571/how-to-disable-django-registration-password-help-text
     def __init__(self, *args, **kwargs):
         """
         A function to remove the help text from the form
         """
-        super(NewUserForm, self).__init__(*args, **kwargs)    
+        super(NewUserForm, self).__init__(*args, **kwargs)
         self.fields['username'].help_text = ''
         self.fields['password1'].help_text = ''
 

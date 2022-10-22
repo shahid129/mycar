@@ -6,6 +6,9 @@ from .models import UserProfile
 # admin.site.register(UserProfile)
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
+    """
+    Add different fields to admin
+    """
     list_display = ('first_name', 'last_name', 'date_of_birth', 'phone')
     list_filter = ('first_name', 'last_name')
     search_fields = ('phone', 'first_name', 'last_name')
