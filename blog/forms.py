@@ -49,7 +49,6 @@ class PostForm(forms.ModelForm):
         widget=forms.DateInput(
             attrs={
                 'class': 'register_form',
-                'placeholder': 'Model Year',
                 'type': 'date'
                 }
             ),
@@ -61,7 +60,6 @@ class PostForm(forms.ModelForm):
         widget=forms.DateInput(
             attrs={
                 'class': 'register_form',
-                'placeholder': 'NCT Expiry',
                 'type': 'date'
                 }
             ),
@@ -73,7 +71,6 @@ class PostForm(forms.ModelForm):
         widget=forms.DateInput(
             attrs={
                 'class': 'register_form',
-                'placeholder': 'Tax Expiry',
                 'type': 'date'
                 }
             ),
@@ -85,7 +82,6 @@ class PostForm(forms.ModelForm):
         widget=forms.ClearableFileInput(
             attrs={
                 'class': 'form-control register_form',
-                'id': 'customFile'
                 }
             ),
         label=''
@@ -211,7 +207,6 @@ class ImagesForm(forms.ModelForm):
         widget=forms.ClearableFileInput(
             attrs={
                 'class': 'form-control register_form',
-                'id': 'customFile'
                 }
             )
         )
