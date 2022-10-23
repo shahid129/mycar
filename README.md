@@ -1,5 +1,5 @@
 # MyCar
-![Main Page](https://res.cloudinary.com/shahid129/image/upload/v1665405565/static/images/main-min_dly8td.png)
+![Main Page](https://res.cloudinary.com/shahid129/image/upload/v1666561438/static/testing%20doc/am-i-resonponsive_rvo92h.png)
 
 [View Live Project Here](https://shahid-my-car.herokuapp.com/)
 
@@ -1124,7 +1124,87 @@ Check all navigation if they are working as expected
 
 **Results: Pass**
 
+### Online Testing / Code validation
 
+Online testing for html and css was done using the online validator websites and they are -
+
+- W3C Validator - 
+
+    **RESULT: Congratulations! No Error Found**
+
+    - Home Page
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666557102/static/testing%20doc/home_casamd.png)
+    
+    - About Page
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666557101/static/testing%20doc/about_fvqxol.png)
+    
+    - Post your add Page
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666557101/static/testing%20doc/post_your_add_mfw0ue.png)
+
+    - Search Page
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666557100/static/testing%20doc/search_dqgjyp.png)
+
+    - Login Page 
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666557835/static/testing%20doc/validate-login_c8llfn.png)
+
+    - Logout Page
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666557835/static/testing%20doc/validate-logout_qmzhzd.png)
+
+
+- Jigsaw css validator
+
+    **RESULT: Congratulations! No Error Found**
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666557307/static/testing%20doc/css-validator_gabenc.png)
+
+
+- Google Lighthouse
+
+    - Home page
+    
+        I was getting different results on the home page at different times. Hence, I used Lighthouse in Incognito mode.
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666560835/static/testing%20doc/lighthouse-home_hezfgn.png)
+
+    - User Profile page
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666560833/static/testing%20doc/lighthouse-profile_earbsg.png)
+
+    - About page
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666560833/static/testing%20doc/lighthouse-about_tl650z.png)
+
+    - Login page
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666560833/static/testing%20doc/lighthouse-login_zla2bu.png)
+
+    - Register page
+
+        ![](https://res.cloudinary.com/shahid129/image/upload/v1666560832/static/testing%20doc/lighthouse-register_oius3i.png)
+
+### Responsiveness
+
+No problems were discovered while developing the website on a 14" laptop
+
+Throughout the process, responsiveness on all device sizes was checked using Chrome Developer tools, and corrections were made.
+
+Later, additional testing were carried out on several mobile devices using chrome developer:
+
+Media Queries were added whenever it was needed for small devices.
+
+- Iphone SE
+
+- Iphone 12 Pro
+
+- Samsung Galaxy S8
+
+- Ipad Mini
+
+- Surface Pro 7
 
 
 ## Technology
@@ -1417,8 +1497,31 @@ Type the codes in the terminal in the following series of process
 
     - As mentioned above in 'Set up Environment Variables' an env.py file needs to be created in order for the project to start. This won't be copied along with the other files because it isn't kept on Github.
 
-
-
-
 ## Credits
+
+The main idea and the conten of the page was my idea. My mentor Ronan was very helpful throughout the project. 
+
+- The images for this project was taken from [Unsplash](https://unsplash.com/)
+
+- The Favicon for this project was made from [Favicon](https://favicon.io/favicon-generator/)
+
+- The Icon for this project was taken from [Font Awesome](https://fontawesome.com/)
+
+- The Font for this project was taken from [Google Fonts](https://fonts.google.com/)
+
+- Image was compressed by [compressor](https://compressor.io/)
+
+- To better understand the code and a lot of help was taken from
+
+    - [Django documents](https://docs.djangoproject.com/en/4.1/)
+    - [Stack Overflow](https://stackoverflow.com/)
+    - [GeeksforGeeks](https://www.geeksforgeeks.org/)
+    - [Medium](https://medium.com/all-about-django)
+
 ## Acknowledgement
+
+I want to express my gratitude to my tutor, Kasia, and my mentor, Ronan, for their continual support and advice. The Jan-2022-lwetb slack group and all of the other slackers in the code institute
+
+### Thank You
+
+I appreciate my fellow slackers taking the time to review my project, and I want to especially thank my mentor Ronan for all of his crucial advice and assistance throughout the course of this project's development. I want to express my gratitude to my wife in particular for providing me infinite time to finish the projects and the course.
