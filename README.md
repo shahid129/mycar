@@ -22,12 +22,50 @@ MyCar is a website for selling and buying cars. Anyone can view cars listed on t
 ### Agile
 The plan for this project was carried out using the Agile Methodology in Github. User Stories were created using the issues on the git hub. Each user story explicitly explains the purpose of the issues. Each user story is segmented into acceptance criteria and tasks. It was prioritised using GitHub labels with different colors. The labels are should have, could have and must have. Once the issues are created they are moved to the User Stories kanban board. The Kanban board has three main columns, To Do, In Progress and Done. Once you start working with the user story, you move it to the To Do column and when finished move it to the Done column. Following this pattern of work gives you a full-on idea about the progress of the project.
 
-### User Stories
+### Epic
 
-There are 18 user stories.
+The epics were created using the milistones on github. Each epic was created and related issues were added to it. A time frame was added to make sure the tasks were done on time. Some of the user stories were left individual. There are four epics - 
+
+- EPIC: CRUD Functionalities
+
+    - USER STORY: Post Ad [[#16](https://github.com/shahid129/mycar/issues/16)]
+    - USER STORY: Edit my ad[[#17](https://github.com/shahid129/mycar/issues/17)]
+    - USER STORY: Delete post [[#18](https://github.com/shahid129/mycar/issues/18)]
+    - USER STORY: Add Multiple Image [[#12](https://github.com/shahid129/mycar/issues/12)]
+    - USER STORY: Date Time Picker [[#11](https://github.com/shahid129/mycar/issues/11)]
+
+- EPIC: Register & Login and Logout
+
+    - USER STORY: Email validation on sign up [[#23](https://github.com/shahid129/mycar/issues/23)]
+    - USER STORY: Register Account [[#4](https://github.com/shahid129/mycar/issues/4)]
+    - USER STORY: Login and Logout [[#2](https://github.com/shahid129/mycar/issues/2)]
+
+- EPIC: User profile 
+
+    - USER STORY: User Profile [[#13](https://github.com/shahid129/mycar/issues/13)]
+    - USER STORY: Edit User Profile [[#14](https://github.com/shahid129/mycar/issues/14)]
+
+- Epic: Enable user interaction by providing site pagination, comments, and likes
+
+    - USER STORY: Like a post [[#7](https://github.com/shahid129/mycar/issues/7)]
+    - USER STORY: Comments [[#3](https://github.com/shahid129/mycar/issues/3)]
+    - USER STORY: Site Pagination  [[#1](https://github.com/shahid129/mycar/issues/1)]
+
+### Product Backlog 
+
+- My Car Product Backlog
+
+    - USER STORY: Reset Password  [[#22](https://github.com/shahid129/mycar/issues/22)]
+    - USER STORY: Log in using Google  [[#9](https://github.com/shahid129/mycar/issues/9)]
+    - USER STORY Login with Facebook  [[#8](https://github.com/shahid129/mycar/issues/8)]
+
+
+### User Stories
+**USER STORIES ARE EXPLAINED IN DETAILS IN [Testing](#testing) Section**
+
 - Site Pagination
     - As a Site User I can View a paginated list of posts so that I can easily select a post to vew (must have / complete) [[#1](https://github.com/shahid129/mycar/issues/1)]
-
+    
 - Login and Logout 
 
     - As a User I can I can login and logout so that I can access my content (must have / complete) [[#2](https://github.com/shahid129/mycar/issues/2)]
@@ -41,8 +79,8 @@ There are 18 user stories.
 
 -  Approve comments
     - As an Admin I can access the user comments so that I can remove the inappropriate contents from the page (must have / complete) [[#5](https://github.com/shahid129/mycar/issues/5)]
-- CRUD Functionalities
-    - As a User I can Create, read, update and delete items so that I have control on my post and contents (must have / complete) [[#6](https://github.com/shahid129/mycar/issues/6)]
+<!-- - CRUD Functionalities
+    - As a User I can Create, read, update and delete items so that I have control on my post and contents (must have / complete) [[#6](https://github.com/shahid129/mycar/issues/6)] -->
 - Like a post
     - As a User I can Like a post and see the number of likes so that I know which posts are popular (must have / complete) [[#7](https://github.com/shahid129/mycar/issues/7)]
 
@@ -414,6 +452,8 @@ Manual testing was conducted for this project and they are as follows:
 
 ![](https://res.cloudinary.com/shahid129/image/upload/v1666179970/static/testing%20doc/pagination_whggru.png)
 
+**Results: Pass**
+
 
 **User Story 2**
 - As a User I can I can login and logout so that I can access my content (must have/ completete) 
@@ -446,6 +486,8 @@ Manual testing was conducted for this project and they are as follows:
 
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666180851/static/testing%20doc/login_unsuccess_ppp5ne.png)
 
+**Results: Pass**
+
 **Logout**
 
 **Testing steps**
@@ -465,6 +507,7 @@ Manual testing was conducted for this project and they are as follows:
 
 ![](https://res.cloudinary.com/shahid129/image/upload/v1666183460/static/testing%20doc/logout_sb3gqe.png)
 
+**Results: Pass**
 
 **User Story 3**
 
@@ -493,6 +536,7 @@ once the comment is approved by admin
 
 ![](https://res.cloudinary.com/shahid129/image/upload/v1666183907/static/testing%20doc/after-comment_bijz7z.png)
 
+**Results: Pass**
 
 **User Story 4**
 - As an Admin I can access the user comments so that I can remove the inappropriate contents from the page. (must have/ completete)
@@ -511,6 +555,8 @@ once the comment is approved by admin
 4. Click on 'Go' for the relevant action.
 
 ![](https://res.cloudinary.com/shahid129/image/upload/v1666184370/static/testing%20doc/admin-comments_ah3dzg.png)
+
+**Results: Pass**
 
 
 **User Story 5**
@@ -548,18 +594,19 @@ once the comment is approved by admin
     - Successfull registration 
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666185803/static/testing%20doc/registration-successful_sclpgu.png)
 
+**Results: Pass**
 
-**User Story 6**
-- As a User I can Create, read, update and delete items so that I have control on my post and contents
-(Would have created 3 user stories for create, update and delete) (must have/ completete)
-[[[#6](https://github.com/shahid129/mycar/issues/6)]
 
-**Create** 
+**User Story 16**
+- As a user I can can post my add so that I can sell my cars and add details of my car (must have/ completed)
+[[[#16](https://github.com/shahid129/mycar/issues/16)]
+
 
 **Testing Steps**
 1. Login to the page by putting your log in details
 2. Navigate to "Post Your Ad" page
 3. All details are mandatory on this page
+4. Click Submit on completion of the form
 
 **Expected Results**
 1. The user will be taken back to the highlighted area if any fields are left blank or are filled out incorrectly.
@@ -577,8 +624,12 @@ once the comment is approved by admin
 
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666186564/static/testing%20doc/post-successful_c1zh7t.png)
 
+**Results: Pass**
 
-**Update**
+
+**User Story 17**
+- As a user I can edit my add so that I can change any information when needed (must have/ completed)
+[[[#17](https://github.com/shahid129/mycar/issues/17)]
 
 **Testing Steps**
 1. Login to the page by putting your log in details
@@ -603,7 +654,11 @@ once the comment is approved by admin
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666186947/static/testing%20doc/update-add-success_nz0w6o.png)
 
 
-- Delete 
+**User Story 18**
+- As a user I can delete my ad so that it's no longer visible on the page (must have/ completed)
+[[[#18](https://github.com/shahid129/mycar/issues/18)]
+
+**Results: Pass**
 
 **Testing Steps**
 1. Login to the page by putting your log in details
@@ -633,6 +688,8 @@ once the comment is approved by admin
 
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666187389/static/testing%20doc/delete-message_qiiubm.png)
 
+**Results: Pass**
+
 
 **User Story 7**
 - As a User I can Like a post and see the number of likes so that I know which posts are popular. (must have/ completed) [[#7](https://github.com/shahid129/mycar/issues/7)]
@@ -658,6 +715,8 @@ once the comment is approved by admin
 
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666207753/static/testing%20doc/liked_d2exl2.png)
 
+**Results: Pass**
+
 
 **User Story 8**
 - As a User I can Login using Facebook so that I can easily create an account
@@ -670,6 +729,8 @@ once the comment is approved by admin
 
  - Facebook login has not been integrated due to project requirements and a lack of time. But this might be a feature in the future.
 
+ **Results: Incomplete**
+
 
  **User Story 9**
 - As a User I can Login using Google so that I can easily create an account
@@ -680,7 +741,9 @@ once the comment is approved by admin
  3. Redirected to google authorisation for third party app/service
  4. Once confirmed, your account is created and you can login.
 
- - Google login has not been integrated due to project requirements and a lack of time. But this might be a feature in the future.
+- Google login has not been integrated due to project requirements and a lack of time. But this might be a feature in the future.
+
+**Results: Incomplete**
 
 
 **User Story 10**
@@ -714,6 +777,9 @@ once the comment is approved by admin
 - As a User I can easily select/pick a date so that I don't have to write the date manually
  (must have/ completed) [[#11](https://github.com/shahid129/mycar/issues/11)]
 
+**Results: Pass**
+
+
  **Testing Steps**
  1. Whenever the page asks you to input a date, the page will give you a clickable option to pick a date
  2. Navigate to post your ad
@@ -735,6 +801,8 @@ once the comment is approved by admin
 - Date Picker
 
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666209493/static/testing%20doc/date-picker-2_dxomaf.png)
+
+**Results: Pass**
 
 
 **User Story 12**
@@ -759,7 +827,7 @@ once the comment is approved by admin
 
 ![](https://res.cloudinary.com/shahid129/image/upload/v1666210032/static/testing%20doc/multi-images_t8dkpk.png)
 
-
+**Results: Pass**
 
 **User Story 13**
 - As a user I should have a profile so that I can store my details
@@ -781,6 +849,8 @@ once the comment is approved by admin
 - User prorile
 
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666210924/static/testing%20doc/user-profile_gi2ycj.png)
+
+**Results: Pass**
 
 
 **User Story 14**
@@ -808,11 +878,13 @@ once the comment is approved by admin
 
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666211456/static/testing%20doc/Profile_updated_successfully._e3gggy.png)
 
+**Results: Pass**
+
 **User Story 15**
 - As a user I can view the about page so that I know more about the page and find the company's contact details (must have/ completed) [[#15](https://github.com/shahid129/mycar/issues/15)]
 
 **Testing Steps**
-1. Navigat to the 'About' page from the nav bar
+1. Navigate to the 'About' page from the nav bar
 
 **Expected Results**
 1. About page shows up with all the detail abou the company
@@ -827,6 +899,43 @@ once the comment is approved by admin
 - Hover effect on a section
 
     ![](https://res.cloudinary.com/shahid129/image/upload/v1666215467/static/testing%20doc/about-hover_khnaec.png)
+
+**Results: Pass**
+
+
+**User Story 22**
+- As a User I can reset my password so that I not logged out of my account permanently
+(coul have/ Incompleted) [[#22](https://github.com/shahid129/mycar/issues/22)]
+
+    - Incomlete as this was not a mandotory section for this project and the time frame was limited 
+
+**Results: Incomplete**
+
+**User Story 23**
+- As a User I can receive an email so that I can validate my account sign up (should have/ completed) [[#15](https://github.com/shahid129/mycar/issues/23)]
+
+**Testing Steps**
+1. Navigate to the 'Register' page
+2. Fill up the required details
+3. Click 'Register' button and check your email for a verification email
+
+**Expected Results**
+1. An email has been sent your email with a verification link
+2. Once you click on the link, you are brought back to the login page 
+3. Enter your details and log in
+
+**Actual Results**
+1. An email has been sent your email with a verification link
+2. Once you click on the link, you are brought back to the login page 
+3. Enter your details and log in
+
+- Email confirmation
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666555108/static/testing%20doc/email-verification_vzfgyy.png)
+
+- Click email link 
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666555109/static/testing%20doc/email-verification-2_czlsvq.png)
+
+**Results: Pass**
 
 
 ## Testing Features
