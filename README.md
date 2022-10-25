@@ -1126,6 +1126,27 @@ Check all navigation if they are working as expected
 
 ### Online Testing / Code validation
 
+### Python Code check
+
+PEP8 Online is usually what I use to check Python code and errors. PEP8 online was down for some reason. Hence, I had to use a workaround to check the code. An extension called `pycodestyle` was installed to check Python code. It will highlight and underline any errors and ask you to fix it.
+
+To setup `pycodestyle`
+
+- Run the command `pip3 install pycodestyle`
+- Press Cmd+Shift+P on Mac or Ctrl+Shift+P on Windows
+- Type `linter` in the search bar
+- Select `pycodestyle` from the list
+
+Each and every files were checked individually to make sure there were no errors. I just added only one imgae for illustration purpose
+
+**Result: No problems have been detected in the workspace**
+
+![](https://res.cloudinary.com/shahid129/image/upload/v1666726103/static/testing%20doc/pycodestyle-no-errors_ctceep.png)
+
+The errors that were shown are from the default setup files from Django in settings.py. The lines were too long. I tried changing them, but it would break the code and would not work properly
+
+![](https://res.cloudinary.com/shahid129/image/upload/v1666725252/static/testing%20doc/pycodestyle_wyqhac.png)
+
 Online testing for html and css was done using the online validator websites and they are -
 
 - W3C Validator - 
@@ -1165,7 +1186,6 @@ Online testing for html and css was done using the online validator websites and
 - Google Lighthouse
 
     - Home page
-    
         I was getting different results on the home page at different times. Hence, I used Lighthouse in Incognito mode.
 
         ![](https://res.cloudinary.com/shahid129/image/upload/v1666560835/static/testing%20doc/lighthouse-home_hezfgn.png)
@@ -1190,11 +1210,9 @@ Online testing for html and css was done using the online validator websites and
 
 No problems were discovered while developing the website on a 14" laptop
 
-Throughout the process, responsiveness on all device sizes was checked using Chrome Developer tools, and corrections were made.
+Throughout the process, responsiveness on all device sizes was checked using Chrome Developer tools, and corrections were made. Media Queries were added whenever it was needed for small devices.
 
 Later, additional testing were carried out on several mobile devices using chrome developer:
-
-Media Queries were added whenever it was needed for small devices.
 
 - Iphone SE
 
@@ -1278,6 +1296,20 @@ Media Queries were added whenever it was needed for small devices.
 - [PEP8](https://peps.python.org/pep-0008/) - to validate python code
 
 ## Deployment
+
+### Security
+
+Protecting user data and information is an essential part of any website design. Django already comes with enough security to protect user from malicious threats. Thus I wanted to add Content Security Policy to my website. I had successfully added CSP to my project. and then when I pushed it to Heroku, Heroku started giving me a couple of errors. whereas I had no errors on the development server. After chatting with student support, they suggested not using it, and he stated, "Well, Heroku has different security policies. That might be interfering. " Hence, in the end, I had to remove the Content Security policy.
+
+- Content Security
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666724278/static/testing%20doc/csp-1_uvwrg7.png)
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666724276/static/testing%20doc/csp-2_azfmnt.png)
+
+- Errors that I received after deployment. The image on the left is deployment server(No Errors). The image on the right is Heroku Server( Errors ).
+
+    ![](https://res.cloudinary.com/shahid129/image/upload/v1666724281/static/testing%20doc/csp_error_qbwha0.png)
 
 ### Create app in django
 Type the codes in the terminal in the following series of process
@@ -1520,7 +1552,7 @@ The main idea and the conten of the page was my idea. My mentor Ronan was very h
 
 ## Acknowledgement
 
-I want to express my gratitude to my tutor, Kasia, and my mentor, Ronan, for their continual support and advice. The Jan-2022-lwetb slack group and all of the other slackers in the code institute
+I want to express my gratitude to my tutor Kasia, and my mentor Ronan, for their continual support and advice. The Jan-2022-lwetb slack group and all of the other slackers in the code institute
 
 ### Thank You
 
