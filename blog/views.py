@@ -262,6 +262,8 @@ class Verification(View):
     be activated
     """
 
+    # To Send Account activation Email, help was taken from youtube video
+    #  https://www.youtube.com/watch?v=e3UhXKVECPI&t=334s
     def get(self, request, uidb64, token):
         """
         Verify if the sent link to user is correct

@@ -18,7 +18,6 @@ class PostAdAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     list_filter = ('price', 'created_on', 'year')
     list_display = ('title', 'author', 'created_on', 'tax', 'nct')
-    search_fields = ('title', 'content', 'year')
     summernote_fields = ('description')
     inlines = [ImagesAdmin]
 

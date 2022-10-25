@@ -1543,6 +1543,8 @@ The main idea and the conten of the page was my idea. My mentor Ronan was very h
 
 - Image was compressed by [compressor](https://compressor.io/)
 
+- Google was used to search for ideas about how to use code, but any major help taken is stated in the block of code
+
 - To better understand the code and a lot of help was taken from
 
     - [Django documents](https://docs.djangoproject.com/en/4.1/)
