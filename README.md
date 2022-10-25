@@ -1271,6 +1271,9 @@ Later, additional testing were carried out on several mobile devices using chrom
 
     - [pillow](https://pypi.org/project/Pillow/)
         was used as python imaging library
+
+    - [black](https://pypi.org/project/black/)
+        was used as a python formatter
 ### Database 
 - Heroku Postgres was used for the production database
 
